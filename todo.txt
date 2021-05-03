@@ -3,5 +3,19 @@ frontend
         -will need to create/add our own favicon for later
     src/App.js
         -navBar
-
+    src/pages/mainPage/...
+        Main.js:
+            -About component
+                -About Rocket Appliance
+            -Content Box
+                -Left box:
+                    -Gallery(topleft)
+                    -Game description(bottomleft)
+                -Right box:
+                    -Search description
+                    -Search input    
+                    -Suggestion description 
+                    -Suggestion box
+                        -suggestion game logo
+                        -suggestion game description
 backend
