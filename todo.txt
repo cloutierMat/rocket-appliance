@@ -1,0 +1,5 @@
+frontend
+    public/index.html
+        -will need to create/add our own favicon for later
+
+backend
