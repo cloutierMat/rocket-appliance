@@ -1,5 +1,12 @@
-import React from 'react'
+import React from 'react';
+import About from './components/About';
+import ContentBox from './components/contentBox/ContentBox';
 
 export default function MainPage() {
-    return <div>Main Page</div>
+	return (
+		<div>
+			<About />
+			<ContentBox />
+		</div>
+	);
 }
