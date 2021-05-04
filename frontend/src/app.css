@@ -8,7 +8,8 @@ body {
    margin: 0.5em;
    /* border might need to be removed later */
    border: 3px solid black;
-   min-width: fit-content;
+   /* max-width: fit-content; */
+   min-width: fit-content; 
 }
 
 /* CSS Grid not done */
@@ -31,3 +32,39 @@ body {
    min-width: fit-content;
    font-size: 150px;
 } */
+
+
+
+/* flexbox attempt for navbar wrapping */
+/*    -borders are all temporary and only for visualizing 
+      -margins are also temporary, likely need to be changed during the actual styling phase
+      -sizes are ALSO temporary and may need to be adjusted in final styling phase*/
+
+nav {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-right: 10px;
+   margin-left: 10px;
+   border: 5px solid orange;
+}
+
+.navTitle {
+   height: 100px;
+   width: 500px;
+   border: 5px solid red;
+}
+
+.buttonContainer {
+   border: 5px solid yellow;
+}
+
+   .navButton {
+      height: 100px;
+      width: 150px;
+      margin-left: 10px;
+      margin-right: 10px;
+   }
+
+
