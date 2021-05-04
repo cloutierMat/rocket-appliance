@@ -1,0 +1,16 @@
+body{
+	height: 100%;
+	width:100%;
+	background-color: #777;
+	margin:0;
+}
+.App{
+	margin: .5em;
+	/* border might need to be removed later */
+	border:3px solid black ; 
+	
+}
+nav{
+	background-color: #887;
+}
+
