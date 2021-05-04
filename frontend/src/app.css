@@ -1,16 +1,33 @@
-body{
-	height: 100%;
-	width:100%;
-	background-color: #777;
-	margin:0;
+body {
+   height: 100%;
+   width: 100%;
+   background-color: #777;
+   margin: 0;
 }
-.App{
-	margin: .5em;
-	/* border might need to be removed later */
-	border:3px solid black ; 
-	
-}
-nav{
-	background-color: #887;
+.App {
+   margin: 0.5em;
+   /* border might need to be removed later */
+   border: 3px solid black;
+   min-width: fit-content;
 }
 
+/* CSS Grid not done */
+
+/* nav {
+   background-color: #887;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   column-gap: 5px;
+   min-width: fit-content;
+}
+
+.navButton {
+   height: 100px;
+   width: 150px;
+}
+
+.navTitle {
+   grid-column: auto / span 3;
+   min-width: fit-content;
+   font-size: 150px;
+} */

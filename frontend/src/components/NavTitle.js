@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function NavTitle() {
-    return (
-        <div>NavTitle</div>
-    )
+   return <div className="navTitle">NavTitle</div>;
 }

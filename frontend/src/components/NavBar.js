@@ -1,15 +1,16 @@
-import React from "react";
-import NavButton from './NavButton'
-import NavTitle from './NavTitle'
+import React from 'react';
+import NavButton from './NavButton';
+import NavTitle from './NavTitle';
 
 export default function NavBar() {
-	return (
-	<nav>
-		<NavTitle />
-		{ ["Learn", "Contribute"].map((element) => {
-			return <NavButton name={element} />
-		})}
-	</nav>
-
-	)
+   return (
+      <nav>
+         <NavTitle />
+         <div className="buttonContainer">
+            {['Learn', 'Contribute'].map(element => {
+               return <NavButton name={element} />;
+            })}
+         </div>
+      </nav>
+   );
 }
