@@ -7,8 +7,9 @@ body {
 .App {
    margin: 0.5em;
    /* border might need to be removed later */
-   border: 3px solid black;
+   /* border: 3px solid black; */
    /* max-width: fit-content; */
+   background-color: #fa3;
    min-width: fit-content; 
 }
 
@@ -43,28 +44,36 @@ body {
 nav {
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: space-around;
    margin-top: 10px;
    margin-right: 10px;
    margin-left: 10px;
-   border: 5px solid orange;
+   background-color: #044;
+   /* border: 5px solid orange; */
 }
 
-.navTitle {
+.nav-title {
    height: 100px;
    width: 500px;
-   border: 5px solid red;
+   background-color: #527;
+   /* border: 5px solid red; */
 }
 
-.buttonContainer {
-   border: 5px solid yellow;
+.button-container {
+   /* border: 5px solid yellow; */
+   background-color: #32d;
+
 }
 
-   .navButton {
+   .nav-button {
       height: 100px;
       width: 150px;
       margin-left: 10px;
       margin-right: 10px;
    }
 
-
+.text-default {
+   height: auto;
+   background-color: #ac4;
+   margin: 10px;
+}

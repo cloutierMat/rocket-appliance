@@ -6,7 +6,7 @@ export default function NavBar() {
    return (
       <nav>
          <NavTitle />
-         <div className="buttonContainer">
+         <div className="button-container">
             {['Learn', 'Contribute'].map(element => {
                return <NavButton name={element} />;
             })}
