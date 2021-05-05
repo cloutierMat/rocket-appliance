@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Gallery from './Gallery';
 import GameDescription from './GameDescription';
 
 export default function LeftBox() {
+   const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
+
+   function handleHover() {
+      setHoverOnCard(true);
+      console.log('Hi WILL');
+   }
+
    return (
       <div className="left-box">
-         <Gallery />
-         <GameDescription />
+         <Gallery onMouseEnter={handleHover} />
+         {hoverOnCard ? <GameDescription /> : <></>}
       </div>
    );
 }
