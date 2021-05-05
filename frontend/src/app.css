@@ -1,17 +1,18 @@
 body {
-   height: 100%;
-   width: 100%;
-   background-color: #777;
-   margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #777;
+	margin: 0;
 }
+
 .App {
-   /* margin: 0.5em; */
-   padding: 0px 10px;
-   /* border might need to be removed later */
-   /* border: 3px solid black; */
-   /* max-width: fit-content; */
-   background-color: #fa3;
-   min-width: fit-content;
+	/* margin: 0.5em; */
+	padding: 0px 10px;
+	/* border might need to be removed later */
+	/* border: 3px solid black; */
+	/* max-width: fit-content; */
+	background-color: #fa3;
+	min-width: fit-content;
 }
 
 /* CSS Grid not done */
@@ -36,62 +37,84 @@ body {
 } */
 
 /* flexbox attempt for navbar wrapping */
+
 /*    -borders are all temporary and only for visualizing 
       -margins are also temporary, likely need to be changed during the actual styling phase
       -sizes are ALSO temporary and may need to be adjusted in final styling phase*/
 
 nav {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-around;
-   /* margin-top: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	/* margin-top: 10px;
    margin-right: 10px;
    margin-left: 10px; */
-   background-color: #044;
-   /* border: 5px solid orange; */
+	background-color: #044;
+	/* border: 5px solid orange; */
 }
 
 .nav-title {
-   height: 100px;
-   width: 500px;
-   background-color: #527;
-   /* border: 5px solid red; */
+	height: 100px;
+	width: 500px;
+	background-color: #527;
+	/* border: 5px solid red; */
 }
 
 .button-container {
-   /* border: 5px solid yellow; */
-   background-color: #32d;
+	/* border: 5px solid yellow; */
+	background-color: #32d;
 }
 
 .nav-button {
-   height: 100px;
-   width: 150px;
-   margin-left: 10px;
-   margin-right: 10px;
+	height: 100px;
+	width: 150px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 /* about text on the main page */
+
 .text-default {
-   height: auto;
-   background-color: #ac4;
-   margin: 10px 0px;
+	height: auto;
+	background-color: #ac4;
+	margin: 10px 0px;
 }
 
 .content-box {
-   background-color: #f378;
-   display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-   padding: 5px;
+	background-color: #f378;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 5px;
 }
 
 .left-box {
-   background-color: #df3;
+	width: 500px;
+	background-color: #df3;
 }
 
 .right-box {
-   background-color: #df3;
+	background-color: #989;
 }
 
 .gallery {
+	min-width: 500px;
+	height: 150px;
+	/* display: inline-flex; */
+	overflow-x: scroll;
+	overflow-y: scroll;
+	/*overflow-y: auto;
+	overflow-x: hidden;
+	transform: rotate(-90deg);
+	transform-origin: right top;
+	transform: rotate(-90deg) translateY(-150px); */
+}
+
+.game-card {
+	display: inline-block;
+	height: 150px;
+	width: 100px;
+	background-color: #b8b;
+	/*transform: rotate(90deg);
+	transform-origin: right top; */
 }
