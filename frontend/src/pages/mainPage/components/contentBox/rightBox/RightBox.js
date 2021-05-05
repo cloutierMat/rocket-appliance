@@ -5,12 +5,12 @@ import SuggestionDescription from './SuggestionDescription';
 import SuggestionBox from './SuggestionBox';
 
 export default function RightBox() {
-	return (
-		<div>
-			<SearchDescription />
-			<SearchInput />
-			<SuggestionDescription />
-			<SuggestionBox />
-		</div>
-	);
+   return (
+      <div className="right-box">
+         <SearchDescription />
+         <SearchInput />
+         <SuggestionDescription />
+         <SuggestionBox />
+      </div>
+   );
 }

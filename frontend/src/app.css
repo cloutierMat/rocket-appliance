@@ -5,12 +5,13 @@ body {
    margin: 0;
 }
 .App {
-   margin: 0.5em;
+   /* margin: 0.5em; */
+   padding: 0px 10px;
    /* border might need to be removed later */
    /* border: 3px solid black; */
    /* max-width: fit-content; */
    background-color: #fa3;
-   min-width: fit-content; 
+   min-width: fit-content;
 }
 
 /* CSS Grid not done */
@@ -34,8 +35,6 @@ body {
    font-size: 150px;
 } */
 
-
-
 /* flexbox attempt for navbar wrapping */
 /*    -borders are all temporary and only for visualizing 
       -margins are also temporary, likely need to be changed during the actual styling phase
@@ -45,9 +44,9 @@ nav {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
-   margin-top: 10px;
+   /* margin-top: 10px;
    margin-right: 10px;
-   margin-left: 10px;
+   margin-left: 10px; */
    background-color: #044;
    /* border: 5px solid orange; */
 }
@@ -62,18 +61,37 @@ nav {
 .button-container {
    /* border: 5px solid yellow; */
    background-color: #32d;
-
 }
 
-   .nav-button {
-      height: 100px;
-      width: 150px;
-      margin-left: 10px;
-      margin-right: 10px;
-   }
+.nav-button {
+   height: 100px;
+   width: 150px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
 
+/* about text on the main page */
 .text-default {
    height: auto;
    background-color: #ac4;
-   margin: 10px;
+   margin: 10px 0px;
+}
+
+.content-box {
+   background-color: #f378;
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   padding: 5px;
+}
+
+.left-box {
+   background-color: #df3;
+}
+
+.right-box {
+   background-color: #df3;
+}
+
+.gallery {
 }
