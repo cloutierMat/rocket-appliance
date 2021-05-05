@@ -1,3 +1,13 @@
+::-webkit-scrollbar {
+   width: 0px;
+   height: 0px;
+}
+
+::-webkit-scrollbar-button {
+   width: 0px;
+   height: 0px;
+}
+
 body {
 	height: 100%;
 	width: 100%;
@@ -47,7 +57,7 @@ nav {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	/* margin-top: 10px;
-   margin-right: 10px;
+   margin-right: 10px;j
    margin-left: 10px; */
 	background-color: #044;
 	/* border: 5px solid orange; */
@@ -98,23 +108,24 @@ nav {
 }
 
 .gallery {
-	min-width: 500px;
-	height: 150px;
-	/* display: inline-flex; */
-	overflow-x: scroll;
-	overflow-y: scroll;
-	/*overflow-y: auto;
+	width: 150px;
+	height: 500px;
+   display: block;
+	/* display: flex;
+   flex-direction: column; */
+	overflow-y: auto;
 	overflow-x: hidden;
-	transform: rotate(-90deg);
-	transform-origin: right top;
-	transform: rotate(-90deg) translateY(-150px); */
+   transform: rotate(-90deg) translateY(-150px);
+   transform-origin: top right;
+   background-color: red;
 }
 
 .game-card {
-	display: inline-block;
-	height: 150px;
+	display: block;
+   height: 150px;
 	width: 100px;
 	background-color: #b8b;
-	/*transform: rotate(90deg);
-	transform-origin: right top; */
+   transform: rotate(90deg) translateY(-50px) translateX(100px);
+   transform-origin: top right;
+   /* flex-shrink: 0; */
 }
