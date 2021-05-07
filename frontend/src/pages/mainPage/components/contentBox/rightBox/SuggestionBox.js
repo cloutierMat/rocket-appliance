@@ -3,7 +3,7 @@ import SuggestionGameLogo from "./SuggestionGameLogo";
 import SuggestionGameDescription from "./SuggestionGameDescription";
 export default function SuggestionsBox() {
 	return (
-		<div>
+		<div className="text-default">
 			<SuggestionGameLogo />
 			<SuggestionGameDescription />
 		</div>);
