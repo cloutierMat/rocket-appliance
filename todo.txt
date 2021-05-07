@@ -20,3 +20,11 @@ frontend
                         -suggestion game description
 												
 backend
+		server.js
+
+		routes/
+				game // receives from client returns response from model/games
+
+		model/
+				db.js 
+				games.js // speaks with db and returns for routes/game

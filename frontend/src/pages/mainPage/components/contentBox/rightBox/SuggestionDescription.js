@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function SuggestionDescription() {
-	return <div>SuggestionDescription</div>;
+	return <div className="text-default">SuggestionDescription</div>;
 }

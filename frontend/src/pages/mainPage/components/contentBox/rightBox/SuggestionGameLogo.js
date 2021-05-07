@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function SuggestionGameLogo() {
-	return <div>SuggestionGameLogo</div>;
+	return <div className="game-card card-shrink">SuggestionGameLogo</div>;
 }
