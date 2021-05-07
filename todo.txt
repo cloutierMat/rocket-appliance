@@ -20,8 +20,6 @@ frontend
                         -suggestion game description
 												
 backend
-		server.js
-
 		routes/
 				game // receives from client returns response from model/games
 
