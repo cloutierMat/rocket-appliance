@@ -1,7 +1,22 @@
-const MongoClient = require('mongodb').MongoClient;
-const uri =
+const mongoose = require('mongoose');
+const mongoUrl = process.env.URL
+mongoose.connect(mongoUrl, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
+});
+const db = mongoose.connection;
+
+db.on("error", function(error) {
+   console.error("mongoose connection error", error)
+});
+
+db.once("open", function() {
+   console.log("mongoose connection successful", mongoUrl)
+});
+
+const url =
    'mongodb+srv://rocketAppliance:helloWill@cluster0.0bulm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const client = new MongoClient(uri, {
+const client = new MongoClient(url, {
    useNewUrlParser: true,
    useUnifiedTopology: true,
 });
