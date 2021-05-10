@@ -26,7 +26,9 @@ users
 ---- Games ----
 -- Trivia --
 - type "trivia"
-- subject "rocket science"
+- category "rocket science"
+- description
+- body
 - questions
 - answers
 - link to learn

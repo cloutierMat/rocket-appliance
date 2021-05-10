@@ -14,15 +14,15 @@ db.once("open", function() {
    console.log("mongoose connection successful", mongoUrl)
 });
 
-const url =
-   'mongodb+srv://rocketAppliance:helloWill@cluster0.0bulm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const client = new MongoClient(url, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
-});
-client.connect(err => {
-   const collection = client.db('test').collection('devices');
-   // perform actions on the collection object
-   collection.insertOne({ name: 'Ali' });
-   //    client.close();
-});
+// const url =
+//    'mongodb+srv://rocketAppliance:helloWill@cluster0.0bulm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// const client = new MongoClient(url, {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true,
+// });
+// client.connect(err => {
+//    const collection = client.db('test').collection('devices');
+//    // perform actions on the collection object
+//    collection.insertOne({ name: 'Ali' });
+//    //    client.close();
+// });
