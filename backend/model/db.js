@@ -1,28 +1,21 @@
 const mongoose = require('mongoose');
-const mongoUrl = process.env.URL
+const host = process.env.DB_HOST;
+const user = process.env.DB_USER;
+const password = process.env.DB_PASS;
+const database = process.env.DB_NAME;
+const server = process.env.DB_SERVER;
+const mongoUrl = `${host}://${user}:${password}@${server}/${database}?retryWrites=true&w=majority`;
+
 mongoose.connect(mongoUrl, {
    useNewUrlParser: true,
    useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 
-db.on("error", function(error) {
-   console.error("mongoose connection error", error)
+db.on('error', function (error) {
+   console.error('mongoose connection error', error);
 });
 
-db.once("open", function() {
-   console.log("mongoose connection successful", mongoUrl)
+db.once('open', function () {
+   console.log('mongoose connection successful to database', database);
 });
-
-// const url =
-//    'mongodb+srv://rocketAppliance:helloWill@cluster0.0bulm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-// const client = new MongoClient(url, {
-//    useNewUrlParser: true,
-//    useUnifiedTopology: true,
-// });
-// client.connect(err => {
-//    const collection = client.db('test').collection('devices');
-//    // perform actions on the collection object
-//    collection.insertOne({ name: 'Ali' });
-//    //    client.close();
-// });
