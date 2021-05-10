@@ -1,3 +1,37 @@
+functionality
+- login
+- progressboard
+- game creation
+- game playing
+
+users
+-- learner --
+- play a game
+- select a game
+
+--- Release ---
+
+- get results
+- searching
+- option to login
+- save your progress
+- access progressboard
+
+-- contributors --
+- login
+- sign up
+- create a new topic
+- create a new game
+
+---- Games ----
+-- Trivia --
+- type "trivia"
+- subject "rocket science"
+- questions
+- answers
+- link to learn
+
+
 frontend
     public/index.html
         -will need to create/add our own favicon for later
@@ -26,3 +60,4 @@ backend
 		model/
 				db.js 
 				games.js // speaks with db and returns for routes/game
+
