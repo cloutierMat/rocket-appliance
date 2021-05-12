@@ -1,2 +1,8 @@
 server.js
     -server is connected (05/07)
+
+app.css
+    (05/12)
+        -sizes/margins/padding tweaked
+        -placeholder text for sizing to be removed later 
+        

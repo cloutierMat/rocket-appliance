@@ -13,16 +13,17 @@ body {
 	width: 100%;
 	background-color: #777;
 	margin: 0;
+	display: flex;
+	justify-content: center;
 }
 
 .App {
 	/* margin: 0.5em; */
-	padding: 0px 10px;
+	padding: 10px;
 	/* border might need to be removed later */
 	/* border: 3px solid black; */
-	/* max-width: fit-content; */
-	background-color: #fa3;
 	min-width: fit-content;
+	background-color: #fa3;
 }
 
 /* CSS Grid not done */
@@ -67,6 +68,7 @@ nav {
 	height: 100px;
 	width: 500px;
 	background-color: #527;
+	margin-right: 10px;
 	/* border: 5px solid red; */
 }
 
@@ -88,6 +90,8 @@ nav {
 	height: auto;
 	background-color: #ac4;
 	margin: 10px 0px;
+	max-width: 850px;
+	padding: 2px;
 }
 
 .content-box {
@@ -95,7 +99,7 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	padding: 10px;
+	/* padding: 10px; */
 }
 
 .left-box {
@@ -105,7 +109,8 @@ nav {
 
 .right-box {
 	background-color: #989;
-	width: 320px;
+	width: 340px;
+	margin-left: 10px;
 }
 
 .gallery-wrapper {
@@ -138,11 +143,15 @@ nav {
 	transform-origin: top right;
 }
 
-.card-shrink {
-	transform: scale(.75);
+.card-margin {
+	/* transform: scale(.75); */
+	margin: 10px;
 }
 
 .suggestion-box {
 	display: inline-flex;
-	background-color: #fa3;
+	background-color: #fa9;
+	width: 340px;
+	height: 165px;
+	/* margin: 0px 10px; */
 }
