@@ -13,16 +13,17 @@ body {
 	width: 100%;
 	background-color: #777;
 	margin: 0;
+	display: flex;
+	justify-content: center;
 }
 
 .App {
 	/* margin: 0.5em; */
-	padding: 0px 10px;
+	padding: 10px;
 	/* border might need to be removed later */
 	/* border: 3px solid black; */
-	/* max-width: fit-content; */
-	background-color: #fa3;
 	min-width: fit-content;
+	background-color: #fa3;
 }
 
 /* CSS Grid not done */
@@ -67,6 +68,7 @@ nav {
 	height: 100px;
 	width: 500px;
 	background-color: #527;
+	margin-right: 10px;
 	/* border: 5px solid red; */
 }
 
@@ -80,7 +82,39 @@ nav {
 	width: 150px;
 	margin-left: 10px;
 	margin-right: 10px;
-}
+		border-radius: 4px;
+		background-color: #f4511e;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 28px;
+		transition: all 0.5s;
+		cursor: pointer;
+	}
+
+		.nav-button span {
+			cursor: pointer;
+			position:relative;
+			transition: 0.5s;
+			top: 10px
+		}
+		
+		.nav-button span:after {
+			content: url(./components/images/learnicon.png);
+			position: absolute;
+			opacity: 0;
+			top: 0px;
+			left: 20px;
+			transition: 0.5s;
+		}
+		
+		.nav-button:hover span {
+			padding-top: 25px;
+		}
+		
+		.nav-button:hover span:after {
+			opacity: 1;
+		}
 
 /* about text on the main page */
 
@@ -88,6 +122,8 @@ nav {
 	height: auto;
 	background-color: #ac4;
 	margin: 10px 0px;
+	max-width: 850px;
+	padding: 2px;
 }
 
 .content-box {
@@ -95,7 +131,7 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	padding: 10px;
+	/* padding: 10px; */
 }
 
 .left-box {
@@ -105,7 +141,8 @@ nav {
 
 .right-box {
 	background-color: #989;
-	width: 320px;
+	width: 340px;
+	margin-left: 10px;
 }
 
 .gallery-wrapper {
@@ -138,11 +175,15 @@ nav {
 	transform-origin: top right;
 }
 
-.card-shrink {
-	transform: scale(.75);
+.card-margin {
+	/* transform: scale(.75); */
+	margin: 10px;
 }
 
 .suggestion-box {
 	display: inline-flex;
-	background-color: #fa3;
+	background-color: #fa9;
+	width: 340px;
+	height: 165px;
+	/* margin: 0px 10px; */
 }
