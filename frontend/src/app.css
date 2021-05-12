@@ -23,7 +23,7 @@ body {
 	/* border might need to be removed later */
 	/* border: 3px solid black; */
 	min-width: fit-content;
-	background-color: #fa3;
+	/* background-color: #fa3; */
 }
 
 /* CSS Grid not done */
@@ -60,22 +60,22 @@ nav {
 	/* margin-top: 10px;
    margin-right: 10px;j
    margin-left: 10px; */
-	background-color: #044;
+	/* background-color: #044; */
 	/* border: 5px solid orange; */
 }
 
 .nav-title {
 	height: 100px;
 	width: 500px;
-	background-color: #527;
+	background-color: rgb(100, 22, 153);
 	margin-right: 10px;
 	/* border: 5px solid red; */
 }
 
-.button-container {
+/* .button-container {
 	/* border: 5px solid yellow; */
-	background-color: #32d;
-}
+	/* background-color: #32d; */
+/* } */ 
 
 .nav-button {
 	height: 100px;
@@ -99,12 +99,21 @@ nav {
 			top: 10px
 		}
 		
-		.nav-button span:after {
+		.Learn span:after {
 			content: url(./components/images/learnicon.png);
 			position: absolute;
 			opacity: 0;
 			top: 0px;
 			left: 20px;
+			transition: 0.5s;
+		}
+
+		.Contribute span:after {
+			content: url(./components/images/learnicon.png);
+			position: absolute;
+			opacity: 0;
+			top: -2px;
+			left: 50px;
 			transition: 0.5s;
 		}
 		
@@ -127,16 +136,17 @@ nav {
 }
 
 .content-box {
-	background-color: #f378;
+	/* background-color: #f378; */
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	border: 2px solid white;
 	/* padding: 10px; */
 }
 
 .left-box {
 	width: 500px;
-	background-color: #df3;
+	/* background-color: #df3; */
 }
 
 .right-box {
@@ -159,7 +169,7 @@ nav {
 	overflow-x: hidden;
 	transform: rotate(-90deg) translateY(-160px);
 	transform-origin: top right;
-	background-color: red;
+	/* background-color: red; */
 }
 
 .game-card {
