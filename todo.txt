@@ -58,8 +58,10 @@ frontend
 backend
 		routes/
 				game // receives from client returns response from model/games
+						Use mongoose validation instead of findOne()
 
 		model/
 				db.js 
+						Deprecation Warning on collection.ensureIndex
 				games.js // speaks with db and returns for routes/game
 

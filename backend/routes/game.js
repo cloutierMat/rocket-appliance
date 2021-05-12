@@ -2,29 +2,42 @@ const router = require('express').Router();
 const games = require('../model/games');
 
 router.get('/play/trivia/:name', async function (req, res) {
-   //    try {
-   //       const gameToLoad = req.params;
-   //       const gameToSend = new games(gameToLoad);
-   //       await gameToSend.save();
-   //       console.log('loaded game', gameToSend);
-   //       res.send(gameToSend);
-   //    } catch (error) {
-   //       console.log(error);
-   //       res.sendStatus(500);
-   //    }
+	try {
+		const triviaToLoad = req.params;
+		const triviaToSend = await games.Trivia.findOne(triviaToLoad);
+		console.log('loaded trivia', triviaToSend);
+		res.send(triviaToSend);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
+	}
 });
 
+// endpoint to create a new trivia game
 router.post('/trivia', async function (req, res) {
-   const triviaToCreate = req.body
-   try {
-     const newTrivia = new games.Trivia(triviaToCreate)
-     await newTrivia.save()
-     console.log("created a trivia", newTrivia);
-     res.send(newTrivia)
-   } catch (error) {
-      console.error("failed to post trivia", error);
-      res.sendStatus(500);
-   }
-})
+	// data retrieved from the request body
+	const triviaToCreate = req.body;
+	try {
+		// first we look in the db to see if there is already a trivia with that name
+		const triviaValidator = await games.Trivia.findOne({ name: triviaToCreate.name });
+		// if it already exists, return a 405 "method not allowed"
+		if (triviaValidator) {
+			console.error("attempt to enter duplicate in trivia", triviaToCreate);
+			res.sendStatus(405);
+			return;
+		}
+		// create a new instance of the Trivia schema
+		const newTrivia = new games.Trivia(triviaToCreate);
+		// save the new object in the database
+		await newTrivia.save();
+		console.log("created a trivia", newTrivia);
+		// return the newly created game to the client
+		res.send(newTrivia);
+	} catch (error) {
+		// uncatched error will return 500 "server error"
+		console.error("failed to post trivia", error);
+		res.sendStatus(500);
+	}
+});
 
 module.exports = router;
