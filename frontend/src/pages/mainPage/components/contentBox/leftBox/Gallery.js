@@ -2,7 +2,7 @@ import React from 'react';
 import GameCard from './GameCard';
 
 export default function Gallery(props) {
-   const { onMouseEnter } = props;
+   const { onMouseEnter, pagePointer } = props;
    return (
       <div className="gallery-wrapper">
          <div className="gallery">
@@ -12,6 +12,7 @@ export default function Gallery(props) {
                      key={name}
                      name={name}
                      onMouseEnter={onMouseEnter}
+                     pagePointer={pagePointer}
                   />
                );
             })}
