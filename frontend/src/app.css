@@ -109,7 +109,7 @@ nav {
 		}
 
 		.Contribute span:after {
-			content: url(./components/images/learnicon.png);
+			content: url(./components/images/contributeicon.png);
 			position: absolute;
 			opacity: 0;
 			top: -2px;
