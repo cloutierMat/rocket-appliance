@@ -82,7 +82,42 @@ nav {
 	width: 150px;
 	margin-left: 10px;
 	margin-right: 10px;
-}
+		border-radius: 4px;
+		background-color: #f4511e;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 28px;
+		/* padding: 20px; */
+		/* width: 200px; */
+		transition: all 0.5s;
+		cursor: pointer;
+		/* margin: 5px; */
+	}
+	.nav-button span {
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
+	}
+	
+	.nav-button span:after {
+		content: url("https://imgur.com/FsdZuc8.png");
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -20px;
+		transition: 0.5s;
+	}
+	
+	.nav-button:hover span {
+		padding-right: 25px;
+	}
+	
+	.nav-button:hover span:after {
+		opacity: 1;
+		right: 0;
+	}
 
 /* about text on the main page */
 
