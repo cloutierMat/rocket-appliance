@@ -3,7 +3,7 @@ import Gallery from './Gallery';
 import GameDescription from './GameDescription';
 
 export default function LeftBox(props) {
-	const { pagePointer } = props;
+	const { setPagePointer } = props;
 	const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
 
 	function handleHover() {
@@ -13,7 +13,7 @@ export default function LeftBox(props) {
 
 	return (
 		<div className="left-box">
-			<Gallery onMouseEnter={handleHover} pagePointer={pagePointer} />
+			<Gallery onMouseEnter={handleHover} setPagePointer={setPagePointer} />
 			{hoverOnCard ? <GameDescription /> : <></>}
 		</div>
 	);

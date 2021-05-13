@@ -3,11 +3,11 @@ import About from './components/About';
 import ContentBox from './components/contentBox/ContentBox';
 
 export default function MainPage(props) {
-	const { pagePointer } = props;
+	const { setPagePointer } = props;
 	return (
 		<div>
 			<About />
-			<ContentBox pagePointer={pagePointer} />
+			<ContentBox setPagePointer={setPagePointer} />
 		</div>
 	);
 }

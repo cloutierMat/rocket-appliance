@@ -10,7 +10,7 @@ function App() {
 
    useEffect(() => {
       if (pagePointer === 'Main') {
-         setPageToDisplay(<Main pagePointer={setPagePointer} />);
+         setPageToDisplay(<Main setPagePointer={setPagePointer} />);
       } else {
          setPageToDisplay(<Trivia />);
       }

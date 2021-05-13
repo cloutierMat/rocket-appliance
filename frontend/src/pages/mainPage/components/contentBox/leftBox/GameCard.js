@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default function GameCard(props) {
-	const { name, onMouseEnter, pagePointer } = props;
+	const { name, onMouseEnter, setPagePointer } = props;
 	return (
 		<div
 			className="game-card card-rotate"
 			onMouseEnter={onMouseEnter}
 			onClick={() => {
-				pagePointer(name);
+				setPagePointer(name);
 			}}
 		>
 			{name}
