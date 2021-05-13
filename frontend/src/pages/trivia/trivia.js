@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Option from "./Option";
 
+
 export default function Trivia() {
   const [category, setCategory] = useState()
   const [name, setName] = useState()
   const [question, setQuestion] = useState()
   const [options, setOptions] = useState()
+  const [userChoice, setUserChoice] = useState()
 
   useEffect( () => {
     async function fetchData() {
@@ -25,6 +27,9 @@ export default function Trivia() {
 
 	return (
 		<div>
+      <h1>{category} </h1>
+      <h2>{ name }</h2>
+      <h3>{ question }</h3>
       {options && options.map((option) => {
         return <Option content={option}/>
       })}
