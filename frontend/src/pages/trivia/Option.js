@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export default function Option(props) {
-  const {content} = props;
-  return (
-    <div className="trivia-option">
-      {content}
-    </div>
-  )
+	const { content, setUserChoice, isDisabled } = props;
+	return (
+		<button className="trivia-option" onClick={() => setUserChoice(content)} disabled={isDisabled}>
+			{content}
+		</button>
+	);
 }
