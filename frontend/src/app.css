@@ -43,6 +43,7 @@ nav {
 	margin-top: 10px;
 	margin-bottom: 15px;
 	margin-right: 10px;
+	margin-left: 10px;
 	border-radius: 4px;
 	opacity: .9;
 }
@@ -53,22 +54,21 @@ nav {
 }
 
 .nav-button {
-	height: 40px;
+	height: unset;
 	width: 150px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-		border-radius: 2px;
-		background-color: #333333;
-		border: 2px solid white;
-		color: #FFFFFF;
-		text-align: center;
-		font-size: 28px;
-		transition: all 0.5s;
-		cursor: pointer;
-		opacity: .8;
-		font-family: 'Staatliches', cursive;
-	}
+	margin: 10px;
+	margin-bottom: unset;
+	border-radius: 2px;
+	background-color: #333333;
+	border: 2px solid white;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	transition: all 0.5s;
+	cursor: pointer;
+	opacity: .8;
+	font-family: 'Staatliches', cursive;
+}
 		.nav-button:hover {
 			background-color: #696868;
 		}
@@ -78,27 +78,26 @@ nav {
 			transition: 0.5s;
 			opacity: 1;
 		}
-		.Learn span:after {
+		.nav-button:hover span {
+			position: relative;
+			padding-top: 18px;
+		}
+		.Learn:hover span:after {
 			content: url(./components/images/learnicon.png);
 			position: absolute;
 			opacity: 0;
-			top: -12px;
 			left: 15px;
-			transition: 0.5s;
 		}
-		.Contribute span:after {
+		.Contribute:hover span:after {
 			content: url(./components/images/contributeicon.png);
 			position: absolute;
 			opacity: 0;
-			top: -12px;
 			left: 40px;
-			transition: 0.5s;
 		}
-		.nav-button:hover span {
-			padding-top: 25px;
-		}
+
 		.nav-button:hover span:after {
 			opacity: 1;
+			top: -18px;
 		}
 
 .text-default {
@@ -159,6 +158,7 @@ nav {
 	width: 100px;
 	background-image: url(./components/images/triviacard.png);
 	border: 2px solid white;
+	border-radius: 2px;
 	margin: 5px;
 	margin-left: 3px;
 	cursor: pointer;
