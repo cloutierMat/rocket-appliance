@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 ::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;
@@ -11,148 +13,126 @@
 body {
 	height: 100%;
 	width: 100%;
-	background-color: #777;
+	background-color: rgb(65, 65, 65);
 	margin: 0;
 	display: flex;
 	justify-content: center;
 }
 
 .App {
-	/* margin: 0.5em; */
 	padding: 10px;
-	/* border might need to be removed later */
-	/* border: 3px solid black; */
+	margin-top: 10px;
 	min-width: fit-content;
-	/* background-color: #fa3; */
+	background-color: rgb(72, 72, 72);
 }
-
-/* CSS Grid not done */
-
-/* nav {
-   background-color: #887;
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-   column-gap: 5px;
-   min-width: fit-content;
-}
-
-.navButton {
-   height: 100px;
-   width: 150px;
-}
-
-.navTitle {
-   grid-column: auto / span 3;
-   min-width: fit-content;
-   font-size: 150px;
-} */
-
-/* flexbox attempt for navbar wrapping */
-
-/*    -borders are all temporary and only for visualizing 
-      -margins are also temporary, likely need to be changed during the actual styling phase
-      -sizes are ALSO temporary and may need to be adjusted in final styling phase*/
 
 nav {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	/* margin-top: 10px;
-   margin-right: 10px;j
-   margin-left: 10px; */
-	/* background-color: #044; */
-	/* border: 5px solid orange; */
+	align-items: center;
+	background-color: #333333;
+	border-bottom: 2px solid rgb(36, 36, 36);
+	border-top: 2px solid rgb(36, 36, 36);
 }
 
 .nav-title {
 	height: 100px;
 	width: 500px;
-	background-color: rgb(100, 22, 153);
+	background-image: url(./components/images/ra-bannerV5.png);
+	margin-top: 10px;
+	margin-bottom: 15px;
 	margin-right: 10px;
-	/* border: 5px solid red; */
+	border-radius: 4px;
+	opacity: .9;
 }
 
-/* .button-container {
-	/* border: 5px solid yellow; */
-	/* background-color: #32d; */
-/* } */ 
+.button-container {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
 .nav-button {
-	height: 100px;
+	height: 40px;
 	width: 150px;
 	margin-left: 10px;
 	margin-right: 10px;
-		border-radius: 4px;
-		background-color: #f4511e;
-		border: none;
+	margin-top: 10px;
+		border-radius: 2px;
+		background-color: #333333;
+		border: 2px solid white;
 		color: #FFFFFF;
 		text-align: center;
 		font-size: 28px;
 		transition: all 0.5s;
 		cursor: pointer;
+		opacity: .8;
+		font-family: 'Staatliches', cursive;
 	}
-
+		.nav-button:hover {
+			background-color: #696868;
+		}
 		.nav-button span {
 			cursor: pointer;
 			position:relative;
 			transition: 0.5s;
-			top: 10px
+			opacity: 1;
 		}
-		
 		.Learn span:after {
 			content: url(./components/images/learnicon.png);
 			position: absolute;
 			opacity: 0;
-			top: 0px;
-			left: 20px;
+			top: -12px;
+			left: 15px;
 			transition: 0.5s;
 		}
-
 		.Contribute span:after {
 			content: url(./components/images/contributeicon.png);
 			position: absolute;
 			opacity: 0;
-			top: -2px;
-			left: 50px;
+			top: -12px;
+			left: 40px;
 			transition: 0.5s;
 		}
-		
 		.nav-button:hover span {
 			padding-top: 25px;
 		}
-		
 		.nav-button:hover span:after {
 			opacity: 1;
 		}
 
-/* about text on the main page */
-
 .text-default {
 	height: auto;
-	background-color: #ac4;
 	margin: 10px 0px;
 	max-width: 850px;
-	padding: 2px;
+	padding: 10px;
+	color: white;
+	font-family: 'Staatliches', cursive;
 }
 
 .content-box {
-	/* background-color: #f378; */
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	border: 2px solid white;
-	/* padding: 10px; */
+	background-color: #333333;
+		border-bottom: 2px solid rgb(36, 36, 36);
+	border-top: 2px solid rgb(36, 36, 36);
 }
 
 .left-box {
 	width: 500px;
-	/* background-color: #df3; */
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border-bottom: 2px solid rgb(36, 36, 36);
+
 }
 
 .right-box {
-	background-color: #989;
+	border-left: 2px solid white;
 	width: 340px;
-	margin-left: 10px;
+	margin: 10px;
+	background-color: rgb(77, 77, 77);
 }
 
 .gallery-wrapper {
@@ -161,24 +141,32 @@ nav {
 
 .gallery {
 	width: 160px;
-	height: 500px;
+	height: 490px;
 	display: block;
-	/* display: flex;
-   flex-direction: column; */
 	overflow-y: auto;
-	overflow-x: hidden;
+	overflow-x: scroll;
 	transform: rotate(-90deg) translateY(-160px);
 	transform-origin: top right;
-	/* background-color: red; */
+	margin-top: 10px;
+	border-top: 2px solid  rgb(36, 36, 36);
+	border-bottom: 2px solid  rgb(36, 36, 36);
+	background-color: rgb(77, 77, 77);;
 }
 
 .game-card {
 	display: block;
 	height: 150px;
 	width: 100px;
-	background-color: #b8b;
+	background-image: url(./components/images/triviacard.png);
+	border: 2px solid white;
 	margin: 5px;
+	margin-left: 3px;
+	cursor: pointer;
 }
+	.game-card:hover {
+		opacity: .9;
+		border: 2px solid rgb(48, 48, 48);
+	}
 
 .card-rotate {
 	transform: rotate(90deg) translateY(-50px) translateX(125px);
@@ -186,14 +174,42 @@ nav {
 }
 
 .card-margin {
-	/* transform: scale(.75); */
 	margin: 10px;
 }
 
 .suggestion-box {
-	display: inline-flex;
-	background-color: #fa9;
-	width: 340px;
-	height: 165px;
-	/* margin: 0px 10px; */
+	display: flex;
+	margin-bottom: 10px;
 }
+
+.suggestion-description {
+	border-top: 4px solid rgb(36, 36, 36);
+}
+
+.suggestion-game-description {
+	max-width: 200px ;
+	margin-top: -10px;
+	margin-left: -10px;
+	opacity: .8;
+}
+
+.search-box {
+	margin-left: 10px;
+	width: 310px;
+	height: 30px;
+	background-color:rgb(65, 65, 65);
+	border: none;
+	font-family: 'Staatliches', cursive;
+	font-size: 20px;
+	color: white;
+}
+	.search-box:focus {
+	outline: none;
+	}
+	.search-box::-webkit-search-cancel-button{
+		-webkit-appearance: none;
+		content: url(./components/images/searchcancelicon.png);
+		background: none;
+		height: 20px;
+		width: 20px;
+	}
