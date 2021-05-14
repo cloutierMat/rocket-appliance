@@ -1,1 +1,26 @@
-{}
+{
+	"name": "rocket-appliance",
+	"description": "",
+	"version": "1.0.0",
+	"main": "index.js",
+	"devDependencies": {},
+	"scripts": {
+		"start": "concurrently \"cd backend && nodemon\" \"cd frontend && npm start\"",
+		"install": "concurrently \"cd backend && npm i\" \"cd frontend && npm i\"",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cloutierMat/rocket-appliance.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/cloutierMat/rocket-appliance/issues"
+	},
+	"homepage": "https://github.com/cloutierMat/rocket-appliance#readme",
+	"dependencies": {
+		"concurrently": "^6.1.0"
+	}
+}
