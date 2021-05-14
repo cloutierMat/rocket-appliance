@@ -3,10 +3,9 @@
 	"description": "",
 	"version": "1.0.0",
 	"main": "index.js",
-	"devDependencies": {},
 	"scripts": {
 		"start": "concurrently \"cd backend && nodemon\" \"cd frontend && npm start\"",
-		"install": "concurrently \"cd backend && npm i\" \"cd frontend && npm i\"",
+		"will": "concurrently \"npm i\" \"cd backend && npm i\" \"cd frontend && npm i\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
