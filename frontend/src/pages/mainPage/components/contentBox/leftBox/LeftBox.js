@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Gallery from './Gallery';
 import GameDescription from './GameDescription';
+import {Animated} from "react-animated-css";
 
 export default function LeftBox(props) {
 	const { setPagePointer } = props;
@@ -12,9 +13,11 @@ export default function LeftBox(props) {
 	}
 
 	return (
+		<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 		<div className="left-box">
 			<Gallery onMouseEnter={handleHover} setPagePointer={setPagePointer} />
 			{hoverOnCard ? <GameDescription /> : <></>}
 		</div>
+		</Animated>
 	);
 }

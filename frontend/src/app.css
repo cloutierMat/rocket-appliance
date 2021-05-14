@@ -152,11 +152,110 @@ nav {
 	background-color: rgb(77, 77, 77);;
 }
 
+/* niki */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: var(--background-color);
+  color: #222;
+  /* padding: .5em 1em; */
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+
+  --background-color: #E3E3E3;
+  --border-size: 2px;
+  --accent-color: white;
+}
+
+button.btn.btn-background-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--accent-color);
+
+  transition: transform 300ms ease-in-out;
+  transform: scaleX(0);
+  transform-origin:top;
+}
+
+button.btn.btn-background-slide:hover::before,
+button.btn.btn-background-slide:focus::before {
+  transform: scaleX(1);
+}
+
+button.btn.btn-background-slide {
+  transition: color 300ms ease-in-out;
+  z-index: 1;
+}
+
+
+button.btn.btn-background-slide:hover,
+button.btn.btn-background-slide:focus {
+  color: white;
+}
+button.btn.btn-background-slide {
+	color: white;
+	font-family: 'Staatliches', cursive;
+	font-size: 26px;
+	height: 145px;
+	width: 96.5px;
+	text-align: center;
+	padding-top: 10px;
+	padding-right: 10px;
+	margin: 1px;
+	background-color: #4f4d4d;
+	border:solid rgb(242, 113, 113);
+}
+.icon-button {
+	display:inline;
+	padding-right: 2px;
+	font-size: 30px;
+	border-style: solid;
+	border-color: #151515;
+	border-spacing: inherit;
+	height: 27px;
+	width: 78px;
+	background-color: #151515;
+}
+h4 {  /* somehow padding-bottom doesn't work */
+	font-size: 24px;
+	color: #151515;
+	margin: 2px;
+	margin-bottom: 2px;
+	margin-top: 0px;
+	height: 53px;
+	width: 70px;
+}
+
+hr {
+	margin-top: 1px;
+	margin-bottom: 1px;
+	width: 78px;
+}
+h2 {
+	font-size: 26px;
+	margin: 0px;
+	margin-top: 3px;
+	padding-top: 1px;
+	border: solid #151515;
+	background-color: #151515;
+	width: 78px;
+}
+/* niki */
+
 .game-card {
 	display: block;
-	height: 150px;
-	width: 100px;
-	background-image: url(./components/images/triviacard.png);
+	height: 151px;
+	width: 103px;
+	/* background-image: url(./components/images/triviacard.png); */
 	border: 2px solid white;
 	border-radius: 2px;
 	margin: 5px;
