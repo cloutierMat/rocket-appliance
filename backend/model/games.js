@@ -1,5 +1,6 @@
 require('./db');
 const mongoose = require('mongoose');
+require('mongoose-type-url');
 
 const triviaSchema = new mongoose.Schema({
 	name: {
@@ -25,6 +26,10 @@ const triviaSchema = new mongoose.Schema({
 				type: Array,
 				required: true,
 			},
+			link: {
+				type: mongoose.SchemaTypes.Url,
+				required: true
+			}
 		}
 	]
 });
