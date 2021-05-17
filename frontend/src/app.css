@@ -39,7 +39,8 @@ nav {
 .nav-title {
 	height: 100px;
 	width: 500px;
-	background-image: url(./components/images/ra-bannerV5.png);
+	background-image: url(./components/images/dubResBannerV1.png);
+	background-size: 100%; /* added this to make the double res size work*/
 	margin-top: 10px;
 	margin-bottom: 15px;
 	margin-right: 10px;
