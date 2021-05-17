@@ -25,13 +25,12 @@ export default function Trivia() {
 				setName(triviaToDisplay.name);
 				setAuthor(triviaToDisplay.author);
 				setQuestions(triviaToDisplay.questions);
-				console.log(questions);
+				setQuestionPointer(0);
 				// setQuestion(triviaToDisplay.question);
 				// setOptions([...triviaToDisplay.options]);
 				// setOptions(options => options.sort(() => Math.random() - 0.5));
 				// console.log(triviaToDisplay.options);
 				// setRightAnswer(triviaToDisplay.options[0]);
-				// setIsDisabled(false);
 			} catch (error) {
 				console.error("error", error);
 			}
@@ -40,23 +39,43 @@ export default function Trivia() {
 	}, []);
 
 	useEffect(() => {
-		if (rightAnswer === userChoice) {
-			console.log("damn right!", userChoice);
-			setIsDisabled(true);
-		} else {
-			console.log("you fool", userChoice);
+		if (questionPointer === undefined) {
+			return;
 		}
-	}, [userChoice, rightAnswer]);
-console.log("questionPointer",questionPointer);
+		setQuestion(questions[questionPointer].question);
+		setRightAnswer(questions[questionPointer].options[0]);
+		setOptions([...questions[questionPointer].options].sort(() => Math.random() - 0.5));
+		setLink(questions[questionPointer].link);
+		setIsDisabled(false);
+	}, [questionPointer]);
+
+	function handleClick(e) {
+		const name = e.target.name;
+		if (name === rightAnswer) {
+			console.log("awesome");
+			setIsDisabled(true);
+			setQuestionPointer(pointer => {
+				if (pointer < questions.length - 1) {
+					return pointer + 1;
+				}
+			});
+		} else {
+			console.log("not");
+		}
+	}
+
 	return (
 		<div>
 			<h1>{category} </h1>
 			<h2>{name}</h2>
 			<p>Created by {author}</p>
-			<h3>{questions && questions[questionPointer].question}</h3>
-			{false && questions[questionPointer].options.map((option) => {
-				return <Option setUserChoice={setUserChoice} isDisabled={isDisabled} content={option} key={option} />;
+			<h3>{question && question}</h3>
+			{options && options.map((option) => {
+				return <Option onClick={handleClick} isDisabled={isDisabled} content={option} key={option} />;
 			})}
+			<h4>To deepen your learning
+				<a href={link} target="_blank" rel="noreferrer" >click here</a>
+			</h4>
 		</div>
 	);
 }
