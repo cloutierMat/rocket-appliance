@@ -13,15 +13,21 @@ users
 
 - get results
 - searching
+	- by topic
+	- ny name
 - option to login
 - save your progress
 - access progressboard
 
 -- contributors --
+- create a new game
+- edit a game
+
+--- Release ---
+
 - login
 - sign up
-- create a new topic
-- create a new game
+
 
 ---- Games ----
 -- Trivia --
