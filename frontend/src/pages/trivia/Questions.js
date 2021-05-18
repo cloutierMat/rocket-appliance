@@ -48,16 +48,18 @@ export default function Questions(props) {
 			setOptionsClicked(options);
 		} else {
 			setUserRighteousness("wrong");
-			setOptionsClicked(optionsClicked => [...optionsClicked, name])
+			setOptionsClicked(optionsClicked => [...optionsClicked, name]);
 		}
 	}
 
 	return (
 		<div>
 			<h3>{question && question}</h3>
-			{options && options.map((option) => {
-				return <Option onClick={handleAnswerClick} optionsClicked={optionsClicked} rightAnswer={rightAnswer} content={option} key={option} />;
-			})}
+			<div className="trivia-options">
+				{options && options.map((option) => {
+					return <Option onClick={handleAnswerClick} optionsClicked={optionsClicked} rightAnswer={rightAnswer} content={option} key={option} />;
+				})}
+			</div>
 			<UserRighteousness userRighteousness={userRighteousness} onClick={handleNextClick} />
 			<h4>To deepen your learning
       <a href={link} target="_blank" rel="noreferrer" >click here</a>

@@ -1,0 +1,29 @@
+/* trivia */
+
+.trivia-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.trivia-title {
+	background-color: transparent;
+	width: fit-content;
+}
+
+.trivia-options {
+	display: flex;
+	flex-direction: column;
+}
+
+.trivia-option {
+	background-color: whitesmoke;
+}
+
+.trivia-option.correct {
+	background-color: green;
+}
+
+.trivia-option.incorrect {
+	background-color: crimson;
+}

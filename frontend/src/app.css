@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-
 ::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;
@@ -69,36 +68,41 @@ nav {
 	opacity: .8;
 	font-family: 'Staatliches', cursive;
 }
-		.nav-button:hover {
-			background-color: #696868;
-		}
-		.nav-button span {
-			cursor: pointer;
-			position:relative;
-			transition: 0.5s;
-			opacity: 1;
-		}
-		.nav-button:hover span {
-			position: relative;
-			padding-top: 18px;
-		}
-		.Learn:hover span:after {
-			content: url(./components/images/learnicon.png);
-			position: absolute;
-			opacity: 0;
-			left: 15px;
-		}
-		.Contribute:hover span:after {
-			content: url(./components/images/contributeicon.png);
-			position: absolute;
-			opacity: 0;
-			left: 40px;
-		}
 
-		.nav-button:hover span:after {
-			opacity: 1;
-			top: -18px;
-		}
+.nav-button:hover {
+	background-color: #696868;
+}
+
+.nav-button span {
+	cursor: pointer;
+	position: relative;
+	transition: 0.5s;
+	opacity: 1;
+}
+
+.nav-button:hover span {
+	position: relative;
+	padding-top: 18px;
+}
+
+.Learn:hover span:after {
+	content: url(./components/images/learnicon.png);
+	position: absolute;
+	opacity: 0;
+	left: 15px;
+}
+
+.Contribute:hover span:after {
+	content: url(./components/images/contributeicon.png);
+	position: absolute;
+	opacity: 0;
+	left: 40px;
+}
+
+.nav-button:hover span:after {
+	opacity: 1;
+	top: -18px;
+}
 
 .text-default {
 	height: auto;
@@ -114,7 +118,7 @@ nav {
 	justify-content: space-around;
 	flex-wrap: wrap;
 	background-color: #333333;
-		border-bottom: 2px solid rgb(36, 36, 36);
+	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
 }
 
@@ -124,7 +128,6 @@ nav {
 	margin-top: 10px;
 	margin-left: 10px;
 	border-bottom: 2px solid rgb(36, 36, 36);
-
 }
 
 .right-box {
@@ -147,60 +150,58 @@ nav {
 	transform: rotate(-90deg) translateY(-160px);
 	transform-origin: top right;
 	margin-top: 10px;
-	border-top: 2px solid  rgb(36, 36, 36);
-	border-bottom: 2px solid  rgb(36, 36, 36);
-	background-color: rgb(77, 77, 77);;
+	border-top: 2px solid rgb(36, 36, 36);
+	border-bottom: 2px solid rgb(36, 36, 36);
+	background-color: rgb(77, 77, 77);
+	;
 }
 
 /* niki */
+
 *, *::before, *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .btn {
-  background-color: var(--background-color);
-  color: #222;
-  /* padding: .5em 1em; */
-  border: none;
-  outline: none;
-  position: relative;
-  cursor: pointer;
-
-  --background-color: #E3E3E3;
-  --border-size: 2px;
-  --accent-color: white;
+	background-color: var(--background-color);
+	color: #222;
+	/* padding: .5em 1em; */
+	border: none;
+	outline: none;
+	position: relative;
+	cursor: pointer;
+	--background-color: #E3E3E3;
+	--border-size: 2px;
+	--accent-color: white;
 }
 
 button.btn.btn-background-slide::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  background-color: var(--accent-color);
-
-  transition: transform 300ms ease-in-out;
-  transform: scaleX(0);
-  transform-origin:top;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	background-color: var(--accent-color);
+	transition: transform 300ms ease-in-out;
+	transform: scaleX(0);
+	transform-origin: top;
 }
 
-button.btn.btn-background-slide:hover::before,
-button.btn.btn-background-slide:focus::before {
-  transform: scaleX(1);
+button.btn.btn-background-slide:hover::before, button.btn.btn-background-slide:focus::before {
+	transform: scaleX(1);
 }
 
 button.btn.btn-background-slide {
-  transition: color 300ms ease-in-out;
-  z-index: 1;
+	transition: color 300ms ease-in-out;
+	z-index: 1;
 }
 
-
-button.btn.btn-background-slide:hover,
-button.btn.btn-background-slide:focus {
-  color: white;
+button.btn.btn-background-slide:hover, button.btn.btn-background-slide:focus {
+	color: white;
 }
+
 button.btn.btn-background-slide {
 	color: white;
 	font-family: 'Staatliches', cursive;
@@ -212,10 +213,11 @@ button.btn.btn-background-slide {
 	padding-right: 10px;
 	margin: 1px;
 	background-color: #4f4d4d;
-	border:solid rgb(242, 113, 113);
+	border: solid rgb(242, 113, 113);
 }
+
 .icon-button {
-	display:inline;
+	display: inline;
 	padding-right: 2px;
 	font-size: 30px;
 	border-style: solid;
@@ -225,7 +227,9 @@ button.btn.btn-background-slide {
 	width: 78px;
 	background-color: #151515;
 }
-h4 {  /* somehow padding-bottom doesn't work */
+
+h4 {
+	/* somehow padding-bottom doesn't work */
 	font-size: 24px;
 	color: #151515;
 	margin: 2px;
@@ -240,6 +244,7 @@ hr {
 	margin-bottom: 1px;
 	width: 78px;
 }
+
 h2 {
 	font-size: 26px;
 	margin: 0px;
@@ -249,6 +254,7 @@ h2 {
 	background-color: #151515;
 	width: 78px;
 }
+
 /* niki */
 
 .game-card {
@@ -262,10 +268,11 @@ h2 {
 	margin-left: 3px;
 	cursor: pointer;
 }
-	.game-card:hover {
-		opacity: .9;
-		border: 2px solid rgb(48, 48, 48);
-	}
+
+.game-card:hover {
+	opacity: .9;
+	border: 2px solid rgb(48, 48, 48);
+}
 
 .card-rotate {
 	transform: rotate(90deg) translateY(-50px) translateX(125px);
@@ -286,7 +293,7 @@ h2 {
 }
 
 .suggestion-game-description {
-	max-width: 200px ;
+	max-width: 200px;
 	margin-top: -10px;
 	margin-left: -10px;
 	opacity: .8;
@@ -296,25 +303,21 @@ h2 {
 	margin-left: 10px;
 	width: 310px;
 	height: 30px;
-	background-color:rgb(65, 65, 65);
+	background-color: rgb(65, 65, 65);
 	border: none;
 	font-family: 'Staatliches', cursive;
 	font-size: 20px;
 	color: white;
 }
-	.search-box:focus {
+
+.search-box:focus {
 	outline: none;
-	}
-	.search-box::-webkit-search-cancel-button{
-		-webkit-appearance: none;
-		content: url(./components/images/searchcancelicon.png);
-		background: none;
-		height: 20px;
-		width: 20px;
-	}
+}
 
-	/* trivia */
-
-	.trivia-option {
-		background-color: red;
-	}
+.search-box::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	content: url(./components/images/searchcancelicon.png);
+	background: none;
+	height: 20px;
+	width: 20px;
+}
