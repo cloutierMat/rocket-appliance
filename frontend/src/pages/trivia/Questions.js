@@ -3,7 +3,7 @@ import Option from "./Option";
 import UserRighteousness from './UserRighteousness';
 
 export default function Questions(props) {
-	const { questions } = props;
+	const { questions, setIsEndReached } = props;
 	const [question, setQuestion] = useState();
 	const [options, setOptions] = useState();
 	const [link, setLink] = useState();
@@ -34,6 +34,8 @@ export default function Questions(props) {
 		setQuestionPointer(pointer => {
 			if (pointer < questions.length - 1) {
 				return pointer + 1;
+			} else {
+				setIsEndReached(true);
 			}
 		});
 	}
