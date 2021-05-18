@@ -4,6 +4,7 @@ export default function ContributeForm() {
 
   return (
     <div>
+      HELLO FORM
     </div>
   );
 };
