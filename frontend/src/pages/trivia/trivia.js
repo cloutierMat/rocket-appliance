@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Questions from './Questions';
 
-
 export default function Trivia() {
 	const [category, setCategory] = useState();
 	const [name, setName] = useState();
 	const [questions, setQuestions] = useState();
 	const [author, setAuthor] = useState();
-	const [userChoice, setUserChoice] = useState();
-
 
 	useEffect(() => {
 		async function fetchData() {
@@ -25,13 +22,13 @@ export default function Trivia() {
 		}
 		fetchData();
 	}, []);
-	
+
 	return (
 		<div>
 			<h1>{category} </h1>
 			<h2>{name}</h2>
 			<p>Created by {author}</p>
-			<Questions questions={questions}/>
+			{questions && <Questions questions={questions} />}
 		</div>
 	);
 }
