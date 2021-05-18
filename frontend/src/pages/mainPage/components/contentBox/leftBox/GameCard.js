@@ -10,6 +10,7 @@ export default function GameCard(props) {
 			<div
 				className="game-card card-rotate btn btn-background-slide" //niki
 				onMouseEnter={onMouseEnter}
+				name = {name}
 				onClick={() => {
 					setPagePointer(name);
 				}}
@@ -22,7 +23,6 @@ export default function GameCard(props) {
 						<BsQuestionSquare className="icon-button" />
 					</button>
 				</div>
-				{name}
 			</div>
 		</Animated>
 	);
