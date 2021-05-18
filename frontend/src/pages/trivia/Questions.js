@@ -8,7 +8,7 @@ export default function Questions(props) {
 	const [options, setOptions] = useState();
 	const [link, setLink] = useState();
 	const [rightAnswer, setRightAnswer] = useState();
-	const [isDisabled, setIsDisabled] = useState();
+	const [optionsClicked, setOptionsClicked] = useState([]);
 	const [questionPointer, setQuestionPointer] = useState();
 	const [userRighteousness, setUserRighteousness] = useState("unanswered");
 
@@ -26,7 +26,7 @@ export default function Questions(props) {
 		setRightAnswer(questions[questionPointer].options[0]);
 		setOptions([...questions[questionPointer].options].sort(() => Math.random() - 0.5));
 		setLink(questions[questionPointer].link);
-		setIsDisabled(false);
+		setOptionsClicked([]);
 		setUserRighteousness("unanswered");
 	}, [questionPointer, questions]);
 
@@ -45,9 +45,10 @@ export default function Questions(props) {
 		const name = e.target.name;
 		if (name === rightAnswer) {
 			setUserRighteousness("right");
-			setIsDisabled(true);
+			setOptionsClicked(options);
 		} else {
 			setUserRighteousness("wrong");
+			setOptionsClicked(optionsClicked => [...optionsClicked, name])
 		}
 	}
 
@@ -55,7 +56,7 @@ export default function Questions(props) {
 		<div>
 			<h3>{question && question}</h3>
 			{options && options.map((option) => {
-				return <Option onClick={handleAnswerClick} isDisabled={isDisabled} content={option} key={option} />;
+				return <Option onClick={handleAnswerClick} optionsClicked={optionsClicked} rightAnswer={rightAnswer} content={option} key={option} />;
 			})}
 			<UserRighteousness userRighteousness={userRighteousness} onClick={handleNextClick} />
 			<h4>To deepen your learning

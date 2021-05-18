@@ -312,3 +312,9 @@ h2 {
 		height: 20px;
 		width: 20px;
 	}
+
+	/* trivia */
+
+	.trivia-option {
+		background-color: red;
+	}
