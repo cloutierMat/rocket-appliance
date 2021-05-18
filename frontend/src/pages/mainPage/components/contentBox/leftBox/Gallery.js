@@ -2,15 +2,15 @@ import React from 'react';
 import GameCard from './GameCard';
 
 export default function Gallery(props) {
-	const { onMouseEnter, setPagePointer } = props;
+	const { onMouseEnter, setPagePointer, gameList } = props;
 	return (
 		<div className="gallery-wrapper">
 			<div className="gallery">
-				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(name => {
+				{gameList && gameList.map(game => {
 					return (
 						<GameCard
-							key={name}
-							name={name}
+							key={game.name}
+							game={game}
 							onMouseEnter={onMouseEnter}
 							setPagePointer={setPagePointer}
 						/>
