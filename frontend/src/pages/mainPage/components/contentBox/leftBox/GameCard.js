@@ -13,9 +13,9 @@ export default function GameCard(props) {
 				setPagePointer(name);
 			}}
 		>
-	<body>
+	<div>
 		<button className="btn btn-background-slide"><h4>Rocket Science</h4><hr></hr><h2>Trivia</h2><BsQuestionSquare className="icon-button"/></button> 
-	</body>
+	</div>
 			{name}
 		</div>
 		</Animated>

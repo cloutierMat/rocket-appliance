@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Option from "./Option";
+import UserRighteousness from './UserRighteousness';
 
 export default function Questions(props) {
 	const { questions } = props;
@@ -9,6 +10,7 @@ export default function Questions(props) {
 	const [rightAnswer, setRightAnswer] = useState();
 	const [isDisabled, setIsDisabled] = useState();
 	const [questionPointer, setQuestionPointer] = useState();
+	const [userRighteousness, setUserRighteousness] = useState("unanswered");
 
 	// When we receive a new trivia, set pointer to 0
 	useEffect(() => {
@@ -25,13 +27,14 @@ export default function Questions(props) {
 		setOptions([...questions[questionPointer].options].sort(() => Math.random() - 0.5));
 		setLink(questions[questionPointer].link);
 		setIsDisabled(false);
+		setUserRighteousness("unanswered");
 	}, [questionPointer, questions]);
 
 	// handle answer clicking
-	function handleClick(e) {
+	function handleAnswerClick(e) {
 		const name = e.target.name;
 		if (name === rightAnswer) {
-			console.log("awesome");
+			setUserRighteousness("right");
 			setIsDisabled(true);
 			setQuestionPointer(pointer => {
 				if (pointer < questions.length - 1) {
@@ -39,7 +42,7 @@ export default function Questions(props) {
 				}
 			});
 		} else {
-			console.log("not");
+			setUserRighteousness("wrong");
 		}
 	}
 
@@ -47,8 +50,9 @@ export default function Questions(props) {
 		<div>
 			<h3>{question && question}</h3>
 			{options && options.map((option) => {
-				return <Option onClick={handleClick} isDisabled={isDisabled} content={option} key={option} />;
+				return <Option onClick={handleAnswerClick} isDisabled={isDisabled} content={option} key={option} />;
 			})}
+			<UserRighteousness userRighteousness={userRighteousness} />
 			<h4>To deepen your learning
       <a href={link} target="_blank" rel="noreferrer" >click here</a>
 			</h4>
