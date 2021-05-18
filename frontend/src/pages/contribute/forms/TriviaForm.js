@@ -15,17 +15,22 @@ export default function TriviaForm(props) {
     options.answer3 = document.getElementById("answer3").value;
     options.answer4 = document.getElementById("answer4").value;
     questions.push({ question, options });
+    
     previousQuestions.push({ question, options });
     for (let i = 0; i < previousQuestions.length; i++) {
-      setQuestionToDisplay(Object.values(Object.values(previousQuestions)[0].question));
-      console.log(Object.values(Object.values(previousQuestions)[0].question));
-      console.log(questions);
+      setQuestionToDisplay(Object.values(Object.values(previousQuestions)[i].question));
+      console.log(Object.values(Object.values(previousQuestions)[i].question));
+      console.log(previousQuestions);
     }
   }
 
+  //deconstructs questions array to display the questions only -> doesn't display on page but works in console
   function handleQuestionsDisplay() {
-    console.log(questions);
+    // console.log(questions)
+    // for (let i = 0; i < questions.length; i++)
+    // console.log((Object.values(Object.values(questions)[i].question)))
   }
+
   return (
     <form>
       Title: <input type="text" />
@@ -42,5 +47,5 @@ export default function TriviaForm(props) {
       </div>
       <input type="button" onClick={handleQuestionsDisplay} value="Show Questions" />
     </form>
-  );
+  )
 }
