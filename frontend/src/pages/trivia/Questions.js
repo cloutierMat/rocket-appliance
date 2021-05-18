@@ -30,17 +30,20 @@ export default function Questions(props) {
 		setUserRighteousness("unanswered");
 	}, [questionPointer, questions]);
 
+	function handleNextClick() {
+		setQuestionPointer(pointer => {
+			if (pointer < questions.length - 1) {
+				return pointer + 1;
+			}
+		});
+	}
+
 	// handle answer clicking
 	function handleAnswerClick(e) {
 		const name = e.target.name;
 		if (name === rightAnswer) {
 			setUserRighteousness("right");
 			setIsDisabled(true);
-			setQuestionPointer(pointer => {
-				if (pointer < questions.length - 1) {
-					return pointer + 1;
-				}
-			});
 		} else {
 			setUserRighteousness("wrong");
 		}
@@ -52,7 +55,7 @@ export default function Questions(props) {
 			{options && options.map((option) => {
 				return <Option onClick={handleAnswerClick} isDisabled={isDisabled} content={option} key={option} />;
 			})}
-			<UserRighteousness userRighteousness={userRighteousness} />
+			<UserRighteousness userRighteousness={userRighteousness} onClick={handleNextClick} />
 			<h4>To deepen your learning
       <a href={link} target="_blank" rel="noreferrer" >click here</a>
 			</h4>
