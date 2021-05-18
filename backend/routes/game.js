@@ -13,6 +13,9 @@ router.get('/play/trivia/:name', async function (req, res) {
 	}
 });
 
+// endpoint to retrieve a list of all playable games
+// returns an object 
+
 // endpoint to create a new trivia game
 router.post('/trivia', async function (req, res) {
 	// data retrieved from the request body
