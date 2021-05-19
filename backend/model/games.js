@@ -12,9 +12,18 @@ const triviaSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	type: {
+		type: String,
+		required: true,
+	},
 	author: {
 		type: String,
 		default: "anonymous"
+	},
+	description: {
+		type: String,
+		required: true,
+		maxLength: 200,
 	},
 	questions: [
 		{
