@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import Gallery from './Gallery';
 import GameDescription from './GameDescription';
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 export default function LeftBox(props) {
-	const { setPagePointer } = props;
+	const { setPagePointer, gameList } = props;
 	const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
+	const [gameHovered, setGameHovered] = useState();
 
-	function handleHover() {
+	function handleHover(name) {
 		setHoverOnCard(true);
-		console.log('Hi WILL');
+		setGameHovered(gameList.find(game => game.name === name));
 	}
 
 	return (
 		<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
-		<div className="left-box">
-			<Gallery onMouseEnter={handleHover} setPagePointer={setPagePointer} />
-			{hoverOnCard ? <GameDescription /> : <></>}
-		</div>
+			<div className="left-box">
+				<Gallery onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
+				{hoverOnCard ? <GameDescription game={gameHovered} /> : <></>}
+			</div>
 		</Animated>
 	);
 }

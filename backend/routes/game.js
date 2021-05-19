@@ -13,6 +13,22 @@ router.get('/play/trivia/:name', async function (req, res) {
 	}
 });
 
+// endpoint to retrieve a list of all playable games
+// returns an object containing
+// name, category, author, description
+router.get('/list', async function (req, res) {
+	try {
+		const query = games.Trivia.find({});
+		query.select({ name: 1, category: 1, author: 1, description: 1, _id: 0 });
+		const list = await query.exec();
+		console.log("loaded game list. count:", list.length);
+		res.send(list);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
+	}
+});
+
 // endpoint to create a new trivia game
 router.post('/trivia', async function (req, res) {
 	// data retrieved from the request body
