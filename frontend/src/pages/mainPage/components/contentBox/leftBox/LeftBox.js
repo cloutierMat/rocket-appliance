@@ -8,10 +8,9 @@ export default function LeftBox(props) {
 	const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
 	const [gameHovered, setGameHovered] = useState();
 
-	function handleHover(e) {
-		const name = e.target.name;
+	function handleHover(name) {
 		setHoverOnCard(true);
-		setGameHovered(gameList.find(game => game.name===name))
+		setGameHovered(gameList.find(game => game.name === name));
 	}
 
 	return (
