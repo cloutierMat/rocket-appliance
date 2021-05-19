@@ -3,6 +3,7 @@ import ContributeForm from './ContributeForm';
 import ContributeDescription from './ContributeDescription';
 import TriviaForm from './forms/TriviaForm';
 import HangmanForm from './forms/HangmanForm';
+import ContributeFormWithHooks from './ContributeFormWithHooks'
 
 export default function Contribute(props) {
   const { setPagePointer } = props;
@@ -24,9 +25,9 @@ export default function Contribute(props) {
   return (
     <div>
       <ContributeDescription />
-      <ContributeForm setFormPointer={setFormPointer} />
-      {formToDisplay}
+      <ContributeFormWithHooks />
     </div>
+    
   );
 }
 
