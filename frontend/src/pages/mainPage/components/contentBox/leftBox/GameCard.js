@@ -9,7 +9,7 @@ export default function GameCard(props) {
 		<Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
 			<div
 				className="game-card card-rotate btn btn-background-slide" //niki
-				onMouseEnter={() => onMouseEnter(name)}
+				onMouseEnter={onMouseEnter ? () => onMouseEnter(name): undefined}
 				onClick={() => {
 					setPagePointer(name);
 				}}

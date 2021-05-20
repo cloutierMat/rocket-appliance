@@ -5,6 +5,9 @@ import RightBox from './rightBox/RightBox';
 export default function ContentBox(props) {
 	const { setPagePointer } = props;
 	const [gameList, setGameList] = useState();
+	const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
+	const [gameHovered, setGameHovered] = useState();
+
 
 	//
 	// fetching game cards form server
@@ -19,10 +22,15 @@ export default function ContentBox(props) {
 		fetchData();
 	}, []);
 
+	function handleHover(name) {
+		setHoverOnCard(true);
+		setGameHovered(gameList.find(game => game.name === name));
+	}
+
 	return (
 		<div className="content-box">
-			<LeftBox setPagePointer={setPagePointer} gameList={gameList} />
-			<RightBox setPagePointer={setPagePointer} gameList={gameList} />
+			<LeftBox hoverOnCard={hoverOnCard} gameHovered={gameHovered} onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
+			<RightBox onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
 		</div>
 	);
 }
