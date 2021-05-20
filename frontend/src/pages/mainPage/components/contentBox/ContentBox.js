@@ -30,7 +30,7 @@ export default function ContentBox(props) {
 	return (
 		<div className="content-box">
 			<LeftBox hoverOnCard={hoverOnCard} gameHovered={gameHovered} onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
-			<RightBox onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
+			<RightBox setPagePointer={setPagePointer} gameList={gameList} />
 		</div>
 	);
 }

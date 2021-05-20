@@ -276,7 +276,7 @@ button.btn.btn-background-slide {
 	border: 2px solid rgb(48, 48, 48);
 }
 
-.card-rotate {
+.gallery .card-rotate {
 	transform: rotate(90deg) translateY(-50px) translateX(125px);
 	transform-origin: top right;
 }
@@ -292,6 +292,17 @@ button.btn.btn-background-slide {
 
 .suggestion-description {
 	border-top: 4px solid rgb(36, 36, 36);
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.suggestion-description h2 {
+	margin: 0.5em 0;
+}
+
+.suggestion-description h4 {
+	margin-bottom: 0;
 }
 
 .suggestion-game-description {
@@ -340,4 +351,10 @@ button.btn.btn-background-slide {
 .game-description p {
 	margin: 0;
 	font-size: .6em;
+}
+
+.card-reducer {
+	display: flex;
+	align-items: center;
+	transform: scale(0.93);
 }
