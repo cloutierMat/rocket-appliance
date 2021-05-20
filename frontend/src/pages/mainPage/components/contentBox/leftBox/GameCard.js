@@ -4,7 +4,7 @@ import { Animated } from "react-animated-css";  //niki
 
 export default function GameCard(props) {
 	const { game, onMouseEnter, setPagePointer } = props;
-	const { name, category, type, author, description } = game;
+	const { name, category } = game;
 	return (
 		<Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
 			<div

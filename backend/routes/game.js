@@ -19,7 +19,7 @@ router.get('/play/trivia/:name', async function (req, res) {
 router.get('/list', async function (req, res) {
 	try {
 		const query = games.Trivia.find({});
-		query.select({ name: 1, category: 1, author: 1, description: 1, _id: 0 });
+		query.select({ name: 1, category: 1, type: 1, author: 1, description: 1, _id: 0 });
 		const list = await query.exec();
 		console.log("loaded game list. count:", list.length);
 		res.send(list);

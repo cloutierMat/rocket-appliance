@@ -10,15 +10,24 @@ function App() {
 	const [pagePointer, setPagePointer] = useState('Main');
 
    useEffect(() => {
-      if (pagePointer === 'Main') {
-         setPageToDisplay(<Main setPagePointer={setPagePointer} />);
-      } 
-      else if (pagePointer==='Contribute') {
-         setPageToDisplay(<Contribute setPagePointer={setPagePointer} />);
+      switch (pagePointer) {
+         case 'Main':
+         case 'Learn': 
+            setPageToDisplay(<Main setPagePointer={setPagePointer} />);
+            break;
+         case 'Contribute':
+            setPageToDisplay(<Contribute setPagePointer={setPagePointer} />);
+            break;
+         default:
+            setPageToDisplay(<Trivia gameName={pagePointer}/>);
       }
-      else {
-         setPageToDisplay(<Trivia />);
-      }
+      // if (pagePointer === 'Main') {
+      //    setPageToDisplay(<Main setPagePointer={setPagePointer} />);
+      // } 
+      // else if (pagePointer==='Contribute') {
+      // }
+      // else {
+      // }
    }, [pagePointer]);
 
    return (

@@ -3,7 +3,8 @@ import Questions from './Questions';
 import TriviaEnding from './TriviaEnding';
 import './trivia.css';
 
-export default function Trivia() {
+export default function Trivia(props) {
+	const {gameName} = props;
 	const [category, setCategory] = useState();
 	const [name, setName] = useState();
 	const [questions, setQuestions] = useState();
@@ -13,7 +14,7 @@ export default function Trivia() {
 	useEffect(() => {
 		async function fetchData() {
 			try {
-				const response = await fetch("game/play/trivia/RocketAppliance");
+				const response = await fetch(`game/play/trivia/${gameName}`);
 				const triviaToDisplay = await response.json();
 				setCategory(triviaToDisplay.category);
 				setName(triviaToDisplay.name);
