@@ -39,7 +39,8 @@ nav {
 	height: 100px;
 	width: 500px;
 	background-image: url(./components/images/dubResBannerV1.png);
-	background-size: 100%; /* added this to make the double res size work*/
+	background-size: 100%;
+	/* added this to make the double res size work*/
 	margin-top: 10px;
 	margin-bottom: 15px;
 	margin-right: 10px;
@@ -321,4 +322,22 @@ button.btn.btn-background-slide {
 	background: none;
 	height: 20px;
 	width: 20px;
+}
+
+.game-description {
+	border: #151515 solid;
+	background-color: #7776;
+	color: #ddd;
+	text-shadow: black 2px 2px 5px;
+	text-align: center;
+}
+
+.game-description h3 {
+	font-size: 2em;
+	margin: 0;
+}
+
+.game-description p {
+	margin: 0;
+	font-size: .6em;
 }
