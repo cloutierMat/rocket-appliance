@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import ContributeForm from './ContributeForm';
-// import ContributeDescription from './ContributeDescription';
+import ContributeForm from './ContributeForm';
+import ContributeDescription from './ContributeDescription';
 import TriviaForm from './forms/TriviaForm';
 import HangmanForm from './forms/HangmanForm';
 import ContributeFormWithHooks from './ContributeFormWithHooks';
@@ -13,7 +13,7 @@ export default function Contribute(props) {
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
-			setFormToDisplay(<TriviaForm setFormPointer={setFormPointer} />);
+			setFormToDisplay(<TriviaFormTake3 setFormPointer={setFormPointer} />);
 		}
 		else if (formPointer === 'Hangman') {
 			setFormToDisplay(<HangmanForm setFormPointer={setFormPointer} />);
@@ -25,9 +25,9 @@ export default function Contribute(props) {
 
 	return (
 		<div>
-			<TriviaFormTake3 />
-			{/* <ContributeDescription />
-			<ContributeFormWithHooks /> */}
+			<ContributeDescription />
+			<ContributeForm setFormPointer={setFormPointer} />
+			{formToDisplay}
 		</div>
 
 	);
