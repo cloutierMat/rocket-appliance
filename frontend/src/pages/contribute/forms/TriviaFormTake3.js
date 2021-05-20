@@ -9,13 +9,7 @@ export default function TriviaFormTake3() {
 		type: "Trivia",
 		author: "",
 		description: "",
-		questions: [
-			// {
-			// 	question: "",
-			// 	options: [],
-			// 	link: ""
-			// }
-		]
+		questions: []
 	};
 	const [data, setData] = useState(INITIAL_DATA);
 	const { watch, handleSubmit, control } = useForm();
@@ -59,12 +53,32 @@ export default function TriviaFormTake3() {
 		setData(prevData);
 	};
 
-	const onSubmit = data => console.log(data);
+	// const onSubmit = data => console.log(data);
+	function handleSubmitForm(event) {
+		event.preventDefault();
+		console.log(data);
+		function dataFilter(data, index) {
+			const dataToSend = data.questions[index].forEach(id => { Object.remove(id); });;
+			console.log(dataToSend);
+
+		}
+		console.log(data.questions);
+		return fetch('/game/trivia', {
+			method: "POST",
+			body: JSON.stringify(data),
+			headers: {
+				"Content-Type": "application/json"
+			},
+		})
+			.then(res => res.json())
+			.then(data => { console.log("success", data); })
+			.catch((error) => { console.error("error", error); });
+	}
 
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmitForm}>
 				<h1>Trivia </h1>
 				<ul>
 					<li>
@@ -125,7 +139,7 @@ export default function TriviaFormTake3() {
 
 				<input type="submit" />
 			</form>
-			<button onClick={() => console.log(data)} >Data</button>
+			<button onClick={() => console.log(data)} >Reset</button>
 		</>
 	);
 }
