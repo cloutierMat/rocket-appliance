@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import ContributeForm from './ContributeForm';
-import ContributeDescription from './ContributeDescription';
+// import ContributeForm from './ContributeForm';
+// import ContributeDescription from './ContributeDescription';
 import TriviaForm from './forms/TriviaForm';
 import HangmanForm from './forms/HangmanForm';
-import ContributeFormWithHooks from './ContributeFormWithHooks'
+import ContributeFormWithHooks from './ContributeFormWithHooks';
+import TriviaFormTake3 from './forms/TriviaFormTake3';
 
 export default function Contribute(props) {
-  const { setPagePointer } = props;
-  const [formToDisplay, setFormToDisplay] = useState();
-  const [formPointer, setFormPointer] = useState('Select a game type');
+	const { setPagePointer } = props;
+	const [formToDisplay, setFormToDisplay] = useState();
+	const [formPointer, setFormPointer] = useState('Select a game type');
 
-  useEffect(() => {
-    if (formPointer === 'Trivia') {
-      setFormToDisplay(<TriviaForm setFormPointer={setFormPointer} />);
-    }
-    else if (formPointer === 'Hangman') {
-      setFormToDisplay(<HangmanForm setFormPointer={setFormPointer} />);
-    }
-    else {
-      setFormToDisplay(<p></p>);
-    }
-  }, [formPointer]);
+	useEffect(() => {
+		if (formPointer === 'Trivia') {
+			setFormToDisplay(<TriviaForm setFormPointer={setFormPointer} />);
+		}
+		else if (formPointer === 'Hangman') {
+			setFormToDisplay(<HangmanForm setFormPointer={setFormPointer} />);
+		}
+		else {
+			setFormToDisplay(<p></p>);
+		}
+	}, [formPointer]);
 
-  return (
-    <div>
-      <ContributeDescription />
-      <ContributeFormWithHooks />
-    </div>
-    
-  );
+	return (
+		<div>
+			<TriviaFormTake3 />
+			{/* <ContributeDescription />
+			<ContributeFormWithHooks /> */}
+		</div>
+
+	);
 }
 
