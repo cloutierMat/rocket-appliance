@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ContributeForm from './ContributeForm';
 import ContributeDescription from './ContributeDescription';
 import HangmanForm from './components/forms/HangmanForm';
-import TriviaForm from './components/forms/TriviaForm';
+import Trivia from './components/Trivia';
 
 export default function Contribute(props) {
 	const { setPagePointer } = props;
@@ -11,7 +11,7 @@ export default function Contribute(props) {
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
-			setFormToDisplay(<TriviaForm setFormPointer={setFormPointer} />);
+			setFormToDisplay(<Trivia setFormPointer={setFormPointer} />);
 		}
 		else if (formPointer === 'Hangman') {
 			setFormToDisplay(<HangmanForm setFormPointer={setFormPointer} />);
