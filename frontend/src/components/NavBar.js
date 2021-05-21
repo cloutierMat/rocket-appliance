@@ -9,9 +9,11 @@ export default function NavBar(props) {
 		<nav>
 			<NavTitle />
 			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
-				{['Learn', 'Contribute'].map(element => {
-					return <NavButton key={element} name={element} setPagePointer={setPagePointer} />;
-				})}
+				<div >
+					{['Learn', 'Contribute'].map(element => {
+						return <NavButton key={element} name={element} setPagePointer={setPagePointer} />;
+					})}
+				</div>
 			</Animated>
 		</nav>
 	);

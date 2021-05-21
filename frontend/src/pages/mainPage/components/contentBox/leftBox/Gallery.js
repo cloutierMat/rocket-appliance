@@ -1,11 +1,12 @@
 import React from 'react';
 import GameCard from './GameCard';
+import styles from '../../../../../app.module.css';
 
 export default function Gallery(props) {
 	const { onMouseEnter, setPagePointer, gameList } = props;
 	return (
-		<div className="gallery-wrapper">
-			<div className="gallery">
+		<div className={styles["gallery-wrapper"]}>
+			<div className={styles.gallery}>
 				{gameList && gameList.map(game => {
 					return (
 						<GameCard

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LeftBox from './leftBox/LeftBox';
 import RightBox from './rightBox/RightBox';
+import styles from '../../../../app.module.css';
 
 export default function ContentBox(props) {
 	const { setPagePointer } = props;
@@ -28,7 +29,7 @@ export default function ContentBox(props) {
 	}
 
 	return (
-		<div className="content-box">
+		<div className={styles["content-box"]}>
 			<LeftBox hoverOnCard={hoverOnCard} gameHovered={gameHovered} onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
 			<RightBox setPagePointer={setPagePointer} gameList={gameList} />
 		</div>
