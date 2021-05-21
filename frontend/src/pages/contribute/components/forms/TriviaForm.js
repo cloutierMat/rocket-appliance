@@ -12,18 +12,19 @@ export default function TriviaFormTake3() {
 		questions: []
 	};
 	const [data, setData] = useState(INITIAL_DATA);
+	const [messageOnCreate, setMessageOnCreate] = useState("");
 	const { watch, handleSubmit, control } = useForm();
 	const at = watch("at", 2);
 
 	const handleInsertQuestion = () => {
 		let prevData = { ...data };
-		prevData.questions = [...data.questions, { id: id(), question: "", options: [], link: "" }];
+		prevData.questions = [...data.questions, { id: id(), options: [], link: "" }];
 		setData(prevData);
 	};
 
+
 	const handleInsertOption = (questionIndex) => {
 		let prevData = { ...data };
-		console.log("qI", questionIndex);
 		prevData.questions[questionIndex].options = [...data.questions[questionIndex].options, { id: id() }];
 		setData(prevData);
 	};
@@ -53,32 +54,40 @@ export default function TriviaFormTake3() {
 		setData(prevData);
 	};
 
-	// const onSubmit = data => console.log(data);
-	function handleSubmitForm(event) {
-		event.preventDefault();
-		console.log(data);
-		function dataFilter(data, index) {
-			const dataToSend = data.questions[index].forEach(id => { Object.remove(id); });;
-			console.log(dataToSend);
-
-		}
-		console.log(data.questions);
-		return fetch('/game/trivia', {
+	function onSubmit(idAsData) {
+		console.log(idAsData);
+		const questionsToPost = data.questions.map(question => {
+			return {
+				link: question.link,
+				question: idAsData[question.id],
+				options: question.options.map(option => {
+					return idAsData[option.id];
+				})
+			};
+		});
+		let dataToPost = { ...data, questions: questionsToPost };
+		console.log(dataToPost);
+		fetch('/game/trivia', {
 			method: "POST",
-			body: JSON.stringify(data),
+			body: JSON.stringify(dataToPost),
 			headers: {
 				"Content-Type": "application/json"
 			},
 		})
 			.then(res => res.json())
-			.then(data => { console.log("success", data); })
-			.catch((error) => { console.error("error", error); });
+			.then(dataToPost => {
+				console.log(`New Game ${dataToPost.name} Created`);
+			})
+			.then(setMessageOnCreate(`New Game ${dataToPost.name} Created`))
+			.catch((error) => {
+				console.error("error", error);
+				setMessageOnCreate(`Fail to create the game! Try again!`);
+			});
 	}
-
-
 	return (
 		<>
-			<form onSubmit={handleSubmitForm}>
+			<form onSubmit={handleSubmit(onSubmit)}>
+
 				<h1>Trivia </h1>
 				<ul>
 					<li>
@@ -93,7 +102,6 @@ export default function TriviaFormTake3() {
 					<li>
 						<label className="game-description_contributor">Description:</label>
 						<textarea cols="50" rows="5" placeholder="Tell me more about the game" onChange={(event) => { handleInfoChange(event, "description"); }} />
-						{/* <input type="textarea" cols="50" rows="5" placeholder="Tell me more about the game" onChange={(event) => { handleInfoChange(event, "description"); }} /> */}
 					</li>
 					{data.questions.map((question, questionIndex) => (
 						<li key={question.id}>
@@ -102,7 +110,7 @@ export default function TriviaFormTake3() {
 								as={<input />}
 								name={question.id}
 								control={control}
-								defaultValue={question.question}
+								defaultValue=""
 							/>
 							<button onClick={() => handleRemoveQuestion(questionIndex)}>Delete</button>
 							<ul>
@@ -116,7 +124,7 @@ export default function TriviaFormTake3() {
 											as={<input />}
 											name={option.id}
 											control={control}
-											defaultValue={option.option}
+											defaultValue=""
 										/>
 										<button onClick={() => handleRemoveOption(optionIndex, questionIndex)}>Delete</button>
 
@@ -139,7 +147,7 @@ export default function TriviaFormTake3() {
 
 				<input type="submit" />
 			</form>
-			<button onClick={() => console.log(data)} >Reset</button>
+			<h3>{messageOnCreate}</h3>
 		</>
 	);
 }

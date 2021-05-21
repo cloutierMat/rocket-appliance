@@ -28,21 +28,3 @@ export default function ContributeForm(props) {
 
 
 };
-
-
-
-
-  // function handleTriviaClick() {
-  //   setFormPointer('Trivia')
-  // };
-
-  // function handleHangmanClick() {
-  //   setFormPointer('Hangman')
-  // };
-
-// return (
-//   <div>
-//     <button onClick= {handleTriviaClick}>Trivia</button>
-//     <button onClick= {handleHangmanClick}>Hangman</button>
-//   </div>
-// );
