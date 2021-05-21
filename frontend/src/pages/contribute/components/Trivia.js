@@ -56,7 +56,6 @@ export default function Trivia() {
   };
 
   function onSubmit(idAsData) {
-    console.log(idAsData);
     const questionsToPost = data.questions.map(question => {
       return {
         link: question.link,
@@ -67,7 +66,6 @@ export default function Trivia() {
       };
     });
     let dataToPost = { ...data, questions: questionsToPost };
-    console.log(dataToPost);
     fetch('/game/trivia', {
       method: "POST",
       body: JSON.stringify(dataToPost),
@@ -85,10 +83,11 @@ export default function Trivia() {
         setMessageOnCreate(`Fail to create the game! Try again!`);
       });
   }
+
   return (
     <>
       <TriviaForm onSubmit={onSubmit} onChangeInfo={handleInfoChange} onRemoveQuestion={handleRemoveQuestion} onChangeLink={handleLinkChange} onRemoveOption={handleRemoveOption} onInsertOption={handleInsertOption} onInsertQuestion={handleInsertQuestion} data={data} />
-      <h3>{messageOnCreate}</h3>
+      <h2 className="message-on-create_contribute">{messageOnCreate}</h2>
     </>
   );
 }
