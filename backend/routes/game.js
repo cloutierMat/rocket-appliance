@@ -39,7 +39,7 @@ router.post('/trivia', async function (req, res) {
 		// if it already exists, return a 405 "method not allowed"
 		if (triviaValidator) {
 			console.error("attempt to enter duplicate in trivia", triviaToCreate);
-			res.sendStatus(405);
+			res.sendStatus(409);
 			return;
 		}
 		// create a new instance of the Trivia schema
