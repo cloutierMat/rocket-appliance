@@ -27,6 +27,7 @@ body {
 
 nav {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
@@ -36,26 +37,15 @@ nav {
 }
 
 .nav-title {
-	height: 100px;
-	width: 500px;
-	background-image: url(./components/images/dubResBannerV1.png);
-	background-size: 100%;
-	/* added this to make the double res size work*/
-	margin-top: 10px;
-	margin-bottom: 15px;
-	margin-right: 10px;
-	margin-left: 10px;
-	border-radius: 4px;
-	opacity: .9;
+	margin: 10px 10px 15px 10px;
 }
 
-.button-container {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.nav-banner {
+	width: 500px;
 }
 
 .nav-button {
-	height: unset;
+	height: 35px;
 	width: 150px;
 	margin: 10px;
 	margin-bottom: unset;
@@ -65,45 +55,23 @@ nav {
 	color: #FFFFFF;
 	text-align: center;
 	font-size: 28px;
-	transition: all 0.5s;
-	cursor: pointer;
-	opacity: .8;
 	font-family: 'Staatliches', cursive;
 }
 
-.nav-button:hover {
-	background-color: #696868;
-}
-
-.nav-button span {
-	cursor: pointer;
-	position: relative;
-	transition: 0.5s;
-	opacity: 1;
-}
-
-.nav-button:hover span {
-	position: relative;
-	padding-top: 18px;
-}
-
-.Learn:hover span:after {
-	content: url(./components/images/learnicon.png);
+.nav-button-icon {
 	position: absolute;
-	opacity: 0;
-	left: 15px;
+	float: top;
+	float: left;
 }
 
-.Contribute:hover span:after {
-	content: url(./components/images/contributeicon.png);
-	position: absolute;
-	opacity: 0;
-	left: 40px;
+.Learn .nav-button-icon {
+	left: 70px;
+	bottom: 50px;
 }
 
-.nav-button:hover span:after {
-	opacity: 1;
-	top: -18px;
+.Contribute .nav-button-icon {
+	left: 240px;
+	bottom: 50px;
 }
 
 .text-default {
