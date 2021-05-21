@@ -10,6 +10,7 @@
 		"react": "^16.14.0",
 		"react-animated-css": "^1.2.1",
 		"react-dom": "^16.14.0",
+		"react-fitty": "^1.0.1",
 		"react-hook-form": "^4.4.2",
 		"react-icons": "^4.2.0",
 		"react-scripts": "^3.4.4",
