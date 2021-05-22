@@ -9,13 +9,13 @@ import styles from '../../../../../app.module.css';
 export default function RightBox(props) {
 
 	return (
-		<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
-			<div className={styles["right-box"]}>
+		<div className={styles["right-box"]}>
+			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 				<SearchDescription />
 				<SearchInput />
 				<SuggestionDescription />
 				<SuggestionBox {...props} />
-			</div>
-		</Animated>
+			</Animated>
+		</div>
 	);
 }

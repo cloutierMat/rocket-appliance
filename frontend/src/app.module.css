@@ -40,15 +40,22 @@ nav {
 
 .nav-title {
 	margin: 10px 10px 15px 10px;
+	width: 60%;
+	max-width: 100vw;
+	text-align: center;
 }
 
 .nav-banner {
-	width: 500px;
+	width: 100%;
+	max-width: 500px;
+}
+
+.nav-buttons-wrapper {
 	max-width: 100vw;
 }
 
 .nav-button {
-	height: 35px;
+	height: 1.5em;
 	width: 150px;
 	margin: 10px;
 	margin-bottom: unset;
@@ -57,7 +64,7 @@ nav {
 	border: 2px solid white;
 	color: #FFFFFF;
 	text-align: center;
-	font-size: 28px;
+	font-size: 1.8em;
 	font-family: 'Staatliches', cursive;
 }
 
@@ -65,7 +72,7 @@ nav {
 	position: absolute;
 	float: top;
 	float: left;
-	bottom: 25px;
+	bottom: 35px;
 }
 
 .Learn .nav-button-icon {
@@ -90,12 +97,10 @@ MAIN BODY
 	font-family: 'Staatliches', cursive;
 }
 
-/* 
-LEFTBOX
-*/
-
 .content-box {
+	width: 100vw;
 	display: flex;
+	flex-direction: row;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	background-color: #333333;
@@ -104,29 +109,52 @@ LEFTBOX
 }
 
 .left-box {
-	width: 500px;
+	width: 60%;
 	max-width: 100vw;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	margin-left: 10px;
-	border-bottom: 2px solid rgb(36, 36, 36);
+	margin: 10px 10px 15px 10px;
+	text-align: center;
 }
 
 .right-box {
 	border-left: 2px solid white;
-	width: 340px;
-	max-width: 100vw;
-	margin: 10px;
+	max-width: 340px;
 	background-color: rgb(77, 77, 77);
 }
 
+/* 
+LEFTBOX
+*/
+
 .gallery-wrapper {
 	height: 160px;
+	width: 100%;
 }
+
+.game-description {
+	border: #151515 solid;
+	background-color: #7776;
+	color: #ddd;
+	text-shadow: black 2px 2px 5px;
+	text-align: center;
+}
+
+.game-description h3 {
+	font-size: 2em;
+	margin: 0;
+}
+
+.game-description p {
+	margin: 0;
+	font-size: .6em;
+}
+
+/* 
+GAME CARDS
+*/
 
 .gallery {
 	width: 160px;
-	height: 490px;
+	height: 600px;
 	display: block;
 	overflow-y: auto;
 	overflow-x: scroll;
@@ -139,87 +167,15 @@ LEFTBOX
 	;
 }
 
-/* niki */
-
-*, *::before, *::after {
-	box-sizing: border-box;
-}
-
-.btn {
-	background-color: var(--background-color);
-	color: #222;
-	/* padding: .5em 1em; */
-	border: none;
-	outline: none;
-	position: relative;
+.game-card {
+	display: block;
+	height: 151px;
+	width: 103px;
+	border: 2px solid white;
+	border-radius: 2px;
+	margin: 5px;
+	margin-left: 3px;
 	cursor: pointer;
-	--background-color: #E3E3E3;
-	--border-size: 2px;
-	--accent-color: white;
-}
-
-button.btn.btn-background-slide::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	z-index: -1;
-	background-color: var(--accent-color);
-	transition: transform 300ms ease-in-out;
-	transform: scaleX(0);
-	transform-origin: top;
-}
-
-button.btn.btn-background-slide:hover::before, button.btn.btn-background-slide:focus::before {
-	transform: scaleX(1);
-}
-
-button.btn.btn-background-slide {
-	transition: color 300ms ease-in-out;
-	z-index: 1;
-}
-
-button.btn.btn-background-slide:hover, button.btn.btn-background-slide:focus {
-	color: white;
-}
-
-button.btn.btn-background-slide {
-	color: white;
-	font-family: 'Staatliches', cursive;
-	font-size: 26px;
-	height: 145px;
-	width: 96.5px;
-	text-align: center;
-	padding-top: 10px;
-	padding-right: 10px;
-	margin: 1px;
-	background-color: #4f4d4d;
-	border: solid rgb(242, 113, 113);
-}
-
-.icon-button {
-	display: inline;
-	padding-right: 2px;
-	font-size: 30px;
-	border-style: solid;
-	border-color: #151515;
-	border-spacing: inherit;
-	height: 27px;
-	width: 78px;
-	background-color: #151515;
-}
-
-.game-card h4 {
-	/* somehow padding-bottom doesn't work */
-	font-size: 24px;
-	color: #151515;
-	margin: 2px;
-	margin-bottom: 2px;
-	margin-top: 0px;
-	height: 53px;
-	width: 70px;
 }
 
 .game-card hr {
@@ -238,18 +194,87 @@ button.btn.btn-background-slide {
 	width: 78px;
 }
 
-/* niki */
+.game-card h4 {
+	font-size: 24px;
+	color: #151515;
+	margin: 2px;
+	margin-bottom: 2px;
+	margin-top: 0px;
+	height: 53px;
+	width: 70px;
+}
 
-.game-card {
-	display: block;
-	height: 151px;
-	width: 103px;
-	/* background-image: url(./components/images/triviacard.png); */
-	border: 2px solid white;
-	border-radius: 2px;
-	margin: 5px;
-	margin-left: 3px;
+.gallery .game-card {
+	transform: rotate(90deg) translateY(-50px) translateX(125px);
+	transform-origin: top right;
+}
+
+.card-reducer {
+	display: flex;
+	align-items: center;
+	transform: scale(0.93);
+}
+
+/* 
+GAME CARD ANIMATION
+*/
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+.btn-background-slide {
+	background-color: var(--background-color);
+	color: #222;
+	/* padding: .5em 1em; */
+	border: none;
+	outline: none;
+	position: relative;
 	cursor: pointer;
+	--background-color: #E3E3E3;
+	--border-size: 2px;
+	--accent-color: white;
+}
+
+.btn-background-slide::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	background-color: var(--accent-color);
+	transition: transform 300ms ease-in-out;
+	transform: scaleX(0);
+	transform-origin: top;
+}
+
+.btn-background-slide:hover::before, button.btn.btn-background-slide:focus::before {
+	transform: scaleX(1);
+}
+
+.btn-background-slide {
+	transition: color 300ms ease-in-out;
+	z-index: 1;
+}
+
+.btn-background-slide:hover, button.btn.btn-background-slide:focus {
+	color: white;
+}
+
+.btn-background-slide {
+	color: white;
+	font-family: 'Staatliches', cursive;
+	font-size: 26px;
+	height: 145px;
+	width: 96.5px;
+	text-align: center;
+	padding-top: 10px;
+	padding-right: 10px;
+	margin: 1px;
+	background-color: #4f4d4d;
+	border: solid rgb(242, 113, 113);
 }
 
 .game-card:hover {
@@ -257,14 +282,21 @@ button.btn.btn-background-slide {
 	border: 2px solid rgb(48, 48, 48);
 }
 
-.gallery .card-rotate {
-	transform: rotate(90deg) translateY(-50px) translateX(125px);
-	transform-origin: top right;
+.icon-button {
+	display: inline;
+	padding-right: 2px;
+	font-size: 30px;
+	border-style: solid;
+	border-color: #151515;
+	border-spacing: inherit;
+	height: 27px;
+	width: 78px;
+	background-color: #151515;
 }
 
-.card-margin {
-	margin: 10px;
-}
+/* 
+Right Box
+*/
 
 .suggestion-box {
 	display: flex;
@@ -314,28 +346,4 @@ button.btn.btn-background-slide {
 	background: none;
 	height: 20px;
 	width: 20px;
-}
-
-.game-description {
-	border: #151515 solid;
-	background-color: #7776;
-	color: #ddd;
-	text-shadow: black 2px 2px 5px;
-	text-align: center;
-}
-
-.game-description h3 {
-	font-size: 2em;
-	margin: 0;
-}
-
-.game-description p {
-	margin: 0;
-	font-size: .6em;
-}
-
-.card-reducer {
-	display: flex;
-	align-items: center;
-	transform: scale(0.93);
 }
