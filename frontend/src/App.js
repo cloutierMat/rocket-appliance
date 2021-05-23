@@ -25,7 +25,7 @@ function App() {
 	}, [pagePointer]);
 
 	return (
-		<div className={styles.App}>
+		<div className={`${styles.App} ${styles["flex-container"]}`}>
 			<NavBar setPagePointer={setPagePointer} />
 			{pageToDisplay}
 		</div>

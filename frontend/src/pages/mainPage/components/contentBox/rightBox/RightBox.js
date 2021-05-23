@@ -9,7 +9,7 @@ import styles from '../../../../../app.module.css';
 export default function RightBox(props) {
 
 	return (
-		<div className={styles["right-box"]}>
+		<div className={`${styles["right-box"]} ${styles["right-side"]}`}>
 			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 				<SearchDescription />
 				<SearchInput />

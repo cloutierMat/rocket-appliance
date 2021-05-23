@@ -7,9 +7,9 @@ import styles from '../app.module.css';
 export default function NavBar(props) {
 	const { setPagePointer } = props;
 	return (
-		<nav>
+		<nav className={`${styles["flex-container"]} ${styles["full-width"]}`}>
 			<NavTitle />
-			<div className={styles["nav-buttons-wrapper"]}>
+			<div className={`${styles["nav-buttons-wrapper"]} ${styles["right-side"]}`}>
 				<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 					{['Learn', 'Contribute'].map(element => {
 						return <NavButton key={element} name={element} setPagePointer={setPagePointer} />;

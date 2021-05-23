@@ -29,7 +29,7 @@ export default function ContentBox(props) {
 	}
 
 	return (
-		<div className={styles["content-box"]}>
+		<div className={`${styles["content-box"]} ${styles["full-width"]} ${styles["flex-container"]}`}>
 			<LeftBox hoverOnCard={hoverOnCard} gameHovered={gameHovered} onMouseEnter={handleHover} setPagePointer={setPagePointer} gameList={gameList} />
 			<RightBox setPagePointer={setPagePointer} gameList={gameList} />
 		</div>

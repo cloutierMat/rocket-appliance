@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-::-webkit-scrollbar {
-	width: 0px;
-	height: 0px;
+/* ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: burlywood;
 }
 
 ::-webkit-scrollbar-button {
-	width: 0px;
-	height: 0px;
-}
+	width: 10px;
+	height: 10px;
+	background-color: black;
+} */
 
 body {
 	background-color: rgb(65, 65, 65);
 	margin: 0;
+	text-align: center;
+}
+
+.flex-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 }
 
 .App {
@@ -22,17 +30,25 @@ body {
 	background-color: rgb(72, 72, 72);
 }
 
+.full-width {
+	flex: 1 0 100%;
+}
+
+.left-side {
+	flex: 3;
+	min-width: min(100%, 500px);
+}
+
+.right-side {
+	flex: 2;
+	min-width: min(100%, 300px);
+}
+
 /* 
 NAVBAR
 */
 
 nav {
-	width: 100vw;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
 	background-color: #333333;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
@@ -40,19 +56,13 @@ nav {
 
 .nav-title {
 	margin: 10px 10px 15px 10px;
-	width: 60%;
-	max-width: 100vw;
-	text-align: center;
 }
 
 .nav-banner {
-	width: 100%;
-	max-width: 500px;
+	max-width: min(500px, 100%);
 }
 
-.nav-buttons-wrapper {
-	max-width: 100vw;
-}
+.nav-buttons-wrapper {}
 
 .nav-button {
 	height: 1.5em;
@@ -91,7 +101,7 @@ MAIN BODY
 	height: auto;
 	text-align: center;
 	margin: auto;
-	max-width: 850px;
+	max-width: 80vw;
 	padding: 10px;
 	color: white;
 	font-family: 'Staatliches', cursive;
@@ -109,15 +119,12 @@ MAIN BODY
 }
 
 .left-box {
-	width: 60%;
-	max-width: 100vw;
 	margin: 10px 10px 15px 10px;
 	text-align: center;
 }
 
 .right-box {
 	border-left: 2px solid white;
-	max-width: 340px;
 	background-color: rgb(77, 77, 77);
 }
 
@@ -126,7 +133,6 @@ LEFTBOX
 */
 
 .gallery-wrapper {
-	height: 160px;
 	width: 100%;
 }
 
@@ -153,23 +159,21 @@ GAME CARDS
 */
 
 .gallery {
-	width: 160px;
-	height: 600px;
-	display: block;
-	overflow-y: auto;
+	width: 100%;
+	height: fit-content;
+	display: flex;
 	overflow-x: scroll;
-	transform: rotate(-90deg) translateY(-160px);
+	justify-content: space-around;
 	transform-origin: top right;
 	margin-top: 10px;
 	border-top: 2px solid rgb(36, 36, 36);
 	border-bottom: 2px solid rgb(36, 36, 36);
 	background-color: rgb(77, 77, 77);
-	;
 }
 
 .game-card {
 	display: block;
-	height: 151px;
+	height: fit-content;
 	width: 103px;
 	border: 2px solid white;
 	border-radius: 2px;
@@ -202,11 +206,6 @@ GAME CARDS
 	margin-top: 0px;
 	height: 53px;
 	width: 70px;
-}
-
-.gallery .game-card {
-	transform: rotate(90deg) translateY(-50px) translateX(125px);
-	transform-origin: top right;
 }
 
 .card-reducer {
@@ -267,8 +266,7 @@ GAME CARD ANIMATION
 	color: white;
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
-	height: 145px;
-	width: 96.5px;
+	width: fit-content;
 	text-align: center;
 	padding-top: 10px;
 	padding-right: 10px;
@@ -289,7 +287,6 @@ GAME CARD ANIMATION
 	border-style: solid;
 	border-color: #151515;
 	border-spacing: inherit;
-	height: 27px;
 	width: 78px;
 	background-color: #151515;
 }

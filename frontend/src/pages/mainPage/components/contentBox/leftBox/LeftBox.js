@@ -8,7 +8,7 @@ export default function LeftBox(props) {
 
 
 	return (
-		<div className={styles["left-box"]}>
+		<div className={`${styles["left-box"]} ${styles["left-side"]}`}>
 			<Gallery onMouseEnter={onMouseEnter} setPagePointer={setPagePointer} gameList={gameList} />
 			{hoverOnCard ? <GameDescription game={gameHovered} /> : <></>}
 		</div >

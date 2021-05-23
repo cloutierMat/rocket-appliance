@@ -5,9 +5,9 @@ import ContentBox from './components/contentBox/ContentBox';
 export default function MainPage(props) {
 	const { setPagePointer } = props;
 	return (
-		<div>
+		<>
 			<About />
 			<ContentBox setPagePointer={setPagePointer} />
-		</div>
+		</>
 	);
 }
