@@ -105,7 +105,16 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
+		console.log("questiontopost", questionsToPost);
+		console.log("hi");
+
+		console.log("data", data);
+		console.log("idAsData", idAsData);
+
+		console.log("dataToPostbefore", dataToPost);
+		console.log("hi");
 		let dataToPost = { ...data, questions: questionsToPost };
+		console.log("dataToPostafter", dataToPost);
 		const schema = Joi.object({
 			category: Joi.string()
 				.min(3)
@@ -183,10 +192,10 @@ export default function TriviaForm(props) {
 						<li key={question.id} >
 							Question {questionIndex + 1}
 							<Controller
-								render={() => <input ref={questionFocus} defaultValue={question.question} />}
 								name={question.id}
 								control={control}
 								defaultValue={question.question}
+								render={() => <input ref={questionFocus} defaultValue={question.question} />}
 							/>
 
 							<button onClick={() => { handleRemoveQuestion(questionIndex); }}>Delete</button>
@@ -203,10 +212,10 @@ export default function TriviaForm(props) {
 									<li key={option.id}>
 										Option {optionIndex + 1}
 										<Controller
-											render={() => <input ref={optionFocus} defaultValue={option.option} />}
 											name={option.id}
 											control={control}
 											defaultValue={option.option}
+											render={() => <input ref={optionFocus} defaultValue={option.option} />}
 										/>
 
 										<button onClick={() => { handleRemoveOption(optionIndex, questionIndex); }}>Delete</button>
