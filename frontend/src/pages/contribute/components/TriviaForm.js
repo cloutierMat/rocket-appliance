@@ -133,12 +133,16 @@ export default function TriviaForm(props) {
 			author: Joi.string()
 				.empty(""),
 			description: Joi.string()
+				.min(30)
 				.max(200),
 			questions: Joi.array().items(
 				Joi.object({
-					question: Joi.string(),
+					question: Joi.string()
+						.min(3),
 					options: Joi.array().items(
-						Joi.string().required(),
+						Joi.string()
+							.min(3)
+							.required(),
 					),
 					link: Joi.string(),
 				}).required(),
