@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
 	background-color: burlywood;
@@ -9,7 +9,11 @@
 	width: 10px;
 	height: 10px;
 	background-color: black;
-} */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: red;
+}
 
 body {
 	background-color: rgb(65, 65, 65);
@@ -62,7 +66,9 @@ nav {
 	max-width: min(500px, 100%);
 }
 
-.nav-buttons-wrapper {}
+.nav-buttons-wrapper {
+	margin: 10px;
+}
 
 .nav-button {
 	height: 1.5em;
@@ -133,14 +139,14 @@ LEFTBOX
 */
 
 .gallery-wrapper {
-	width: 100%;
+	max-width: 100%;
 }
 
 .game-description {
-	border: #151515 solid;
+	/* border: #151515 solid; */
 	background-color: #7776;
 	color: #ddd;
-	text-shadow: black 2px 2px 5px;
+	/* text-shadow: black 2px 2px 5px; */
 	text-align: center;
 }
 
@@ -163,7 +169,7 @@ GAME CARDS
 	height: fit-content;
 	display: flex;
 	overflow-x: scroll;
-	justify-content: space-around;
+	justify-content: flex-start;
 	transform-origin: top right;
 	margin-top: 10px;
 	border-top: 2px solid rgb(36, 36, 36);
@@ -172,40 +178,47 @@ GAME CARDS
 }
 
 .game-card {
-	display: block;
-	height: fit-content;
+	/* display: block;
 	width: 103px;
-	border: 2px solid white;
-	border-radius: 2px;
-	margin: 5px;
-	margin-left: 3px;
+	height: 200px; */
+	/* border: 2px solid white; */
+	/* border-radius: 2px; */
+	margin: 20px;
 	cursor: pointer;
+
 }
 
-.game-card hr {
-	margin-top: 1px;
-	margin-bottom: 1px;
-	width: 78px;
+.game-card hr {}
+
+.game-card h4 {
+	color: black;
+	/* border: 2px solid black; */
+	padding: 5px;
+	display: inline-flex;
+	margin: 0px;
+	width: fit-content;
+	height: fit-content;
 }
 
 .game-card h2 {
-	font-size: 26px;
+	/* font-size: 26px; */
+	display: block;
 	margin: 0px;
-	margin-top: 3px;
-	padding-top: 1px;
-	border: solid #151515;
-	background-color: #151515;
-	width: 78px;
+	/* padding-top: 1px; */
+	padding: 5px;
+	background-color: black;
+	width: 180px;
+	/* height: 10px; */
+	/* min-height: fit-content; */
+	/* max-height: 50px; */
 }
 
-.game-card h4 {
-	font-size: 24px;
-	color: #151515;
-	margin: 2px;
-	margin-bottom: 2px;
-	margin-top: 0px;
-	height: 53px;
-	width: 70px;
+
+.left-box .game-card h2 {
+	display: inline-flexj;
+	color: white;
+	height: fit-content;
+	width: 180px;
 }
 
 .card-reducer {
@@ -266,30 +279,32 @@ GAME CARD ANIMATION
 	color: white;
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
-	width: fit-content;
+	/* width: fit-content; */
+	width: 200px;
+	height: 300px;
 	text-align: center;
-	padding-top: 10px;
-	padding-right: 10px;
+	/* padding-top: 10px;
+	padding-right: 10px; */
 	margin: 1px;
 	background-color: #4f4d4d;
 	border: solid rgb(242, 113, 113);
+
 }
 
-.game-card:hover {
+/* .game-card:hover {
 	opacity: .9;
 	border: 2px solid rgb(48, 48, 48);
-}
+} */
 
-.icon-button {
+/* this is where the icon is adjusted right now */
+/* .icon-button {
 	display: inline;
 	padding-right: 2px;
 	font-size: 30px;
-	border-style: solid;
-	border-color: #151515;
-	border-spacing: inherit;
-	width: 78px;
-	background-color: #151515;
-}
+	width: 180px;
+	background-color: black;
+	padding-bottom: 10px
+} */
 
 /* 
 Right Box

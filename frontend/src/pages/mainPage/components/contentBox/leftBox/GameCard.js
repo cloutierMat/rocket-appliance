@@ -20,7 +20,7 @@ export default function GameCard(props) {
 					<h4><ReactFitty wrapText={true}>{name}</ReactFitty></h4>
 					<hr></hr>
 					<h2><ReactFitty wrapText={true}>{category}</ReactFitty></h2>
-					<BsQuestionSquare className={styles["icon-button"]} />
+					{/* <BsQuestionSquare className={styles["icon-button"]} /> */}
 				</button>
 			</Animated>
 		</div>
