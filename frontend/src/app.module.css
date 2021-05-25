@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
+.gallery::-webkit-scrollbar {
+	height: 20px;
 	background-color: burlywood;
 }
 
-::-webkit-scrollbar-button {
-	width: 10px;
+::-webkit-scrollbar-button:single-button {
+	width: 20px;
 	height: 10px;
 	background-color: black;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: red;
+	background-color: grey;
 }
 
 body {
@@ -268,11 +267,11 @@ GAME CARDS
 	width: 180px;
 }
 
-.card-reducer {
+/* .card-reducer {
 	display: flex;
 	align-items: center;
 	transform: scale(0.93);
-}
+} */
 
 /* 
 GAME CARD ANIMATION
