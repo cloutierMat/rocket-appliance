@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TriviaFormEdit from './forms/TriviaFormEdit';
+import TriviaFormEdit from './components/TriviaFormEdit';
 
 export default function EditTrivia(props) {
 	const { game } = props;

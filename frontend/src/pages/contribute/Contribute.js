@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ContributeForm from './ContributeForm';
-import HangmanForm from './components/forms/HangmanForm';
-import CreateTrivia from './components/CreateTrivia';
+import ContributeForm from './components/ContributeForm';
+import HangmanForm from './components/HangmanForm';
+import CreateTrivia from './CreateTrivia';
 import EditForm from './components/EditForm';
 
 export default function Contribute() {

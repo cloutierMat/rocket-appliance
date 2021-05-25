@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EditTrivia from './EditTrivia';
+import EditTrivia from '../EditTrivia';
 
 export default function EditForm() {
 	const [gameList, setGameList] = useState();

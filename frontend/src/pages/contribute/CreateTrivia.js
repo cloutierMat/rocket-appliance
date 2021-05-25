@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TriviaForm from './forms/TriviaForm';
+import TriviaForm from './components/TriviaForm';
 
 export default function Trivia() {
 	let initialData = {
