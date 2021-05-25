@@ -8,7 +8,7 @@ export default function TriviaForm(props) {
 
 	const [errorMessages, setErrorMessages] = useState([]);
 	const [data, setData] = useState(initialData);
-	const [optionsClicked, setOptionsClicked] = useState(true);
+	const [focusedRef, setFocusedRef] = useState('input');
 
 	const { handleSubmit, control } = useForm();
 
@@ -16,19 +16,18 @@ export default function TriviaForm(props) {
 	const questionFocus = useRef();
 	const optionFocus = useRef();
 
-
 	const handleInsertQuestion = () => {
 		let prevData = { ...data };
-		prevData.questions = [...data.questions, { id: id(), options: [], link: "" }];
+		prevData.questions = [...data.questions, { id: id(), options: [], link: "", question: "" }];
 		setData(prevData);
+		setFocusedRef("question");
 	};
-
 
 	const handleInsertOption = (questionIndex) => {
 		let prevData = { ...data };
-		prevData.questions[questionIndex].options = [...data.questions[questionIndex].options, { id: id() }];
+		prevData.questions[questionIndex].options = [...data.questions[questionIndex].options, { id: id(), option: "" }];
 		setData(prevData);
-		setOptionsClicked(optionsClicked => optionsClicked ? false : true);
+		setFocusedRef("option");
 	};
 
 	const handleLinkChange = (event, index) => {
@@ -43,7 +42,6 @@ export default function TriviaForm(props) {
 		setData(prevData);
 	};
 
-
 	const handleRemoveQuestion = index => {
 		let prevData = { ...data };
 		prevData.questions = [...data.questions.slice(0, index), ...data.questions.slice(index + 1)];
@@ -56,24 +54,61 @@ export default function TriviaForm(props) {
 		setData(prevData);
 	};
 
+	const handleKeyOnQuestion = (e, questionIndex) => {
+		if (handlePreventEnterDefault(e)) {
+			handleInsertOption(questionIndex);
+		}
+	};
+
+	const handlePreventEnterDefault = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			return true;
+		}
+	};
+
+	useEffect(() => {
+		const dataToEdit = { ...data };
+		delete dataToEdit.__v;
+		dataToEdit.questions = dataToEdit.questions.map(question => {
+			return {
+				question: question.question,
+				id: id(),
+				link: question.link,
+				options: question.options.map(option => {
+					return {
+						option,
+						id: id()
+					};
+				})
+			};
+		});
+		setData(dataToEdit);
+	}, []);
 
 	//
 	// In the following functions we set the cursor focus
 	useEffect(() => {
-		inputFocus.current.focus();
-	}, []);
-
-	useEffect(() => {
-		if (data.questions.length) {
-			questionFocus.current.focus();
+		switch (focusedRef) {
+			case "input":
+				inputFocus.current.focus();
+				setFocusedRef(null);
+				break;
+			case "question":
+				questionFocus.current.focus();
+				setFocusedRef(null);
+				break;
+			case "option":
+				optionFocus.current.focus();
+				setFocusedRef(null);
+				break;
+			default:
+				break;
 		}
-	}, [data.questions]);
+	}, [focusedRef]);
 
-	useEffect(() => {
-		if (data.questions.length)
-			optionFocus.current.focus();
-	}, [optionsClicked]);
-
+	//
+	// Validationg data and setting back to parent
 	function formValidator(idAsData) {
 		const questionsToPost = data.questions.map(question => {
 			return {
@@ -84,16 +119,16 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
+
 		let dataToPost = { ...data, questions: questionsToPost };
 
 		const schema = Joi.object({
 			category: Joi.string()
-				.alphanum()
 				.min(3)
-				.max(15),
+				.max(20),
 			name: Joi.string()
 				.min(3)
-				.max(15),
+				.max(20),
 			type: Joi.string(),
 			author: Joi.string()
 				.empty(""),
@@ -103,10 +138,10 @@ export default function TriviaForm(props) {
 				Joi.object({
 					question: Joi.string(),
 					options: Joi.array().items(
-						Joi.string(),
+						Joi.string().required(),
 					),
 					link: Joi.string(),
-				}),
+				}).required(),
 			),
 		});
 		const { error } = schema.validate(dataToPost);
@@ -122,7 +157,7 @@ export default function TriviaForm(props) {
 		<>
 			{errorMessages && <h3 className="">{errorMessages}</h3>}
 
-			<form onSubmit={handleSubmit(formValidator)}>
+			<form onSubmit={handleSubmit(formValidator)} >
 
 				<h1>Trivia </h1>
 				<ul>
@@ -130,22 +165,31 @@ export default function TriviaForm(props) {
 						Category: <input
 							type="text"
 							placeholder="Rocket Science"
+							value={data.category}
 							onChange={(event) => { handleInfoChange(event, "category"); }}
-							ref={inputFocus} />
+							ref={inputFocus}
+							onKeyPress={handlePreventEnterDefault}
+						/>
 					</li>
 
 					<li>
 						Game Name: <input
 							type="text"
+							value={data.name}
 							placeholder="Rocket Trivia"
-							onChange={(event) => { handleInfoChange(event, "name"); }} />
+							onChange={(event) => { handleInfoChange(event, "name"); }}
+							onKeyPress={handlePreventEnterDefault}
+						/>
 					</li>
 
 					<li>
 						Contributor: <input
 							type="text"
+							value={data.author}
 							placeholder="Your name / You can leave it anonymous"
-							onChange={(event) => { handleInfoChange(event, "author"); }} />
+							onChange={(event) => { handleInfoChange(event, "author"); }}
+							onKeyPress={handlePreventEnterDefault}
+						/>
 					</li>
 
 					<li>
@@ -153,17 +197,21 @@ export default function TriviaForm(props) {
 						<textarea
 							cols="50"
 							rows="5"
+							value={data.description}
 							placeholder="Tell us more about the game"
 							onChange={(event) => { handleInfoChange(event, "description"); }} />
 					</li>
-					{data.questions.map((question, questionIndex) => (
+					{data.questions[0] && data.questions[0].id && data.questions.map((question, questionIndex) => (
 						<li key={question.id} >
 							Question {questionIndex + 1}
 							<Controller
-								render={() => <input ref={questionFocus} />}
 								name={question.id}
 								control={control}
-								defaultValue=""
+								defaultValue={question.question}
+								render={({ field }) => <input  {...field}
+									ref={questionFocus}
+									onKeyPress={(e) => handleKeyOnQuestion(e, questionIndex)}
+								/>}
 							/>
 
 							<button onClick={() => { handleRemoveQuestion(questionIndex); }}>Delete</button>
@@ -173,16 +221,22 @@ export default function TriviaForm(props) {
 									Link: <input
 										type="url"
 										placeholder="Link to learn more"
-										onChange={(event) => { handleLinkChange(event, questionIndex); }} />
+										value={question.link}
+										onChange={(event) => { handleLinkChange(event, questionIndex); }}
+										onKeyPress={handlePreventEnterDefault}
+									/>
 								</li>
 								{data.questions[questionIndex].options.map((option, optionIndex) => (
 									<li key={option.id}>
 										Option {optionIndex + 1}
 										<Controller
-											render={() => <input ref={optionFocus} />}
 											name={option.id}
 											control={control}
-											defaultValue=""
+											defaultValue={option.option}
+											render={({ field }) => <input {...field}
+												ref={optionFocus}
+												onKeyPress={(e) => handleKeyOnQuestion(e, questionIndex)}
+											/>}
 										/>
 
 										<button onClick={() => { handleRemoveOption(optionIndex, questionIndex); }}>Delete</button>
