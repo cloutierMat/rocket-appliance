@@ -55,17 +55,7 @@ export default function Trivia() {
     setData(prevData);
   };
 
-  function onSubmit(idAsData) {
-    const questionsToPost = data.questions.map(question => {
-      return {
-        link: question.link,
-        question: idAsData[question.id],
-        options: question.options.map(option => {
-          return idAsData[option.id];
-        })
-      };
-    });
-    let dataToPost = { ...data, questions: questionsToPost };
+  function onSubmit(dataToPost) {
     fetch('/game/trivia', {
       method: "POST",
       body: JSON.stringify(dataToPost),

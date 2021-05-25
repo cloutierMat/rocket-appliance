@@ -1,20 +1,73 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import Joi from "joi";
 
 export default function TriviaForm(props) {
-	const { handleSubmit, control } = useForm();
-
 	const { onSubmit, onChangeInfo, onRemoveQuestion, onChangeLink, onRemoveOption, onInsertOption, onInsertQuestion, data } = props;
 
+	const [errorMessages, setErrorMessages] = useState([]);
+
+	const { handleSubmit, control } = useForm();
+
+	const inputFocus = useRef(null);
+
+	useEffect(() => {
+		inputFocus.current.focus();
+	}, []);
+
+	function formValidator(idAsData) {
+		const questionsToPost = data.questions.map(question => {
+			return {
+				link: question.link,
+				question: idAsData[question.id],
+				options: question.options.map(option => {
+					return idAsData[option.id];
+				})
+			};
+		});
+		let dataToPost = { ...data, questions: questionsToPost };
+
+		const schema = Joi.object({
+			category: Joi.string()
+				.alphanum()
+				.min(3)
+				.max(15),
+			name: Joi.string()
+				.min(3)
+				.max(15),
+			type: Joi.string(),
+			author: Joi.string()
+				.empty(""),
+			description: Joi.string()
+				.max(200),
+			questions: Joi.array().items(
+				Joi.object({
+					question: Joi.string(),
+					options: Joi.array().items(
+						Joi.string(),
+					),
+					link: Joi.string(),
+				}),
+			),
+		});
+		const { error } = schema.validate(dataToPost);
+		if (error) {
+			setErrorMessages(error.message);
+		} else {
+			onSubmit(dataToPost);
+		}
+	}
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			{errorMessages && <h3 className="">{errorMessages}</h3>}
+
+			<form onSubmit={handleSubmit(formValidator)}>
 
 				<h1>Trivia </h1>
 				<ul>
 					<li>
-						Category: <input type="text" placeholder="Rocket Science" onChange={(event) => { onChangeInfo(event, "category"); }} />
+						Category: <input type="text" placeholder="Rocket Science" onChange={(event) => { onChangeInfo(event, "category"); }} ref={inputFocus} />
 					</li>
 
 					<li>
