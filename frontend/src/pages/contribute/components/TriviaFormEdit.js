@@ -8,7 +8,8 @@ export default function TriviaForm(props) {
 
 	const [errorMessages, setErrorMessages] = useState([]);
 	const [data, setData] = useState(initialData);
-	const [optionsClicked, setOptionsClicked] = useState(true);
+	const [optionsClicked, setOptionsClicked] = useState(0);
+	const [questionsClicked, setQuestionsClicked] = useState(0);
 
 	const { handleSubmit, control } = useForm();
 
@@ -21,6 +22,7 @@ export default function TriviaForm(props) {
 		let prevData = { ...data };
 		prevData.questions = [...data.questions, { id: id(), options: [], link: "" }];
 		setData(prevData);
+		setQuestionsClicked(count => count + 1);
 	};
 
 
@@ -28,7 +30,7 @@ export default function TriviaForm(props) {
 		let prevData = { ...data };
 		prevData.questions[questionIndex].options = [...data.questions[questionIndex].options, { id: id() }];
 		setData(prevData);
-		setOptionsClicked(optionsClicked => optionsClicked ? false : true);
+		setOptionsClicked(count => count + 1);
 	};
 
 	const handleLinkChange = (event, index) => {
@@ -65,8 +67,8 @@ export default function TriviaForm(props) {
 
 	useEffect(() => {
 		const dataToEdit = { ...data };
+		delete dataToEdit.__v;
 		dataToEdit.questions = dataToEdit.questions.map(question => {
-			console.log("link finder", question.link);
 			return {
 				question: question.question,
 				id: id(),
@@ -82,20 +84,18 @@ export default function TriviaForm(props) {
 		setData(dataToEdit);
 	}, []);
 
-	// useEffect(() => {
-	// 	if (data.questions.length) {
-	// 		questionFocus.current.focus();
-	// 	}
-	// }, [data.questions]);
+	useEffect(() => {
+		if (questionsClicked) {
+			questionFocus.current.focus();
+		}
+	}, [questionsClicked]);
 
-	// useEffect(() => {
-	// 	if (data.questions.length)
-	// 		optionFocus.current.focus();
-	// }, [optionsClicked]);
+	useEffect(() => {
+		if (optionsClicked)
+			optionFocus.current.focus();
+	}, [optionsClicked]);
 
 	function formValidator(idAsData) {
-		console.log("idAsData", idAsData);
-		console.log("data", data);
 		const questionsToPost = data.questions.map(question => {
 			return {
 				link: question.link,
@@ -105,8 +105,16 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
+		console.log("questiontopost", questionsToPost);
+		console.log("hi");
+
+		console.log("data", data);
+		console.log("idAsData", idAsData);
+
+		console.log("dataToPostbefore", dataToPost);
+		console.log("hi");
 		let dataToPost = { ...data, questions: questionsToPost };
-		console.log("dataToPost", dataToPost);
+		console.log("dataToPostafter", dataToPost);
 		const schema = Joi.object({
 			category: Joi.string()
 				.min(3)
@@ -184,10 +192,10 @@ export default function TriviaForm(props) {
 						<li key={question.id} >
 							Question {questionIndex + 1}
 							<Controller
-								render={() => <input ref={questionFocus} defaultValue={question.question} />}
 								name={question.id}
 								control={control}
 								defaultValue={question.question}
+								render={() => <input ref={questionFocus} defaultValue={question.question} />}
 							/>
 
 							<button onClick={() => { handleRemoveQuestion(questionIndex); }}>Delete</button>
@@ -204,10 +212,10 @@ export default function TriviaForm(props) {
 									<li key={option.id}>
 										Option {optionIndex + 1}
 										<Controller
-											render={() => <input ref={optionFocus} defaultValue={option.option} />}
 											name={option.id}
 											control={control}
 											defaultValue={option.option}
+											render={() => <input ref={optionFocus} defaultValue={option.option} />}
 										/>
 
 										<button onClick={() => { handleRemoveOption(optionIndex, questionIndex); }}>Delete</button>
