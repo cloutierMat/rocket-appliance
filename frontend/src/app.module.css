@@ -62,7 +62,52 @@ nav {
 	max-width: min(500px, 100%);
 }
 
-.nav-buttons-wrapper {}
+ /* niki */
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+.nav-button {
+background-color: var(--background-color);
+color: #222;
+/* padding: .5em 1em; */
+border: none;
+outline: none;
+position: relative;
+cursor: pointer;
+--background-color: #E3E3E3;
+--border-size: 2px;
+--accent-color: white;
+}
+
+.nav-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+z-index: -1;
+background-color: var(--accent-color);
+transition: transform 300ms ease-in-out;
+transform: scaleX(0);
+transform-origin: top;
+}
+
+.nav-button:hover::before, button.nav-button:focus::before {
+transform: scaleX(1);
+}
+
+.nav-button {
+transition: color 300ms ease-in-out;
+z-index: 1;
+}
+
+.nav-button:hover, button.btn.nav-button:focus {
+color: black;
+}
+
+/* niki */
 
 .nav-button {
 	height: 1.5em;
@@ -133,7 +178,9 @@ LEFTBOX
 */
 
 .gallery-wrapper {
-	width: 100%;
+	width: 99%;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .game-description {
@@ -163,7 +210,7 @@ GAME CARDS
 	height: fit-content;
 	display: flex;
 	overflow-x: scroll;
-	justify-content: space-around;
+	justify-content: flex-start;
 	transform-origin: top right;
 	margin-top: 10px;
 	border-top: 2px solid rgb(36, 36, 36);
@@ -172,13 +219,7 @@ GAME CARDS
 }
 
 .game-card {
-	display: block;
-	height: fit-content;
-	width: 103px;
-	border: 2px solid white;
-	border-radius: 2px;
-	margin: 5px;
-	margin-left: 3px;
+ 	margin: 20px;
 	cursor: pointer;
 }
 
@@ -222,18 +263,6 @@ GAME CARD ANIMATION
 	box-sizing: border-box;
 }
 
-.btn-background-slide {
-	background-color: var(--background-color);
-	color: #222;
-	/* padding: .5em 1em; */
-	border: none;
-	outline: none;
-	position: relative;
-	cursor: pointer;
-	--background-color: #E3E3E3;
-	--border-size: 2px;
-	--accent-color: white;
-}
 
 .btn-background-slide::before {
 	content: '';
@@ -263,10 +292,22 @@ GAME CARD ANIMATION
 }
 
 .btn-background-slide {
+	height: 300px;
+	width: 200px;
+	background-color: var(--background-color);
+	color: #222;
+	/* padding: .5em 1em; */
+	border: none;
+	outline: none;
+	position: relative;
+	cursor: pointer;
+	--background-color: #E3E3E3;
+	--border-size: 2px;
+	--accent-color: white;
 	color: white;
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
-	width: fit-content;
+	/* width: fit-content; */
 	text-align: center;
 	padding-top: 10px;
 	padding-right: 10px;
@@ -275,10 +316,10 @@ GAME CARD ANIMATION
 	border: solid rgb(242, 113, 113);
 }
 
-.game-card:hover {
+/* .game-card:hover {
 	opacity: .9;
 	border: 2px solid rgb(48, 48, 48);
-}
+} */
 
 .icon-button {
 	display: inline;
