@@ -8,7 +8,11 @@ export default function Trivia() {
 		type: "Trivia",
 		author: "",
 		description: "",
-		questions: []
+		questions: [{
+			link: "",
+			question: "",
+			options: [""]
+		}]
 	};
 	const [messageOnCreate, setMessageOnCreate] = useState("");
 

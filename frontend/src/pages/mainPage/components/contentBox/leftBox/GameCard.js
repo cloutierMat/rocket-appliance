@@ -9,7 +9,7 @@ export default function GameCard(props) {
 	const { name, category } = game;
 	return (
 		<div
-			className={styles["game-card"]} //niki
+			className={styles["game-card"]} 
 			onMouseEnter={onMouseEnter ? () => onMouseEnter(name) : undefined}
 			onClick={() => {
 				setPagePointer(name);

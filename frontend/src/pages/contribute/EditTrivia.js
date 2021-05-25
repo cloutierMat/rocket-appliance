@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TriviaFormEdit from './components/TriviaFormEdit';
+import TriviaForm from './components/TriviaForm';
 
 export default function EditTrivia(props) {
 	const { game } = props;
@@ -28,7 +28,7 @@ export default function EditTrivia(props) {
 
 	return (
 		<>
-			<TriviaFormEdit onSubmit={onSubmit} initialData={game} />
+			<TriviaForm onSubmit={onSubmit} initialData={game} />
 			<h2 className="message-on-create_contribute">{messageOnCreate}</h2>
 		</>
 	);
