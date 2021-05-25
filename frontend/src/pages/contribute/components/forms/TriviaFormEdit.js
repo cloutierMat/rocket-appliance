@@ -64,17 +64,38 @@ export default function TriviaForm(props) {
 	}, []);
 
 	useEffect(() => {
-		if (data.questions.length) {
-			questionFocus.current.focus();
-		}
-	}, [data.questions]);
+		const dataToEdit = { ...data };
+		dataToEdit.questions = dataToEdit.questions.map(question => {
+			console.log("link finder", question.link);
+			return {
+				question: question.question,
+				id: id(),
+				link: question.link,
+				options: question.options.map(option => {
+					return {
+						option,
+						id: id()
+					};
+				})
+			};
+		});
+		setData(dataToEdit);
+	}, []);
 
-	useEffect(() => {
-		if (data.questions.length)
-			optionFocus.current.focus();
-	}, [optionsClicked]);
+	// useEffect(() => {
+	// 	if (data.questions.length) {
+	// 		questionFocus.current.focus();
+	// 	}
+	// }, [data.questions]);
+
+	// useEffect(() => {
+	// 	if (data.questions.length)
+	// 		optionFocus.current.focus();
+	// }, [optionsClicked]);
 
 	function formValidator(idAsData) {
+		console.log("idAsData", idAsData);
+		console.log("data", data);
 		const questionsToPost = data.questions.map(question => {
 			return {
 				link: question.link,
@@ -85,15 +106,14 @@ export default function TriviaForm(props) {
 			};
 		});
 		let dataToPost = { ...data, questions: questionsToPost };
-
+		console.log("dataToPost", dataToPost);
 		const schema = Joi.object({
 			category: Joi.string()
-				.alphanum()
 				.min(3)
-				.max(15),
+				.max(20),
 			name: Joi.string()
 				.min(3)
-				.max(15),
+				.max(20),
 			type: Joi.string(),
 			author: Joi.string()
 				.empty(""),
@@ -130,6 +150,7 @@ export default function TriviaForm(props) {
 						Category: <input
 							type="text"
 							placeholder="Rocket Science"
+							value={data.category}
 							onChange={(event) => { handleInfoChange(event, "category"); }}
 							ref={inputFocus} />
 					</li>
@@ -137,6 +158,7 @@ export default function TriviaForm(props) {
 					<li>
 						Game Name: <input
 							type="text"
+							value={data.name}
 							placeholder="Rocket Trivia"
 							onChange={(event) => { handleInfoChange(event, "name"); }} />
 					</li>
@@ -144,6 +166,7 @@ export default function TriviaForm(props) {
 					<li>
 						Contributor: <input
 							type="text"
+							value={data.author}
 							placeholder="Your name / You can leave it anonymous"
 							onChange={(event) => { handleInfoChange(event, "author"); }} />
 					</li>
@@ -153,17 +176,18 @@ export default function TriviaForm(props) {
 						<textarea
 							cols="50"
 							rows="5"
+							value={data.description}
 							placeholder="Tell us more about the game"
 							onChange={(event) => { handleInfoChange(event, "description"); }} />
 					</li>
-					{data.questions.map((question, questionIndex) => (
+					{data.questions[0].id && data.questions.map((question, questionIndex) => (
 						<li key={question.id} >
 							Question {questionIndex + 1}
 							<Controller
-								render={() => <input ref={questionFocus} />}
+								render={() => <input ref={questionFocus} defaultValue={question.question} />}
 								name={question.id}
 								control={control}
-								defaultValue=""
+								defaultValue={question.question}
 							/>
 
 							<button onClick={() => { handleRemoveQuestion(questionIndex); }}>Delete</button>
@@ -173,16 +197,17 @@ export default function TriviaForm(props) {
 									Link: <input
 										type="url"
 										placeholder="Link to learn more"
+										value={question.link}
 										onChange={(event) => { handleLinkChange(event, questionIndex); }} />
 								</li>
 								{data.questions[questionIndex].options.map((option, optionIndex) => (
 									<li key={option.id}>
 										Option {optionIndex + 1}
 										<Controller
-											render={() => <input ref={optionFocus} />}
+											render={() => <input ref={optionFocus} defaultValue={option.option} />}
 											name={option.id}
 											control={control}
-											defaultValue=""
+											defaultValue={option.option}
 										/>
 
 										<button onClick={() => { handleRemoveOption(optionIndex, questionIndex); }}>Delete</button>
