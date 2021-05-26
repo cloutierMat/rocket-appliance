@@ -141,7 +141,7 @@ export default function TriviaForm(props) {
 						.min(3),
 					options: Joi.array().items(
 						Joi.string()
-							.min(3)
+							.min(1)
 							.required(),
 					),
 					link: Joi.string(),

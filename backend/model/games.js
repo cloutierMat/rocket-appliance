@@ -41,7 +41,7 @@ const triviaSchema = new mongoose.Schema({
 			options: {
 				type: Array,
 				required: true,
-				minLength: 3,
+				minLength: 1,
 			},
 			link: {
 				type: mongoose.SchemaTypes.Url,
