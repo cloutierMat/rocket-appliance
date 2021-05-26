@@ -16,23 +16,27 @@ export default function Trivia() {
 	};
 	const [messageOnCreate, setMessageOnCreate] = useState("");
 
-	function onSubmit(dataToPost) {
-		fetch('/game/trivia', {
-			method: "POST",
-			body: JSON.stringify(dataToPost),
-			headers: {
-				"Content-Type": "application/json"
-			},
-		})
-			.then(res => res.json())
-			.then(dataToPost => {
-				console.log(`New Game ${dataToPost.name} Created`);
-			})
-			.then(setMessageOnCreate(`New Game ${dataToPost.name} Created`))
-			.catch((error) => {
-				console.error("error", error);
-				setMessageOnCreate(`Fail to create the game! Try again!`);
+	async function onSubmit(dataToPost) {
+		try {
+			const res = await fetch('/game/trivia', {
+				method: "POST",
+				body: JSON.stringify(dataToPost),
+				headers: {
+					"Content-Type": "application/json"
+				},
 			});
+			const dataFromServer = await res.json();
+			if (!res.ok) {
+				setMessageOnCreate(dataFromServer.message);
+				return;
+			}
+			console.log(`New Game ${dataFromServer.name} Created`);
+			setMessageOnCreate(`New Game ${dataFromServer.name} Created`);
+		}
+		catch (error) {
+			console.error("error", error);
+			setMessageOnCreate(`Fail to create the game! Try again!`);
+		};
 	}
 
 	return (
