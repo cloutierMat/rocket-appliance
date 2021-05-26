@@ -13,6 +13,7 @@ export default function RightBox(props) {
 			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 				<SearchDescription />
 				<SearchInput />
+				<hr></hr>
 				<SuggestionDescription />
 				<SuggestionBox {...props} />
 			</Animated>

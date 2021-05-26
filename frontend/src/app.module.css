@@ -35,7 +35,6 @@ body {
 
 .App {
 	padding: 10px;
-	margin-top: 10px;
 	background-color: #303346;
 }
 
@@ -214,7 +213,7 @@ MAIN BODY
 }
 
 .content-box {
-	width: 100vw;
+	width: 90vw;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -223,6 +222,9 @@ MAIN BODY
 	background-color: #171923;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
+	border-radius: 10px;
+	padding-right: 10px;
+	/* padding-left: 10px; */
 
 	
 }
@@ -238,8 +240,12 @@ MAIN BODY
 .right-box {
 	border: 2px solid white;
 	background-color: #3B3D47;
-	margin: 20px 20px 0px 10px;
+	margin: 20px 10px 0px 20px;
 	border-radius: 10px;
+}
+
+.right-box hr {
+	max-width: 310px;
 }
 
 /* 
@@ -276,8 +282,7 @@ LEFTBOX
 }
 
 .game-description hr {
-	width: 10px;
-	min-width: 310px;
+	max-width: 310px;
 }
 .game-description h4 {
 	/* max-width: 310px; */
@@ -325,26 +330,25 @@ GAME CARDS
 
 .game-card h4 {
 	color: black;
-	/* border: 2px solid black; */
 	padding: 5px;
 	display: inline-flex;
+	align-items: flex-end;
 	margin: 0px;
 	width: fit-content;
-	height: fit-content;
+	height: 100px;
+	font-size: 1.5em;
 }
 
 .game-card h2 {
-	/* font-size: 26px; */
-	display: block;
+	display: inline-flex;
+	justify-content: center;
 	margin: 0px;
-	/* padding-top: 1px; */
 	padding: 5px;
 	background-color: black;
 	width: 180px;
 	border-radius: 10px;
-	/* height: 10px; */
-	/* min-height: fit-content; */
-	/* max-height: 50px; */
+	font-size: 1em;
+
 }
 
 
@@ -415,8 +419,7 @@ GAME CARD ANIMATION
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
 	/* width: fit-content; */
-	width: 200px;
-	height: 300px;
+
 	text-align: center;
 	/* padding-top: 10px;
 	padding-right: 10px; */
@@ -453,22 +456,23 @@ Right Box
 	margin-bottom: 10px;
 }
 
-.right-side .suggestion-box .game-card {
-}
-
 .suggestion-description {
-	display: inline-flex;
-	border-top: 4px solid #333333;
-	padding: 0;
+	/* display: inline-flex; */
+	padding: 10px;
 	text-align: center;
+	background-color: #171923;
+	border-radius: 10px;
+	margin: 20px 10px;
+	max-height: fit-content;
 }
 
 .suggestion-description h2 {
-	margin: 0.5em 0;
+	margin: -5px;
 }
 
 .suggestion-description h4 {
-	margin-bottom: 0;
+	margin-top: -5px;
+	margin-bottom: 0px;
 }
 
 
@@ -482,12 +486,14 @@ Right Box
 .search-box {
 	width: 300px;
 	height: 30px;
-	background-color: rgb(65, 65, 65);
+	background-color: #171923;
 	border: none;
 	font-family: 'Staatliches', cursive;
-	font-size: 30px;
+	font-size: 25px;
 	color: white;
 	margin-bottom: 10px;
+	border-radius: 10px;
+	padding-left: 5px;
 }
 
 .search-box:focus {
