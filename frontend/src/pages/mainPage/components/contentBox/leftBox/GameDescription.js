@@ -9,9 +9,10 @@ export default function GameDescription(props) {
 			<Animated animationIn="slideInDown" animationOut="fadeOut" isVisible={true}>
 				<h3>{game.name}</h3>
 				<p>Created by {game.author}</p>
-				<h4>You will learn about {game.category}</h4>
-				<h4>You will have to complete a {game.type}!</h4>
-				<h4>{game.description}</h4>
+				<hr></hr>
+			<div>
+			<h4>You will learn about {game.category} by playing {game.category} {game.type}<br/> {game.description}</h4>
+			</div>
 			</Animated>
 		</div>
 	);

@@ -163,19 +163,27 @@ transform: scaleX(1);
 .Learn .nav-button {
 	background-color: rgb(45, 133, 95);
 	border-radius: 5px;
-	box-shadow: 0px 7px 0px rgb(38, 114, 81),0px 8px 20px #222222;
+	box-shadow: 2px 5px 0px 2px rgb(23, 85, 58),0px 8px 20px #222222;
+	padding-right: 35px;
 }
 
 .Learn svg {
+	position: absolute;
+	right: 47px;
+	top: 5px;
 }
 
 .Contribute .nav-button {
 	background-color: rgb(75, 83, 138);
 	border-radius: 5px;
-	box-shadow: 0px 7px 0px rgb(55, 65, 130),0px 8px 20px #222222;
+	box-shadow: 2px 5px 0px 2px rgb(29, 37, 88),0px 8px 20px #222222;
+	padding-right: 35px;
 }
 
 .Contribute svg {
+	position: absolute;
+	right: 19px;
+	top: 3px;
 }
 
 
@@ -253,18 +261,33 @@ LEFTBOX
 	/* text-shadow: black 2px 2px 5px; */
 	text-align: center;
 	min-width: 310px;
+	border-radius: 10px;
 }
 
 .game-description h3 {
-	font-size: 2em;
+	font-size: 3em;
 	margin: 0;
 }
 
 .game-description p {
 	margin: 0;
-	font-size: .6em;
+	font-size: 1em;
+	/* border-bottom: 2px solid white; */
 }
 
+.game-description hr {
+	width: 10px;
+	min-width: 310px;
+}
+.game-description h4 {
+	/* max-width: 310px; */
+	display: inline-flex;
+	background-color: #171923;
+	padding: 20px;
+	border-radius: 10px;
+	margin-top: 10px;
+	font-size: 1.5em;
+}
 /* 
 GAME CARDS
 */
@@ -292,8 +315,7 @@ GAME CARDS
 	/* border-radius: 2px; */
 	margin: 10px;
 	cursor: pointer;
-
-
+	margin-bottom: 20px;
 }
 
 .game-card hr {
@@ -403,7 +425,7 @@ GAME CARD ANIMATION
 	border-radius: 10px;
 	background-color: #dd6b6b;
 	transition: .2s ease-in;
-	box-shadow: 0px 10px 0px rgb(182, 65, 65),0px 8px 20px #222222;
+	box-shadow: 7px 5px 0px 5px rgb(182, 65, 65),0px 8px 20px #222222;
 
 }
 

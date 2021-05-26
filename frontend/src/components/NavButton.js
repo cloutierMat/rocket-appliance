@@ -3,8 +3,8 @@ import styles from '../app.module.css';
 import { Animated } from "react-animated-css";
 import learnIcon from "./images/learnicon.png";
 import contributeIcon from "./images/contributeicon.png";
-import { GoBook } from "react-icons/go";
-import { FaHandHolding } from "react-icons/fa"
+import { FaBookOpen } from "react-icons/fa";
+import { MdThumbUp } from "react-icons/md"
 
 export default function NavButton(props) {
 	const { name, setPagePointer } = props;
@@ -24,8 +24,8 @@ export default function NavButton(props) {
 				onMouseLeave={() => setAnimationDisplay(false)}
 			>
 				{name}
-				{name==="Learn" && <GoBook />}
-				{name==="Contribute" && <FaHandHolding />}
+				{name==="Learn" && <FaBookOpen />}
+				{name==="Contribute" && <MdThumbUp />}
 				{animationDisplay &&
 					<Animated className={styles["nav-button-icon"]} animationIn="slideInUp" animationOut="slideOutDown">
 						
