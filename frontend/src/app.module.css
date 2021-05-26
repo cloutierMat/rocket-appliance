@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 .gallery::-webkit-scrollbar {
 	height: 20px;
-	background-color: burlywood;
+	background-color: rgb(133, 133, 133);
 }
 
-::-webkit-scrollbar-button:single-button {
-	width: 20px;
-	height: 10px;
-	background-color: black;
+::-webkit-scrollbar-button:single-button{
+	background-image: url(./components/images/scrollbuttonV2.png);
+	width: 40px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: grey;
+	background-color: rgb(233, 216, 86);
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(233, 219, 115);
+	border-radius: 10px;
 }
 
 body {
@@ -100,24 +104,37 @@ transform: scaleX(0);
 transform-origin: top;
 }
 
-.nav-button:hover::before, button.nav-button:focus::before {
+.nav-button:hover::before {
 transform: scaleX(1);
 }
 
-.nav-button {
-transition: color 300ms ease-in-out;
-z-index: 1;
+.nav-button:focus {
+	--background-color: none;
+
 }
 
-.nav-button:hover, button.btn.nav-button:focus {
-color: black;
+.nav-button {
+	transition: color 300ms ease-in-out;
+	z-index: 1;
 }
+
+.nav-button:hover, .nav-button:hover button.btn.nav-button:focus {
+	color: black;
+}
+
+/* .nav-button img:hover {
+	filter: invert(1)
+} */
+
+
 
 /* niki */
 
 .nav-button {
+	display: inline-flex;
+	justify-content: center;
 	height: 1.5em;
-	width: 150px;
+	width: 200px;
 	margin: 10px;
 	margin-bottom: unset;
 	border-radius: 2px;
@@ -128,21 +145,36 @@ color: black;
 	font-size: 1.8em;
 	font-family: 'Staatliches', cursive;
 }
+/* 
+.nav-button img {
+	justify-content: center;
+	margin-left: 10px;
 
-.nav-button-icon {
-	position: absolute;
-	float: top;
-	float: left;
-	bottom: 35px;
+	z-index: 2;
+	filter: invert(1)
+} */
+
+
+
+.Learn .nav-button {
+	background-color: rgb(45, 133, 95);
+	border-radius: 5px;
 }
 
-.Learn .nav-button-icon {
+.Contribute .nav-button {
+	background-color: rgb(75, 83, 138);
+	border-radius: 5px;
+}
+
+
+
+/* .Learn .nav-button-icon {
 	left: 70px;
 }
 
 .Contribute .nav-button-icon {
 	left: 240px;
-}
+} */
 
 /*
 MAIN BODY
@@ -170,13 +202,16 @@ MAIN BODY
 }
 
 .left-box {
-	margin: 10px 10px 15px 10px;
-	text-align: center;
+	margin: 10px 10px 15px 20px;
+	min-height: 765px;
+
+	/* text-align: center; */
 }
 
 .right-box {
 	border-left: 2px solid white;
 	background-color: rgb(77, 77, 77);
+	margin: 0px 20px 0px 20px
 }
 
 /* 
@@ -185,6 +220,7 @@ LEFTBOX
 
 .gallery-wrapper {
 	max-width: 100%;
+	margin-bottom: 20px;
 }
 
 .game-description {
@@ -193,6 +229,7 @@ LEFTBOX
 	color: #ddd;
 	/* text-shadow: black 2px 2px 5px; */
 	text-align: center;
+	min-width: 310px;
 }
 
 .game-description h3 {
@@ -232,9 +269,13 @@ GAME CARDS
  	margin: 20px;
 	cursor: pointer;
 
+
 }
 
-.game-card hr {}
+.game-card hr {
+	border: 2px solid white;
+	border-radius: 10px;
+}
 
 .game-card h4 {
 	color: black;
@@ -254,6 +295,7 @@ GAME CARDS
 	padding: 5px;
 	background-color: black;
 	width: 180px;
+	border-radius: 10px;
 	/* height: 10px; */
 	/* min-height: fit-content; */
 	/* max-height: 50px; */
@@ -303,10 +345,11 @@ GAME CARD ANIMATION
 .btn-background-slide {
 	transition: color 300ms ease-in-out;
 	z-index: 1;
+	
 }
 
-.btn-background-slide:hover, button.btn.btn-background-slide:focus {
-	color: white;
+.btn-background-slide:hover {
+	background-color: #d64646;;
 }
 
 .btn-background-slide {
@@ -321,7 +364,7 @@ GAME CARD ANIMATION
 	cursor: pointer;
 	--background-color: #E3E3E3;
 	--border-size: 2px;
-	--accent-color: white;
+	/* --accent-color: white; */
 	color: white;
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
@@ -332,8 +375,10 @@ GAME CARD ANIMATION
 	/* padding-top: 10px;
 	padding-right: 10px; */
 	margin: 1px;
-	background-color: #4f4d4d;
-	border: solid rgb(242, 113, 113);
+	border: solid rgb(255, 255, 255);
+	border-radius: 10px;
+	background-color: #dd6b6b;
+	transition: .2s ease-in;
 
 }
 
@@ -357,8 +402,11 @@ Right Box
 */
 
 .suggestion-box {
-	display: flex;
+	display: inline-flex;
 	margin-bottom: 10px;
+}
+
+.right-side .suggestion-box .game-card {
 }
 
 .suggestion-description {
@@ -376,12 +424,13 @@ Right Box
 	margin-bottom: 0;
 }
 
-.suggestion-game-description {
+
+
+/* .suggestion-game-description {
 	max-width: 200px;
 	margin-top: -10px;
 	margin-left: -10px;
-	opacity: .8;
-}
+} */
 
 .search-box {
 	margin-left: 10px;

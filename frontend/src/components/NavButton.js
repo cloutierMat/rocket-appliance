@@ -22,9 +22,10 @@ export default function NavButton(props) {
 				onMouseLeave={() => setAnimationDisplay(false)}
 			>
 				{name}
+				{/* <img src={icons[name]} alt={name} /> */}
 				{animationDisplay &&
 					<Animated className={styles["nav-button-icon"]} animationIn="slideInUp" animationOut="slideOutDown">
-						<img src={icons[name]} alt={name} />
+						
 					</Animated>
 				}
 			</button>

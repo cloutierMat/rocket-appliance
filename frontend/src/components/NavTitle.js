@@ -1,5 +1,5 @@
 import React from 'react';
-import navBanner from './images/dubResBannerV1.png';
+import navBanner from './images/dubResBannerV2.png';
 import { Animated } from "react-animated-css";
 import styles from '../app.module.css';
 
