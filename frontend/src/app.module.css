@@ -439,7 +439,6 @@ GAME CARD ANIMATION
 	background-color: #d04e4e;
 	transition: .2s ease-in;
 	box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8),0px 8px 20px #222222;
-
 }
 
 .suggestion-box {
@@ -546,4 +545,38 @@ GAME CARD ANIMATION
 	display: inline-flex;
 	justify-content: center;
 	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
+}
+
+.color-1 {
+	background-color: #d04e4e;
+}
+
+.color-1:hover {
+	background-color: rgb(119, 22, 22);
+}
+.color-2{
+	background-color: rgb(98, 98, 170);
+	box-shadow: 7px 5px 0px 5px rgba(28, 48, 114, 0.8),0px 8px 20px #222222;
+}
+
+.color-2:hover {
+	background-color: indigo;
+}
+
+.color-3 {
+	background-color: rgb(103, 146, 103);
+	box-shadow: 7px 5px 0px 5px rgba(28, 92, 47, 0.8),0px 8px 20px #222222;
+}
+
+.color-3:hover {
+	background-color: rgb(13, 78, 13);
+}
+
+.color-4 {
+	background-color: rgb(185, 185, 120);
+	box-shadow: 7px 5px 0px 5px rgba(124, 114, 25, 0.8),0px 8px 20px #222222;
+}
+
+.color-4:hover {
+	background-color: rgb(167, 167, 116);
 }
