@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 .gallery::-webkit-scrollbar {
 	height: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	background-color: rgb(133, 133, 133);
 	border-radius: 10px;
 }
@@ -12,16 +12,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: rgb(233, 216, 86);
+	background-color: #1D223E;
 	border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background-color: rgb(233, 219, 115);
+	background-color:  #2f3557;
 	border-radius: 10px;
 }
 
 body {
-	background-color: #171923;
+	background-color: #14151C;
 	margin: 0;
 	text-align: center;
 }
@@ -35,7 +35,7 @@ body {
 
 .App {
 	padding: 10px;
-	background-color: #303346;
+	background-color: #24262F;
 }
 
 .full-width {
@@ -57,7 +57,7 @@ NAVBAR
 */
 
 nav {
-	background-color: #171923;
+	background-color: #14151C;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
 	border-radius: 10px;
@@ -92,6 +92,7 @@ cursor: pointer;
 --background-color: #E3E3E3;
 --border-size: 2px;
 --accent-color: white;
+opacity: .9;
 }
 
 .nav-button::before {
@@ -160,9 +161,9 @@ transform: scaleX(1);
 
 
 .Learn .nav-button {
-	background-color: rgb(45, 133, 95);
+	background-color: #2f3557;
 	border-radius: 5px;
-	box-shadow: 2px 5px 0px 2px rgb(23, 85, 58),0px 8px 20px #222222;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
 	padding-right: 35px;
 }
 
@@ -173,9 +174,9 @@ transform: scaleX(1);
 }
 
 .Contribute .nav-button {
-	background-color: rgb(75, 83, 138);
+	background-color:#2f3557;
 	border-radius: 5px;
-	box-shadow: 2px 5px 0px 2px rgb(29, 37, 88),0px 8px 20px #222222;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
 	padding-right: 35px;
 }
 
@@ -219,7 +220,7 @@ MAIN BODY
 	justify-content: space-around;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	background-color: #171923;
+	background-color: #14151C;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
 	border-radius: 10px;
@@ -238,8 +239,8 @@ MAIN BODY
 }
 
 .right-box {
-	border: 2px solid white;
-	background-color: #3B3D47;
+	border: 2px solid grey;
+	background-color: #24262F;
 	margin: 20px 10px 0px 20px;
 	border-radius: 10px;
 }
@@ -262,7 +263,7 @@ LEFTBOX
 
 .game-description {
 	/* border: #151515 solid; */
-	background-color: #3B3D47;
+	background-color: #24262F;
 	color: #ddd;
 	/* text-shadow: black 2px 2px 5px; */
 	text-align: center;
@@ -287,7 +288,7 @@ LEFTBOX
 .game-description h4 {
 	/* max-width: 310px; */
 	display: inline-flex;
-	background-color: #171923;
+	background-color: #14151C;
 	padding: 20px;
 	border-radius: 10px;
 	margin-top: 10px;
@@ -304,12 +305,12 @@ GAME CARDS
 	overflow-x: scroll;
 	justify-content: flex-start;
 	transform-origin: top right;
-	margin-top: 10px;
-	border-top: 2px solid rgb(36, 36, 36);
-	border-bottom: 2px solid rgb(36, 36, 36);
-	background-color: #3B3D47;
+	margin-top: 0px;
+	/* border-top: 2px solid rgb(36, 36, 36);
+	border-bottom: 2px solid rgb(36, 36, 36); */
+	background-color: none;
 	border-radius: 10px;
-
+	margin-bottom: 20px;
 }
 
 .game-card {
@@ -322,6 +323,13 @@ GAME CARDS
 	cursor: pointer;
 	margin-bottom: 20px;
 }
+
+.game-card svg {
+	position: absolute;
+	left: 5px;
+	top: 8px; 
+}
+
 
 .game-card hr {
 	border: 2px solid white;
@@ -345,6 +353,7 @@ GAME CARDS
 	margin: 0px;
 	padding: 5px;
 	background-color: black;
+	opacity: .9;
 	width: 180px;
 	border-radius: 10px;
 	font-size: 1em;
@@ -399,7 +408,7 @@ GAME CARD ANIMATION
 }
 
 .btn-background-slide:hover {
-	background-color: #d64646;;
+	background-color: #9d3838;
 }
 
 .btn-background-slide {
@@ -426,30 +435,12 @@ GAME CARD ANIMATION
 	margin: 1px;
 	border: solid rgb(255, 255, 255);
 	border-radius: 10px;
-	background-color: #dd6b6b;
+	/* background-image: linear-gradient(to bottom right, #d04e4e, rgb(126, 52, 52)) ; */
+	background-color: #d04e4e;
 	transition: .2s ease-in;
-	box-shadow: 7px 5px 0px 5px rgb(182, 65, 65),0px 8px 20px #222222;
+	box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8),0px 8px 20px #222222;
 
 }
-
-/* .game-card:hover {
-	opacity: .9;
-	border: 2px solid rgb(48, 48, 48);
-} */
-
-/* this is where the icon is adjusted right now */
-/* .icon-button {
-	display: inline;
-	padding-right: 2px;
-	font-size: 30px;
-	width: 180px;
-	background-color: black;
-	padding-bottom: 10px
-} */
-
-/* 
-Right Box
-*/
 
 .suggestion-box {
 	display: inline-flex;
@@ -460,7 +451,7 @@ Right Box
 	/* display: inline-flex; */
 	padding: 10px;
 	text-align: center;
-	background-color: #171923;
+	background-color: #14151C;
 	border-radius: 10px;
 	margin: 20px 10px;
 	max-height: fit-content;
@@ -486,7 +477,7 @@ Right Box
 .search-box {
 	width: 300px;
 	height: 30px;
-	background-color: #171923;
+	background-color: #14151C;
 	border: none;
 	font-family: 'Staatliches', cursive;
 	font-size: 25px;
@@ -506,4 +497,53 @@ Right Box
 	background: none;
 	height: 20px;
 	width: 20px;
+}
+
+
+/* contribute form */
+
+.contribute-form h3 {
+	margin: 10px;
+	font-size: 1em;
+}
+
+.contribute-form hr {
+	margin: 20px;
+}
+
+.contribute-wrapper {
+	background-color: #14151C;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.drop-down {
+	background-color: #14151C;
+	color: grey;
+	border-radius: 30px;
+	font-size: 1em;
+}
+
+.edit-wrapper {
+	background-color: #24262F;
+	height: fit-content;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	min-width: 200px;
+}
+
+.contribute-form button {
+	background-color: #2f3557;
+	border-radius: 5px;
+	color: white;
+	border: 2px solid white;
+	width: 180px;
+	height: 40px;
+	margin: 0px 10px 0px 10px;
+	opacity: .8;
+	font-family: 'Staatliches', cursive;
+	font-size: 1.2em;
+	display: inline-flex;
+	justify-content: center;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
 }

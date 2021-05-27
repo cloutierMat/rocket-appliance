@@ -3,6 +3,7 @@ import { BsQuestionSquare } from "react-icons/bs";
 import { Animated } from "react-animated-css";  //niki
 // import { ReactFitty } from "react-fitty";
 import styles from '../../../../../app.module.css';
+import { GoTasklist } from "react-icons/go";
 
 export default function GameCard(props) {
 	const { game, onMouseEnter, setPagePointer } = props;
@@ -20,6 +21,7 @@ export default function GameCard(props) {
 					<h4>{name}</h4>
 					<hr></hr>
 					<h2>{category}</h2>
+					<GoTasklist/>
 					{/* <BsQuestionSquare className={styles["icon-button"]} /> */}
 				</button>
 			</Animated>
