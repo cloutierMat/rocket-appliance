@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { v1 as id } from "uuid";
 import { useForm, Controller } from "react-hook-form";
 import Joi from "joi";
+import styles from '../../../app.module.css';
 
 export default function TriviaForm(props) {
 	const { initialData, onSubmit } = props;
@@ -161,12 +162,14 @@ export default function TriviaForm(props) {
 		<>
 			{errorMessages && <h3 className="">{errorMessages}</h3>}
 
-			<form onSubmit={handleSubmit(formValidator)} >
+			<form className={styles["title-form"]} onSubmit={handleSubmit(formValidator)} >
 
 				<h1>Trivia </h1>
 				<ul>
-					<li>
-						Category: <input
+					<ul className="title-form">
+						Category: <br></br>
+						<input
+							className={styles["input"]}
 							type="text"
 							placeholder="Rocket Science"
 							value={data.category}
@@ -174,10 +177,11 @@ export default function TriviaForm(props) {
 							ref={inputFocus}
 							onKeyPress={handlePreventEnterDefault}
 						/>
-					</li>
+					</ul>
 
 					<li>
-						Game Name: <input
+						Game Name: <br></br>
+						<input
 							type="text"
 							value={data.name}
 							placeholder="Rocket Trivia"
@@ -187,7 +191,8 @@ export default function TriviaForm(props) {
 					</li>
 
 					<li>
-						Contributor: <input
+						Contributor: <br></br>
+						<input
 							type="text"
 							value={data.author}
 							placeholder="Your name / You can leave it anonymous"
@@ -197,7 +202,7 @@ export default function TriviaForm(props) {
 					</li>
 
 					<li>
-						<label className="game-description_contributor">Description:</label>
+						<label className="game-description_contributor">Description:</label><br></br>
 						<textarea
 							cols="50"
 							rows="5"
@@ -207,7 +212,7 @@ export default function TriviaForm(props) {
 					</li>
 					{data.questions[0] && data.questions[0].id && data.questions.map((question, questionIndex) => (
 						<li key={question.id} >
-							Question {questionIndex + 1}
+							Question {questionIndex + 1} <br></br>
 							<Controller
 								name={question.id}
 								control={control}
@@ -222,7 +227,8 @@ export default function TriviaForm(props) {
 							<ul>
 
 								<li>
-									Link: <input
+									Link: <br></br>
+									<input
 										type="url"
 										placeholder="Link to learn more"
 										value={question.link}
@@ -233,6 +239,7 @@ export default function TriviaForm(props) {
 								{data.questions[questionIndex].options.map((option, optionIndex) => (
 									<li key={option.id}>
 										Option {optionIndex + 1}
+										<br></br>
 										<Controller
 											name={option.id}
 											control={control}
