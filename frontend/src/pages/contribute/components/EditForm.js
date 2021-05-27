@@ -3,7 +3,7 @@ import GameContext from '../../../context/GameContext';
 import EditTrivia from '../EditTrivia';
 
 export default function EditForm(props) {
-	const { toggleFormPointer, setToggleFormPointer } = props;
+	const { toggleFormPointer, setToggleFormPointer, setMessageOnSubmit } = props;
 	const [gameList, setGameList] = useState();
 	const [displayTrivia, setDisplayTrivia] = useState(false);
 
@@ -31,7 +31,7 @@ export default function EditForm(props) {
 	return (
 		<div>
 			{displayTrivia
-				? <EditTrivia game={displayTrivia} />
+				? <EditTrivia game={displayTrivia} setToggleFormPointer={setToggleFormPointer} />
 				: <table>
 					<thead>
 						<tr>

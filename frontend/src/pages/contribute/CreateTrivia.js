@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import TriviaForm from './components/TriviaForm';
+import SubmitContext from '../../context/SubmitContext';
 
 export default function Trivia() {
 	let initialData = {
@@ -14,7 +15,8 @@ export default function Trivia() {
 			options: [""]
 		}]
 	};
-	const [messageOnCreate, setMessageOnCreate] = useState("");
+
+	const submitCtx = useContext(SubmitContext);
 
 	async function onSubmit(dataToPost) {
 		try {
@@ -27,22 +29,22 @@ export default function Trivia() {
 			});
 			const dataFromServer = await res.json();
 			if (!res.ok) {
-				setMessageOnCreate(dataFromServer.message);
+				submitCtx.setMessage(dataFromServer.message);
 				return;
 			}
 			console.log(`New Game ${dataFromServer.name} Created`);
-			setMessageOnCreate(`New Game ${dataFromServer.name} Created`);
+			submitCtx.setMessage(`New Game ${dataFromServer.name} Created`);
+
 		}
 		catch (error) {
 			console.error("error", error);
-			setMessageOnCreate(`Fail to create the game! Try again!`);
+			submitCtx.setMessage(`Fail to create the game! Try again!`);
 		};
 	}
 
 	return (
 		<>
 			<TriviaForm onSubmit={onSubmit} initialData={initialData} />
-			<h2 className="message-on-create_contribute">{messageOnCreate}</h2>
 		</>
 	);
 }

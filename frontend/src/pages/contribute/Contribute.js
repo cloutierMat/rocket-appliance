@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ContributeForm from './components/ContributeForm';
 import CreateTrivia from './CreateTrivia';
 import EditForm from './components/EditForm';
 import styles from '../../app.module.css';
+import SubmitContext from '../../context/SubmitContext';
 
 
 export default function Contribute() {
 	const [formToDisplay, setFormToDisplay] = useState();
 	const [formPointer, setFormPointer] = useState('Select a game type');
 	const [toggleFormPointer, setToggleFormPointer] = useState(false);
+
+	const submitCtx = useContext(SubmitContext);
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
@@ -28,7 +31,11 @@ export default function Contribute() {
 	return (
 		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]}`}>
 			<p >Select an item in the list below to create a new game</p>
-			<ContributeForm setFormPointer={setFormPointer} setToggleFormPointer={setToggleFormPointer} />
+			<ContributeForm
+				setFormPointer={setFormPointer}
+				setToggleFormPointer={setToggleFormPointer}
+				messageOnSubmit={submitCtx.messageLog}
+			/>
 			{formToDisplay}
 		</div>
 	);

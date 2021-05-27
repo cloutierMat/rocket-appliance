@@ -31,13 +31,11 @@ export default function Questions(props) {
 	}, [questionPointer, questions]);
 
 	function handleNextClick() {
-		setQuestionPointer(pointer => {
-			if (pointer < questions.length - 1) {
-				return pointer + 1;
-			} else {
-				setIsEndReached(true);
-			}
-		});
+		if (questionPointer < questions.length - 1) {
+			setQuestionPointer(pointer => pointer + 1);
+		} else {
+			setIsEndReached(true);
+		}
 	}
 
 	// handle answer clicking

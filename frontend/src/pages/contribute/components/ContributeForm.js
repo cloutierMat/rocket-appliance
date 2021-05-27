@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../../../app.module.css';
 import { AiFillEdit } from "react-icons/ai";
 
 export default function ContributeForm(props) {
-	const { setFormPointer, setToggleFormPointer } = props;
+	const { setFormPointer, setToggleFormPointer, messageOnSubmit } = props;
 
 	const [optionState, setOptionState] = useState('Select a game type');
 
@@ -35,6 +35,7 @@ export default function ContributeForm(props) {
 						<AiFillEdit />
 				</button>
 			</div>
+			<h2 className="message-on-create_contribute">{messageOnSubmit}</h2>
 		</div>
 	);
 };

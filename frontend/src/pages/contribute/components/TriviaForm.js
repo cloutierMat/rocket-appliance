@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
 import { v1 as id } from "uuid";
 import { useForm, Controller } from "react-hook-form";
 import Joi from "joi";
@@ -16,8 +15,6 @@ export default function TriviaForm(props) {
 	const inputFocus = useRef(null);
 	const questionFocus = useRef();
 	const optionFocus = useRef();
-
-	const history = useHistory();
 
 	const handleInsertQuestion = () => {
 		let prevData = { ...data };

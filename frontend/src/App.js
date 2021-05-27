@@ -1,5 +1,6 @@
 import React from 'react';
 import GameProvider from './components/GameProvider';
+import SubmitProvider from './components/SubmitProvider';
 import Main from './pages/mainPage/Main';
 import Trivia from './pages/trivia/Trivia';
 import Contribute from './pages/contribute/Contribute';
@@ -13,20 +14,22 @@ import {
 function App() {
 	return (
 		<GameProvider>
-			<div className={`${styles.App} ${styles["flex-container"]}`}>
-				<NavBar />
-				<Switch>
-					<Route path="/contribute">
-						<Contribute />
-					</Route>
-					<Route path="/trivia/:gameName">
-						<Trivia />
-					</Route>
-					<Route path="/">
-						<Main />
-					</Route>
-				</Switch>
-			</div>
+			<SubmitProvider>
+				<div className={`${styles.App} ${styles["flex-container"]}`}>
+					<NavBar />
+					<Switch>
+						<Route path="/contribute">
+							<Contribute />
+						</Route>
+						<Route path="/trivia/:gameName">
+							<Trivia />
+						</Route>
+						<Route path="/">
+							<Main />
+						</Route>
+					</Switch>
+				</div>
+			</SubmitProvider>
 		</GameProvider>
 	);
 }
