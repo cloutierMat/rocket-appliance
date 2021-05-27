@@ -10,7 +10,6 @@ export default function Contribute() {
 	const [formToDisplay, setFormToDisplay] = useState();
 	const [formPointer, setFormPointer] = useState('Select a game type');
 	const [toggleFormPointer, setToggleFormPointer] = useState(false);
-
 	const submitCtx = useContext(SubmitContext);
 
 	useEffect(() => {
