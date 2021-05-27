@@ -3,6 +3,8 @@ import ContributeForm from './components/ContributeForm';
 import HangmanForm from './components/HangmanForm';
 import CreateTrivia from './CreateTrivia';
 import EditForm from './components/EditForm';
+import styles from '../../app.module.css';
+
 
 export default function Contribute() {
 	const [formToDisplay, setFormToDisplay] = useState();
@@ -24,8 +26,8 @@ export default function Contribute() {
 	}, [formPointer]);
 
 	return (
-		<div>
-			<p>Select an item in the list below to create a new game.</p>
+		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]}`}>
+			<p >Select an item in the list below to create a new game</p>
 			<ContributeForm setFormPointer={setFormPointer} />
 			{formToDisplay}
 		</div>

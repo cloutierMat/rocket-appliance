@@ -7,7 +7,8 @@ export default function About() {
 
 		<div className={`${styles["text-default"]} ${styles["full-width"]}`}>
 			<Animated animationIn="slideInRight" animationOut="fadeOut" isVisible={true}>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis neque sed lorem luctus aliquet. Duis ornare viverra lorem, vitae aliquet eros dapibus sit amet. Fusce gravida volutpat est varius malesuada. Mauris luctus urna sit amet eros accumsan, quis eleifend diam ornare. Ut molestie dolor sed massa faucibus,
+			rocket appliance is a contribution based educatonal game platform designed to expose people to 
+			traditionally 'ominous' knowledge in a palatable, gamified format. 
 		</Animated>
 		</div>
 	);

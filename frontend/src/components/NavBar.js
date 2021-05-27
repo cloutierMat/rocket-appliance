@@ -9,7 +9,7 @@ export default function NavBar() {
 		<nav className={`${styles["flex-container"]} ${styles["full-width"]}`}>
 			<NavTitle />
 			<div className={`${styles["nav-buttons-wrapper"]} ${styles["right-side"]}`}>
-				<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
+				<Animated animationIn="slideInRight" animationOut="fadeOut" isVisible={true}>
 					{['Learn', 'Contribute'].map(element => {
 						return <NavButton key={element} name={element} />;
 					})}

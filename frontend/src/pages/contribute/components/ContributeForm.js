@@ -1,4 +1,8 @@
 import React from 'react';
+import styles from '../../../app.module.css';
+import { AiFillEdit } from "react-icons/ai";
+
+
 
 export default function ContributeForm(props) {
 	const { setFormPointer } = props;
@@ -17,14 +21,19 @@ export default function ContributeForm(props) {
 
 
 	return (
-		<div>
-			<select onChange={handleGameType}>
+		<div className={`${styles["contribute-form"]}`}>
+			<select onChange={handleGameType} className={`${styles["text-default"]} ${styles["drop-down"]}`}>
 				<option>Select a game type</option>
 				<option>Trivia</option>
 				<option>Hangman</option>
 			</select>
-			<h3>Or edit an existing game!</h3>
-			<button onClick={() => setFormPointer("Edit")}>Edit</button>
+		<hr/>
+			<div className={`${styles["edit-wrapper"]}`}>
+				<h3 className={`${styles["text-default"]}`}>Or edit an existing game!</h3>
+				<button onClick={() => setFormPointer("Edit")}>Edit
+					<AiFillEdit/>
+				</button>
+			</div> 
 		</div>
 	);
 

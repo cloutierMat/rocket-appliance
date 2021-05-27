@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 .gallery::-webkit-scrollbar {
 	height: 20px;
+	margin-bottom: 20px;
 	background-color: rgb(133, 133, 133);
+	border-radius: 10px;
 }
 
-::-webkit-scrollbar-button:single-button{
+::-webkit-scrollbar-button:single-button::before{
 	background-image: url(./components/images/scrollbuttonV2.png);
 	width: 40px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: rgb(233, 216, 86);
+	background-color: #1D223E;
 	border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background-color: rgb(233, 219, 115);
+	background-color:  #2f3557;
 	border-radius: 10px;
 }
 
 body {
-	background-color: rgb(65, 65, 65);
+	background-color: #14151C;
 	margin: 0;
 	text-align: center;
 }
@@ -33,8 +35,7 @@ body {
 
 .App {
 	padding: 10px;
-	margin-top: 10px;
-	background-color: rgb(72, 72, 72);
+	background-color: #24262F;
 }
 
 .full-width {
@@ -56,9 +57,10 @@ NAVBAR
 */
 
 nav {
-	background-color: #333333;
+	background-color: #14151C;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
+	border-radius: 10px;
 }
 
 .nav-title {
@@ -71,6 +73,9 @@ nav {
 
 .nav-buttons-wrapper {
 	margin: 10px;
+	display: flex;
+	justify-content:space-around;
+	
 }
  /* niki */
 
@@ -80,7 +85,6 @@ nav {
 .nav-button {
 background-color: var(--background-color);
 color: #222;
-/* padding: .5em 1em; */
 border: none;
 outline: none;
 position: relative;
@@ -88,6 +92,7 @@ cursor: pointer;
 --background-color: #E3E3E3;
 --border-size: 2px;
 --accent-color: white;
+opacity: .9;
 }
 
 .nav-button::before {
@@ -110,7 +115,6 @@ transform: scaleX(1);
 
 .nav-button:focus {
 	--background-color: none;
-
 }
 
 .nav-button {
@@ -135,7 +139,7 @@ transform: scaleX(1);
 	justify-content: center;
 	height: 1.5em;
 	width: 200px;
-	margin: 10px;
+	/* margin: 10px; */
 	margin-bottom: unset;
 	border-radius: 2px;
 	background-color: #333333;
@@ -144,6 +148,7 @@ transform: scaleX(1);
 	text-align: center;
 	font-size: 1.8em;
 	font-family: 'Staatliches', cursive;
+	margin: 10px;
 }
 /* 
 .nav-button img {
@@ -155,16 +160,33 @@ transform: scaleX(1);
 } */
 
 
-
 .Learn .nav-button {
-	background-color: rgb(45, 133, 95);
+	background-color: #2f3557;
 	border-radius: 5px;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
+	padding-right: 35px;
+}
+
+.Learn svg {
+	position: absolute;
+	right: 47px;
+	top: 5px;
 }
 
 .Contribute .nav-button {
-	background-color: rgb(75, 83, 138);
+	background-color:#2f3557;
 	border-radius: 5px;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
+	padding-right: 35px;
 }
+
+.Contribute svg {
+	position: absolute;
+	right: 19px;
+	top: 3px;
+}
+
+
 
 
 
@@ -188,30 +210,43 @@ MAIN BODY
 	padding: 10px;
 	color: white;
 	font-family: 'Staatliches', cursive;
+	font-size: 1.5em;
 }
 
 .content-box {
-	width: 100vw;
+	width: 90vw;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	align-items: flex-start;
 	flex-wrap: wrap;
-	background-color: #333333;
+	background-color: #14151C;
 	border-bottom: 2px solid rgb(36, 36, 36);
 	border-top: 2px solid rgb(36, 36, 36);
+	border-radius: 10px;
+	padding-right: 10px;
+	/* padding-left: 10px; */
+
+	
 }
 
 .left-box {
 	margin: 10px 10px 15px 20px;
-	min-height: 765px;
+	align-items: flex-start;
+	
 
 	/* text-align: center; */
 }
 
 .right-box {
-	border-left: 2px solid white;
-	background-color: rgb(77, 77, 77);
-	margin: 0px 20px 0px 20px
+	border: 2px solid grey;
+	background-color: #24262F;
+	margin: 20px 10px 0px 20px;
+	border-radius: 10px;
+}
+
+.right-box hr {
+	max-width: 310px;
 }
 
 /* 
@@ -221,27 +256,44 @@ LEFTBOX
 .gallery-wrapper {
 	max-width: 100%;
 	margin-bottom: 20px;
+	
+	
+
 }
 
 .game-description {
 	/* border: #151515 solid; */
-	background-color: #7776;
+	background-color: #24262F;
 	color: #ddd;
 	/* text-shadow: black 2px 2px 5px; */
 	text-align: center;
 	min-width: 310px;
+	border-radius: 10px;
 }
 
 .game-description h3 {
-	font-size: 2em;
+	font-size: 3em;
 	margin: 0;
 }
 
 .game-description p {
 	margin: 0;
-	font-size: .6em;
+	font-size: 1em;
+	/* border-bottom: 2px solid white; */
 }
 
+.game-description hr {
+	max-width: 310px;
+}
+.game-description h4 {
+	/* max-width: 310px; */
+	display: inline-flex;
+	background-color: #14151C;
+	padding: 20px;
+	border-radius: 10px;
+	margin-top: 10px;
+	font-size: 1.5em;
+}
 /* 
 GAME CARDS
 */
@@ -253,10 +305,12 @@ GAME CARDS
 	overflow-x: scroll;
 	justify-content: flex-start;
 	transform-origin: top right;
-	margin-top: 10px;
-	border-top: 2px solid rgb(36, 36, 36);
-	border-bottom: 2px solid rgb(36, 36, 36);
-	background-color: rgb(77, 77, 77);
+	margin-top: 0px;
+	/* border-top: 2px solid rgb(36, 36, 36);
+	border-bottom: 2px solid rgb(36, 36, 36); */
+	background-color: none;
+	border-radius: 10px;
+	margin-bottom: 20px;
 }
 
 .game-card {
@@ -265,12 +319,17 @@ GAME CARDS
 	height: 200px; */
 	/* border: 2px solid white; */
 	/* border-radius: 2px; */
-	margin: 20px;
- 	margin: 20px;
+	margin: 10px;
 	cursor: pointer;
-
-
+	margin-bottom: 20px;
 }
+
+.game-card svg {
+	position: absolute;
+	left: 5px;
+	top: 8px; 
+}
+
 
 .game-card hr {
 	border: 2px solid white;
@@ -279,26 +338,26 @@ GAME CARDS
 
 .game-card h4 {
 	color: black;
-	/* border: 2px solid black; */
 	padding: 5px;
 	display: inline-flex;
+	align-items: flex-end;
 	margin: 0px;
 	width: fit-content;
-	height: fit-content;
+	height: 100px;
+	font-size: 1.5em;
 }
 
 .game-card h2 {
-	/* font-size: 26px; */
-	display: block;
+	display: inline-flex;
+	justify-content: center;
 	margin: 0px;
-	/* padding-top: 1px; */
 	padding: 5px;
 	background-color: black;
+	opacity: .9;
 	width: 180px;
 	border-radius: 10px;
-	/* height: 10px; */
-	/* min-height: fit-content; */
-	/* max-height: 50px; */
+	font-size: 1em;
+
 }
 
 
@@ -349,7 +408,7 @@ GAME CARD ANIMATION
 }
 
 .btn-background-slide:hover {
-	background-color: #d64646;;
+	background-color: #9d3838;
 }
 
 .btn-background-slide {
@@ -369,59 +428,42 @@ GAME CARD ANIMATION
 	font-family: 'Staatliches', cursive;
 	font-size: 26px;
 	/* width: fit-content; */
-	width: 200px;
-	height: 300px;
+
 	text-align: center;
 	/* padding-top: 10px;
 	padding-right: 10px; */
 	margin: 1px;
 	border: solid rgb(255, 255, 255);
 	border-radius: 10px;
-	background-color: #dd6b6b;
+	/* background-image: linear-gradient(to bottom right, #d04e4e, rgb(126, 52, 52)) ; */
+	background-color: #d04e4e;
 	transition: .2s ease-in;
+	box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8),0px 8px 20px #222222;
 
 }
-
-/* .game-card:hover {
-	opacity: .9;
-	border: 2px solid rgb(48, 48, 48);
-} */
-
-/* this is where the icon is adjusted right now */
-/* .icon-button {
-	display: inline;
-	padding-right: 2px;
-	font-size: 30px;
-	width: 180px;
-	background-color: black;
-	padding-bottom: 10px
-} */
-
-/* 
-Right Box
-*/
 
 .suggestion-box {
 	display: inline-flex;
 	margin-bottom: 10px;
 }
 
-.right-side .suggestion-box .game-card {
-}
-
 .suggestion-description {
-	border-top: 4px solid rgb(36, 36, 36);
-	padding: 0;
-	margin: 0;
+	/* display: inline-flex; */
+	padding: 10px;
 	text-align: center;
+	background-color: #14151C;
+	border-radius: 10px;
+	margin: 20px 10px;
+	max-height: fit-content;
 }
 
 .suggestion-description h2 {
-	margin: 0.5em 0;
+	margin: -5px;
 }
 
 .suggestion-description h4 {
-	margin-bottom: 0;
+	margin-top: -5px;
+	margin-bottom: 0px;
 }
 
 
@@ -433,14 +475,16 @@ Right Box
 } */
 
 .search-box {
-	margin-left: 10px;
-	width: 310px;
+	width: 300px;
 	height: 30px;
-	background-color: rgb(65, 65, 65);
+	background-color: #14151C;
 	border: none;
 	font-family: 'Staatliches', cursive;
-	font-size: 20px;
+	font-size: 25px;
 	color: white;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	padding-left: 5px;
 }
 
 .search-box:focus {
@@ -453,4 +497,53 @@ Right Box
 	background: none;
 	height: 20px;
 	width: 20px;
+}
+
+
+/* contribute form */
+
+.contribute-form h3 {
+	margin: 10px;
+	font-size: 1em;
+}
+
+.contribute-form hr {
+	margin: 20px;
+}
+
+.contribute-wrapper {
+	background-color: #14151C;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.drop-down {
+	background-color: #14151C;
+	color: grey;
+	border-radius: 30px;
+	font-size: 1em;
+}
+
+.edit-wrapper {
+	background-color: #24262F;
+	height: fit-content;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	min-width: 200px;
+}
+
+.contribute-form button {
+	background-color: #2f3557;
+	border-radius: 5px;
+	color: white;
+	border: 2px solid white;
+	width: 180px;
+	height: 40px;
+	margin: 0px 10px 0px 10px;
+	opacity: .8;
+	font-family: 'Staatliches', cursive;
+	font-size: 1.2em;
+	display: inline-flex;
+	justify-content: center;
+	box-shadow: 2px 5px 0px 2px #3f4250,0px 8px 20px #222222;
 }

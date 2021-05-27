@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from '../app.module.css';
 import { Animated } from "react-animated-css";
-import learnIcon from "./images/learnicon.png";
-import contributeIcon from "./images/contributeicon.png";
+import { FaBookOpen } from "react-icons/fa";
+import { MdThumbUp } from "react-icons/md";
 
 export default function NavButton(props) {
 	const { name } = props;
 
 	const [animationDisplay, setAnimationDisplay] = useState(false);
-	const [icons, setIcons] = useState({
-		Learn: learnIcon,
-		Contribute: contributeIcon
-	});
+
 	const link = name === "Learn" ? '/' : '/contribute';
+
 	return (
 		<span className={styles[name]}>
 			<Link to={link}>
@@ -23,7 +21,8 @@ export default function NavButton(props) {
 					onMouseLeave={() => setAnimationDisplay(false)}
 				>
 					{name}
-					{/* <img src={icons[name]} alt={name} /> */}
+					{name === "Learn" && <FaBookOpen />}
+					{name === "Contribute" && <MdThumbUp />}
 					{animationDisplay &&
 						<Animated className={styles["nav-button-icon"]} animationIn="slideInUp" animationOut="slideOutDown">
 
