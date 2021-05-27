@@ -6,16 +6,16 @@ import SuggestionBox from './SuggestionBox';
 import { Animated } from "react-animated-css";
 import styles from '../../../../../app.module.css';
 
-export default function RightBox(props) {
+export default function RightBox() {
 
 	return (
-		<div className={`${styles["right-box"]} ${styles["right-side"]}`}>
+		<div className={`${styles["right-"]} ${styles["right-side"]}`}>
 			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 				<SearchDescription />
 				<SearchInput />
 				<hr></hr>
 				<SuggestionDescription />
-				<SuggestionBox {...props} />
+				<SuggestionBox />
 			</Animated>
 		</div>
 	);

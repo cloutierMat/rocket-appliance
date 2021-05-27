@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import TriviaForm from './components/TriviaForm';
-
+import SubmitContext from '../../context/SubmitContext';
 export default function EditTrivia(props) {
-	const { game } = props;
 
-	const [messageOnUpdate, setMessageOnUpdate] = useState("");
+	const { game, setToggleFormPointer } = props;
+
+	const submitCtx = useContext(SubmitContext);
 
 	async function onSubmit(dataToPost) {
 		try {
@@ -17,21 +18,21 @@ export default function EditTrivia(props) {
 			});
 			const dataFromServer = await res.json();
 			if (!res.ok) {
-				setMessageOnUpdate(dataFromServer.message);
+				submitCtx.setMessage(dataFromServer.message);
 				return;
 			}
 			console.log(`The Game ${dataFromServer.name} Modified`);
-			setMessageOnUpdate(`The Game ${dataFromServer.name} Modified`);
+			submitCtx.setMessage(`The Game ${dataFromServer.name} Modified`);
+			setToggleFormPointer(true);
 		} catch (error) {
 			console.error("error", error);
-			setMessageOnUpdate(`Fail to modify the game! Try again!`);
+			submitCtx.setMessage(`Fail to modify the game! Try again!`);
 		};
 	}
 
 	return (
 		<>
 			<TriviaForm onSubmit={onSubmit} initialData={game} />
-			<h2 className="message-on-create_contribute">{messageOnUpdate}</h2>
 		</>
 	);
 }

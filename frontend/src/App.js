@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import GameProvider from './components/GameProvider';
+import SubmitProvider from './components/SubmitProvider';
 import Main from './pages/mainPage/Main';
 import Trivia from './pages/trivia/Trivia';
 import Contribute from './pages/contribute/Contribute';
 import NavBar from './components/NavBar';
 import styles from './app.module.css';
-
+import {
+	Switch,
+	Route,
+} from "react-router-dom";
 
 function App() {
-	const [pageToDisplay, setPageToDisplay] = useState();
-	const [pagePointer, setPagePointer] = useState('Main');
-
-	useEffect(() => {
-		switch (pagePointer) {
-			case 'Main':
-			case 'Learn':
-				setPageToDisplay(<Main setPagePointer={setPagePointer} />);
-				break;
-			case 'Contribute':
-				setPageToDisplay(<Contribute setPagePointer={setPagePointer} />);
-				break;
-			default:
-				setPageToDisplay(<Trivia gameName={pagePointer} />);
-		}
-	}, [pagePointer]);
-
 	return (
-		<div className={`${styles.App} ${styles["flex-container"]}`}>
-			<NavBar setPagePointer={setPagePointer} />
-			{pageToDisplay}
-		</div>
+		<GameProvider>
+			<SubmitProvider>
+				<div className={`${styles.App} ${styles["flex-container"]}`}>
+					<NavBar />
+					<Switch>
+						<Route path="/contribute">
+							<Contribute />
+						</Route>
+						<Route path="/trivia/:gameName">
+							<Trivia />
+						</Route>
+						<Route path="/">
+							<Main />
+						</Route>
+					</Switch>
+				</div>
+			</SubmitProvider>
+		</GameProvider>
 	);
 }
 

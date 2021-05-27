@@ -159,7 +159,7 @@ export default function TriviaForm(props) {
 	}
 
 	return (
-		<>
+		<div>
 			{errorMessages && <h3 className="">{errorMessages}</h3>}
 
 			<form className={styles["title-form"]} onSubmit={handleSubmit(formValidator)} >
@@ -269,9 +269,9 @@ export default function TriviaForm(props) {
 						New question
         </button>
 				</section>
-
 				<input type="submit" />
 			</form>
-		</>
+			<br />
+		</div>
 	);
 }

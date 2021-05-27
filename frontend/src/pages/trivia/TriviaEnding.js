@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function TriviaEnding(props) {
 	const { questions } = props;
@@ -11,12 +12,16 @@ export default function TriviaEnding(props) {
 			{questions.map(question => {
 				return (
 					<>
-						<div>{question.question}</div>
+						{/* <div>{question.question}</div> */}
+						<a href={question.link} target="_blank" rel="noreferrer">{question.question}</a>
 						<div>{question.options[0]}</div>
-						<a href={question.link} target="_blank" rel="noreferrer">Learn more!</a>
+						<br />
 					</>
 				);
 			})}
+			<br />
+			<br />
+			<Link to='/'>Browse More Games</Link>
 		</div>
 	);
 }
