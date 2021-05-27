@@ -11,16 +11,17 @@ export default function TriviaEnding(props) {
 			<h2>Click on Learn on the Top of the page to play another game</h2>
 			{questions.map(question => {
 				return (
-					<div key={question.question}>
-						<div>{question.question}</div>
+					<>
+						{/* <div>{question.question}</div> */}
+						<a href={question.link} target="_blank" rel="noreferrer">{question.question}</a>
 						<div>{question.options[0]}</div>
-						<a href={question.link} target="_blank" rel="noreferrer">Learn more!</a>
 						<br />
-						<br />
-						<Link to='/'>Browse More Games</Link>
-					</div>
+					</>
 				);
 			})}
+			<br />
+			<br />
+			<Link to='/'>Browse More Games</Link>
 		</div>
 	);
 }
