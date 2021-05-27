@@ -3,13 +3,18 @@ import Gallery from './Gallery';
 import GameDescription from './GameDescription';
 import styles from '../../../../../app.module.css';
 
-export default function LeftBox(props) {
-	const { setPagePointer, gameList, onMouseEnter, hoverOnCard, gameHovered } = props;
+export default function LeftBox() {
+	const [gameHovered, setGameHovered] = useState();
+	const [hoverOnCard, setHoverOnCard] = useState(false); //temporary false value for hovering over game cards
 
+	function handleHover(name) {
+		setHoverOnCard(true);
+		setGameHovered(name);
+	}
 
 	return (
 		<div className={`${styles["left-box"]} ${styles["left-side"]}`}>
-			<Gallery onMouseEnter={onMouseEnter} setPagePointer={setPagePointer} gameList={gameList} />
+			<Gallery onMouseEnter={handleHover} />
 			{hoverOnCard ? <GameDescription game={gameHovered} /> : <></>}
 		</div >
 	);
