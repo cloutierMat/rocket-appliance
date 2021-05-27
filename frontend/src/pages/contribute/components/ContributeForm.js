@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../../app.module.css';
 import { AiFillEdit } from "react-icons/ai";
 
-
-
 export default function ContributeForm(props) {
-	const { setFormPointer } = props;
+	const { setFormPointer, setToggleFormPointer } = props;
+
+	const [optionState, setOptionState] = useState('Select a game type');
 
 	function handleGameType(event) {
 		if (event.target.value === 'Select a game type') {
@@ -14,28 +14,27 @@ export default function ContributeForm(props) {
 		else if (event.target.value === 'Trivia') {
 			setFormPointer('Trivia');
 		}
-		else if (event.target.value === 'Hangman') {
-			setFormPointer('Hangman');
-		}
+		setOptionState('Select a game type');
 	}
 
+	function handleToggle() {
+		setToggleFormPointer(true);
+	}
 
 	return (
 		<div className={`${styles["contribute-form"]}`}>
-			<select onChange={handleGameType} className={`${styles["text-default"]} ${styles["drop-down"]}`}>
+			<select value={optionState} onChange={handleGameType} className={`${styles["text-default"]} ${styles["drop-down"]}`}>
 				<option>Select a game type</option>
 				<option>Trivia</option>
-				<option>Hangman</option>
 			</select>
-		<hr/>
+			<hr />
 			<div className={`${styles["edit-wrapper"]}`}>
 				<h3 className={`${styles["text-default"]}`}>Or edit an existing game!</h3>
-				<button onClick={() => setFormPointer("Edit")}>Edit
-					<AiFillEdit/>
+				<button onClick={() => { setFormPointer('Edit'); handleToggle(); }}>
+					Edit
+						<AiFillEdit />
 				</button>
-			</div> 
+			</div>
 		</div>
 	);
-
-
 };

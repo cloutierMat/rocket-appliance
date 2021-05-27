@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { v1 as id } from "uuid";
 import { useForm, Controller } from "react-hook-form";
 import Joi from "joi";
@@ -15,6 +16,8 @@ export default function TriviaForm(props) {
 	const inputFocus = useRef(null);
 	const questionFocus = useRef();
 	const optionFocus = useRef();
+
+	const history = useHistory();
 
 	const handleInsertQuestion = () => {
 		let prevData = { ...data };
@@ -158,7 +161,7 @@ export default function TriviaForm(props) {
 	}
 
 	return (
-		<>
+		<div>
 			{errorMessages && <h3 className="">{errorMessages}</h3>}
 
 			<form onSubmit={handleSubmit(formValidator)} >
@@ -262,9 +265,9 @@ export default function TriviaForm(props) {
 						New question
         </button>
 				</section>
-
 				<input type="submit" />
 			</form>
-		</>
+			<br />
+		</div>
 	);
 }
