@@ -1,20 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TriviaForm from './components/TriviaForm';
 import SubmitContext from '../../context/SubmitContext';
 
 export default function Trivia() {
-	let initialData = {
-		name: "",
-		category: "",
-		type: "Trivia",
-		author: "",
-		description: "",
-		questions: [{
-			link: "",
-			question: "",
-			options: [""]
-		}]
-	};
+
+	const [resetForm, setResetForm] = useState(false);
 
 	const submitCtx = useContext(SubmitContext);
 
@@ -34,7 +24,7 @@ export default function Trivia() {
 			}
 			console.log(`New Game ${dataFromServer.name} Created`);
 			submitCtx.setMessage(`New Game ${dataFromServer.name} Created`);
-
+			setResetForm(reset => reset ? false : true);
 		}
 		catch (error) {
 			console.error("error", error);
@@ -44,7 +34,7 @@ export default function Trivia() {
 
 	return (
 		<>
-			<TriviaForm onSubmit={onSubmit} initialData={initialData} />
+			<TriviaForm onSubmit={onSubmit} resetForm={resetForm} />
 		</>
 	);
 }

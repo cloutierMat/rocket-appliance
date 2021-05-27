@@ -5,10 +5,22 @@ import Joi from "joi";
 import styles from '../../../app.module.css';
 
 export default function TriviaForm(props) {
-	const { initialData, onSubmit } = props;
+	const { initialData, onSubmit, resetForm } = props;
+	const INITIAL_DATA = {
+		name: "",
+		category: "",
+		type: "Trivia",
+		author: "",
+		description: "",
+		questions: [{
+			link: "",
+			question: "",
+			options: [""]
+		}]
+	};
 
 	const [errorMessages, setErrorMessages] = useState([]);
-	const [data, setData] = useState(initialData);
+	const [data, setData] = useState(initialData || INITIAL_DATA);
 	const [focusedRef, setFocusedRef] = useState('input');
 
 	const { handleSubmit, control } = useForm();
@@ -67,6 +79,10 @@ export default function TriviaForm(props) {
 			return true;
 		}
 	};
+
+	useEffect(() => {
+		setData(INITIAL_DATA);
+	}, [resetForm]);
 
 	useEffect(() => {
 		const dataToEdit = { ...data };
@@ -153,6 +169,7 @@ export default function TriviaForm(props) {
 		if (error) {
 			setErrorMessages(error.message);
 		} else {
+
 			setErrorMessages(null);
 			onSubmit(dataToPost);
 		}
