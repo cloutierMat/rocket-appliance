@@ -4,6 +4,7 @@ import GameContext from '../../context/GameContext';
 import Questions from './Questions';
 import TriviaEnding from './TriviaEnding';
 import './trivia.css';
+import { Animated } from "react-animated-css";
 
 export default function Trivia() {
 	const [category, setCategory] = useState();
@@ -30,6 +31,7 @@ export default function Trivia() {
 
 	return (
 		<div className="trivia-page">
+			<Animated animationIn="bounceInUp" animationOut="fadeOut" isVisible={true}>
 			<div className="info-wrapper"> 
 			<h1>{category} </h1>
 			<h2 className="trivia-title">{name}</h2>
@@ -38,6 +40,7 @@ export default function Trivia() {
 			</div>
 			{questions && !isEndReached && <Questions questions={questions} setIsEndReached={setIsEndReached} />}
 			{questions && isEndReached && <TriviaEnding questions={questions} />}
+			</Animated>
 		</div>
 	);
 }
