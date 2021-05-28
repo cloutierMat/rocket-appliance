@@ -17,6 +17,7 @@ export default function RightBox() {
 				<SuggestionDescription />
 				<SuggestionBox />
 			</Animated>
+			
 		</div>
 	);
 }
