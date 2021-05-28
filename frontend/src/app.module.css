@@ -225,6 +225,7 @@ MAIN BODY
 
 .content-box {
 	width: 90vw;
+	height: fit-content;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -235,6 +236,7 @@ MAIN BODY
 	border-top: 2px solid rgb(36, 36, 36);
 	border-radius: 10px;
 	padding-right: 10px;
+	padding-bottom: 20px;
 	/* padding-left: 10px; */
 
 	
