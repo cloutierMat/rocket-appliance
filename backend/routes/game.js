@@ -78,4 +78,19 @@ router.put('/trivia', async function (req, res) {
 	}
 });
 
+router.delete('/trivia/:name', async (req, res) => {
+	const gameToDelete = req.params.name;
+	try {
+		// using trivia model to delete a game
+		const deleteQuery = games.Trivia.findOneAndDelete({ name: gameToDelete });
+		console.log("delete", deleteQuery);
+		const deleteResult = await deleteQuery.deleteOne();
+		console.log("Deleting a game from database", deleteResult);
+		res.send(deleteResult);
+	} catch (error) {
+		console.log("Failed to delete trivia", gameToDelete);
+		res.status(500).send({ error: error.code, message: "Something went wrong, I couldn't delete your game" });
+	}
+});
+
 module.exports = router;
