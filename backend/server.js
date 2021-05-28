@@ -13,5 +13,5 @@ const gameRouter = require('./routes/game');
 app.use('/game', gameRouter);
 
 app.listen(port, () => {
-   console.log('server listening on port ' + port);
+	console.log('server listening on port ' + port);
 });
