@@ -22,6 +22,7 @@ export default function TriviaForm(props) {
 	const [errorMessages, setErrorMessages] = useState([]);
 	const [data, setData] = useState(initialData || INITIAL_DATA);
 	const [focusedRef, setFocusedRef] = useState('input');
+	const [immutable, setImmutable] = useState();
 
 	const { handleSubmit, control } = useForm();
 
@@ -100,6 +101,7 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
+		if (data.name) setImmutable(true);
 		setData(dataToEdit);
 	}, []);
 
@@ -202,6 +204,7 @@ export default function TriviaForm(props) {
 							type="text"
 							value={data.name}
 							placeholder="Rocket Trivia"
+							disabled={immutable}
 							onChange={(event) => { handleInfoChange(event, "name"); }}
 							onKeyPress={handlePreventEnterDefault}
 						/>
