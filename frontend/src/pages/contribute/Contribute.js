@@ -6,6 +6,7 @@ import styles from '../../app.module.css';
 import SubmitContext from '../../context/SubmitContext';
 
 
+
 export default function Contribute() {
 	const [formToDisplay, setFormToDisplay] = useState();
 	const [formPointer, setFormPointer] = useState('Select a game type');

@@ -10,13 +10,13 @@ export default function RightBox() {
 
 	return (
 		<div className={`${styles["right-box"]} ${styles["right-side"]}`}>
-			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
+			{/* <Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}> */}
 				<SearchDescription />
 				<SearchInput />
 				<hr></hr>
 				<SuggestionDescription />
 				<SuggestionBox />
-			</Animated>
+			{/* </Animated> */}
 			
 		</div>
 	);
