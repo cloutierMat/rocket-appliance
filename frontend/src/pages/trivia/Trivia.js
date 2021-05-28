@@ -30,9 +30,12 @@ export default function Trivia() {
 
 	return (
 		<div className="trivia-page">
+			<div className="info-wrapper"> 
 			<h1>{category} </h1>
 			<h2 className="trivia-title">{name}</h2>
+			<hr/>
 			<p>Created by {author}</p>
+			</div>
 			{questions && !isEndReached && <Questions questions={questions} setIsEndReached={setIsEndReached} />}
 			{questions && isEndReached && <TriviaEnding questions={questions} />}
 		</div>

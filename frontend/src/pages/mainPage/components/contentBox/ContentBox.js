@@ -3,6 +3,8 @@ import LeftBox from './leftBox/LeftBox';
 import RightBox from './rightBox/RightBox';
 import styles from '../../../../app.module.css';
 
+
+
 export default function ContentBox() {
 
 	return (

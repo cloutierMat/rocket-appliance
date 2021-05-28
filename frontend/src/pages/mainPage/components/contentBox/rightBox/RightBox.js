@@ -9,7 +9,7 @@ import styles from '../../../../../app.module.css';
 export default function RightBox() {
 
 	return (
-		<div className={`${styles["right-"]} ${styles["right-side"]}`}>
+		<div className={`${styles["right-box"]} ${styles["right-side"]}`}>
 			<Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
 				<SearchDescription />
 				<SearchInput />
@@ -17,6 +17,7 @@ export default function RightBox() {
 				<SuggestionDescription />
 				<SuggestionBox />
 			</Animated>
+			
 		</div>
 	);
 }

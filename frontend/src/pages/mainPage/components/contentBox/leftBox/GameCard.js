@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Animated } from "react-animated-css";  //niki
 // import { ReactFitty } from "react-fitty";
@@ -8,8 +8,11 @@ import { GoTasklist } from "react-icons/go";
 export default function GameCard(props) {
 	const { game, onMouseEnter } = props;
 	const { name, category } = game;
-
-	const classToApply = `color-${Math.ceil(Math.random() * 3)}`;
+	const [ classToApply, setClassToApply ] = useState();
+	
+	useEffect(() => {
+			setClassToApply(`color-${Math.ceil(Math.random() * 4)}`)
+	},[])
 
 	return (
 		<Link to={`/trivia/${name}`}>
