@@ -8,11 +8,11 @@ import { GoTasklist } from "react-icons/go";
 export default function GameCard(props) {
 	const { game, onMouseEnter } = props;
 	const { name, category } = game;
-	const [ classToApply, setClassToApply ] = useState();
-	
+	const [classToApply, setClassToApply] = useState();
+
 	useEffect(() => {
-			setClassToApply(`color-${Math.ceil(Math.random() * 4)}`)
-	},[])
+		setClassToApply(`color-${Math.ceil(Math.random() * 4)}`);
+	}, []);
 
 	return (
 		<Link to={`/trivia/${name}`}>
