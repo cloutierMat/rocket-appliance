@@ -3,8 +3,10 @@ import NavButton from './NavButton';
 import NavTitle from './NavTitle';
 import { Animated } from "react-animated-css";
 import styles from '../app.module.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function NavBar() {
+	const { logout } = useAuth0();
 	return (
 		<nav className={`${styles["flex-container"]} ${styles["full-width"]}`}>
 			<NavTitle />
@@ -15,6 +17,7 @@ export default function NavBar() {
 					})}
 				</Animated>
 			</div>
+			<button onClick={() => logout()}>logout</button>
 		</nav>
 	);
 }

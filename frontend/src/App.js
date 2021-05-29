@@ -11,16 +11,13 @@ import {
 	Switch,
 	Route,
 } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
-	const { logout } = useAuth0();
 	return (
 		<GameProvider>
 			<SubmitProvider>
 				<div className={`${styles.App} ${styles["flex-container"]}`}>
 					<NavBar />
-					<button onClick={() => logout()}>logout</button>
 					<Switch>
 						<ProtectedRoute path="/contribute" component={Contribute} />
 						<Route path="/trivia/:gameName">
