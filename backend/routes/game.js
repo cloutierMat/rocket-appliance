@@ -18,7 +18,7 @@ router.get('/play/trivia/:name', async function (req, res) {
 // name, category, author, description
 router.get('/list', async function (req, res) {
 	try {
-		const query = games.Trivia.find({});
+		const query = games.Trivia.find({}, { userId: 0, __v: 0 });
 		query.select({ _id: 0 });
 		const list = await query.exec();
 		console.log("Loaded game list. count:", list.length);
@@ -56,10 +56,19 @@ router.post('/trivia', async function (req, res) {
 });
 
 // endpoint to edit an existing trivia game
-router.put('/trivia', async function (req, res) {
+router.put('/trivia/:userId', async function (req, res) {
 	// data retrieved from the request body
 	const triviaToEdit = req.body;
+	const userId = req.params.userId;
+	console.log("jkrfgjklasfhulaesfhuierfla", userId);
 	try {
+		const findOneResult = await games.Trivia.findOne({ name: triviaToEdit.name }, { name: 1, userId: 1 }).exec();
+		console.log("findOneResult", findOneResult);
+		if (findOneResult.userId && findOneResult.userId !== userId) {
+			console.log("Wrong user trying to delete a game", triviaToEdit, userId);
+			res.status(409).send({ message: "You do not have permission to update this object" });
+			return;
+		}
 		const query = games.Trivia.findOneAndUpdate({ name: triviaToEdit.name }, triviaToEdit, { runValidators: true });
 		// save the updated object in the database
 		const updateResult = await query.update();
@@ -78,16 +87,20 @@ router.put('/trivia', async function (req, res) {
 	}
 });
 
-router.delete('/trivia/:name', async (req, res) => {
+router.delete('/trivia/:name/:userId', async (req, res) => {
 	const gameToDelete = req.params.name;
+	const userId = req.params.userId;
 	try {
 		// using trivia model to delete a game
-		const deleteQuery = games.Trivia.findOneAndDelete({ name: gameToDelete });
-		console.log("delete", deleteQuery);
-		const deleteResult = await deleteQuery.exec();
-		// const deleteResult = await deleteRes.exec();
+		const findOneResult = await games.Trivia.findOne({ name: gameToDelete }, { name: 1, userId: 1 }).exec();
+		if (findOneResult.userId && findOneResult.userId !== userId) {
+			console.log("Wrong user trying to delete a game", gameToDelete, userId);
+			res.status(409).send({ message: "You do not have permission to delete this object" });
+			return;
+		}
+		const deleteResult = await games.Trivia.findOneAndDelete({ name: gameToDelete }).exec();
 		console.log("Deleting a game from database", deleteResult);
-		res.send(deleteResult);
+		res.send({ message: `Succesfullly deleted ${deleteResult.name}` });
 	} catch (error) {
 		console.log("Failed to delete trivia", gameToDelete);
 		res.status(500).send({ error: error.code, message: "Something went wrong, I couldn't delete your game" });

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useAuth0 } from '@auth0/auth0-react';
 import TriviaForm from './components/TriviaForm';
 import SubmitContext from '../../context/SubmitContext';
 
@@ -7,10 +8,11 @@ export default function EditTrivia(props) {
 	const { game, setToggleFormPointer } = props;
 
 	const submitCtx = useContext(SubmitContext);
+	const { user } = useAuth0();
 
 	async function onSubmit(dataToPost) {
 		try {
-			const res = await fetch('/game/trivia', {
+			const res = await fetch(`/game/trivia/${user.sub}`, {
 				method: "PUT",
 				body: JSON.stringify(dataToPost),
 				headers: {

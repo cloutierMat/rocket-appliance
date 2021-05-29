@@ -87,7 +87,6 @@ export default function TriviaForm(props) {
 
 	useEffect(() => {
 		const dataToEdit = { ...data };
-		delete dataToEdit.__v;
 		dataToEdit.questions = dataToEdit.questions.map(question => {
 			return {
 				question: question.question,

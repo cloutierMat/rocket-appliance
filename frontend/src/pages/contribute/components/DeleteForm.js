@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useContext, useEffect } from 'react';
 import GameContext from '../../../context/GameContext';
 
@@ -5,6 +6,7 @@ export default function DeleteForm(props) {
   const gameCtx = useContext(GameContext);
   const [gameList, setGameList] = useState(gameCtx.list);
   const [messageOnDelete, setMessageOnDelete] = useState(null);
+  const { user } = useAuth0();
 
   const allGames =
     <table>
@@ -37,7 +39,7 @@ export default function DeleteForm(props) {
   async function onDelete(gameName) {
     if (window.confirm(`Are you sure you wish to delete ${gameName}?`)) {
       try {
-        const res = await fetch(`/game/trivia/${gameName}`, {
+        const res = await fetch(`/game/trivia/${gameName}/${user.sub}`, {
           method: "DELETE",
 
         });
@@ -45,11 +47,9 @@ export default function DeleteForm(props) {
         console.log(dataFromServer);
         console.log(`The Game ${gameName} Deleted`);
         setMessageOnDelete(`Game ${gameName} is successfully deleted!`);
-        console.log(gameList, "befor");
         gameList.forEach(element => {
           if (element.name === gameName) { gameList.pop(element); }
         });
-        console.log(gameList, "after");
         const newTable =
           <table>
             <thead>
