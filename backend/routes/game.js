@@ -84,7 +84,8 @@ router.delete('/trivia/:name', async (req, res) => {
 		// using trivia model to delete a game
 		const deleteQuery = games.Trivia.findOneAndDelete({ name: gameToDelete });
 		console.log("delete", deleteQuery);
-		const deleteResult = await deleteQuery.deleteOne();
+		const deleteResult = await deleteQuery.exec();
+		// const deleteResult = await deleteRes.exec();
 		console.log("Deleting a game from database", deleteResult);
 		res.send(deleteResult);
 	} catch (error) {

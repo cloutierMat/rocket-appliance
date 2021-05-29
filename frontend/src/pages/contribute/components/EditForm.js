@@ -43,7 +43,7 @@ export default function EditForm(props) {
 					<tbody>
 						{gameList && gameList.map(game => {
 							return (<tr key={game.name} onClick={() => handleClick(game.name)}>
-								<td>{game.name}</td>
+								<td>{game.name} </td>
 								<td>{game.category}</td>
 								<td>{game.type}</td>
 							</tr>

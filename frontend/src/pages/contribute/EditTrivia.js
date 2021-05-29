@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import TriviaForm from './components/TriviaForm';
 import SubmitContext from '../../context/SubmitContext';
+
 export default function EditTrivia(props) {
 
 	const { game, setToggleFormPointer } = props;

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import styles from '../../../app.module.css';
 import { AiFillEdit } from "react-icons/ai";
-import { Animated } from "react-animated-css";
 
 export default function ContributeForm(props) {
 	const { setFormPointer, setToggleFormPointer, messageOnSubmit } = props;
@@ -31,10 +30,14 @@ export default function ContributeForm(props) {
 			</select>
 			<hr />
 			<div className={`${styles["edit-wrapper"]}`}>
-				<h3 className={`${styles["text-default"]}`}>Or edit an existing game!</h3>
+				<h3 className={`${styles["text-default"]}`}>Delete Or edit an existing game!</h3>
 				<button onClick={() => { setFormPointer('Edit'); handleToggle(); }}>
 					Edit
 						<AiFillEdit />
+				</button>
+				<button onClick={() => { setFormPointer('delete'); handleToggle(); }}>
+					Delete
+					<AiFillEdit />
 				</button>
 			</div>
 			<h2 className="message-on-create_contribute">{messageOnSubmit}</h2>

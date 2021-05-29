@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ContributeForm from './components/ContributeForm';
 import CreateTrivia from './CreateTrivia';
 import EditForm from './components/EditForm';
+import DeleteForm from './components/DeleteForm';
 import styles from '../../app.module.css';
 import SubmitContext from '../../context/SubmitContext';
 
@@ -19,6 +20,12 @@ export default function Contribute() {
 		}
 		else if (formPointer === 'Edit') {
 			setFormToDisplay(<EditForm
+				setToggleFormPointer={setToggleFormPointer}
+				toggleFormPointer={toggleFormPointer}
+			/>);
+		}
+		else if (formPointer === 'delete') {
+			setFormToDisplay(<DeleteForm
 				setToggleFormPointer={setToggleFormPointer}
 				toggleFormPointer={toggleFormPointer}
 			/>);
