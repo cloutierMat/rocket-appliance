@@ -20,7 +20,6 @@ export default function ProtectedRoute({ component: Component }, ...rest) {
 				setIsReponseReveived(true);
 			}
 		};
-		console.log("isResponseReceived", isResponseReceived);
 		if (!isResponseReceived) {
 			authenticatedUser();
 		}

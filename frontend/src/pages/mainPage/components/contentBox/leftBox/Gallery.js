@@ -8,7 +8,7 @@ export default function Gallery(props) {
 	const { onMouseEnter } = props;
 
 	const gameCtx = useContext(GameContext);
-	const gameList = gameCtx.list;
+	const gameList = gameCtx.filteredByFragment;
 
 	return (
 		<div className={styles["gallery-wrapper"]}>
