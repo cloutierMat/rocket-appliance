@@ -25,6 +25,9 @@ const triviaSchema = new mongoose.Schema({
 		type: String,
 		default: "anonymous"
 	},
+	userId: {
+		type: String,
+	},
 	description: {
 		type: String,
 		required: true,

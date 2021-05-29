@@ -1,16 +1,18 @@
 import React, { useContext, useState } from "react";
 import TriviaForm from './components/TriviaForm';
 import SubmitContext from '../../context/SubmitContext';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Trivia() {
 
 	const [resetForm, setResetForm] = useState(false);
 
 	const submitCtx = useContext(SubmitContext);
+	const { user } = useAuth0();
 
 	async function onSubmit(dataToPost) {
 		try {
-			const res = await fetch('/game/trivia', {
+			const res = await fetch(`/game/trivia/${user.sub}`, {
 				method: "POST",
 				body: JSON.stringify(dataToPost),
 				headers: {
