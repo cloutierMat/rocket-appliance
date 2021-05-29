@@ -30,12 +30,13 @@ router.get('/list', async function (req, res) {
 });
 
 // endpoint to create a new trivia game
-router.post('/trivia', async function (req, res) {
+router.post('/trivia/:userId', async function (req, res) {
 	// data retrieved from the request body
 	const triviaToCreate = req.body;
+	const userId = req.params.userId;
 	try {
 		// create a new instance of the Trivia schema
-		const newTrivia = new games.Trivia(triviaToCreate);
+		const newTrivia = new games.Trivia({ ...triviaToCreate, userId });
 		// save the new object in the database
 		await newTrivia.save();
 		console.log("Created a trivia", newTrivia);
@@ -60,7 +61,6 @@ router.put('/trivia/:userId', async function (req, res) {
 	// data retrieved from the request body
 	const triviaToEdit = req.body;
 	const userId = req.params.userId;
-	console.log("jkrfgjklasfhulaesfhuierfla", userId);
 	try {
 		const findOneResult = await games.Trivia.findOne({ name: triviaToEdit.name }, { name: 1, userId: 1 }).exec();
 		console.log("findOneResult", findOneResult);
@@ -69,7 +69,7 @@ router.put('/trivia/:userId', async function (req, res) {
 			res.status(409).send({ message: "You do not have permission to update this object" });
 			return;
 		}
-		const query = games.Trivia.findOneAndUpdate({ name: triviaToEdit.name }, triviaToEdit, { runValidators: true });
+		const query = games.Trivia.findOneAndUpdate({ name: triviaToEdit.name }, { ...triviaToEdit, userId }, { runValidators: true });
 		// save the updated object in the database
 		const updateResult = await query.update();
 		if (!updateResult.n) {
