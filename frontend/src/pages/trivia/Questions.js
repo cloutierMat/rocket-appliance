@@ -60,7 +60,7 @@ export default function Questions(props) {
 			</div>
 			<UserRighteousness userRighteousness={userRighteousness} onClick={handleNextClick} />
 			<h4>To deepen your learning
-      <a href={link} target="_blank" rel="noreferrer" >  click here</a>
+      <a href={link} target="_blank" rel="noopener noreferrer" >  click here</a>
 			</h4>
 		</div>
 	);

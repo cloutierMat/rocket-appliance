@@ -43,7 +43,7 @@ export default function GameProvider({ children }) {
 		if (isAuthenticated) {
 			setFilterByCurrentUser(list.filter(game => game.author === user.nickname));
 		}
-	}, [list, user]);
+	}, [list, user, isAuthenticated]);
 
 	return (
 		<GameContext.Provider value={{

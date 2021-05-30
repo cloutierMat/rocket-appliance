@@ -37,7 +37,7 @@ export default function Contribute() {
 		else {
 			setFormToDisplay(<p></p>);
 		}
-	}, [formPointer, toggleFormPointer]);
+	}, [formPointer, toggleFormPointer, gameCtx.filteredByCurrentUser]);
 
 	return (
 		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]}`}>

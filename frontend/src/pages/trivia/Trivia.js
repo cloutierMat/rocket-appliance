@@ -19,15 +19,13 @@ export default function Trivia() {
 
 	useEffect(() => {
 		if (!gameCtx.list.length) return;
-		console.log("gameCtx.list", gameCtx.list);
 		const triviaToDisplay = gameCtx.list.find(elem => elem.name === gameName);
-		console.log(triviaToDisplay);
 		setCategory(triviaToDisplay.category);
 		setName(triviaToDisplay.name);
 		setAuthor(triviaToDisplay.author);
 		setQuestions(triviaToDisplay.questions);
 		setIsEndReached(false);
-	}, [gameCtx]);
+	}, [gameCtx.list, gameName]);
 
 	return (
 		<div className="trivia-page">

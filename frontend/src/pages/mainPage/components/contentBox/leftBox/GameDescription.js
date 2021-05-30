@@ -12,11 +12,11 @@ export default function GameDescription(props) {
 
 	useEffect(() => {
 		setGameToDisplay(gameCtx.list.find(elem => elem.name === game));
-	}, [game]);
+	}, [game, gameCtx.list]);
 
 	return (
 		<div>
-		
+
 			{gameToDisplay &&
 				<Animated animationIn="slideInDown" animationOut="fadeOut" isVisible={true}>
 					<div className={`${styles["game-description"]} ${styles["text-default"]}`}>
@@ -28,8 +28,8 @@ export default function GameDescription(props) {
 						</div>
 					</div>
 				</Animated>
-			}		
-		
+			}
+
 		</div>
 	);
 };

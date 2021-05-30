@@ -4,25 +4,25 @@ import { useForm, Controller } from "react-hook-form";
 import Joi from "joi";
 import styles from '../../../app.module.css';
 
+const INITIAL_DATA = {
+	name: "",
+	category: "",
+	type: "Trivia",
+	description: "",
+	questions: [{
+		link: "",
+		question: "",
+		options: [""]
+	}]
+};
+
 export default function TriviaForm(props) {
 	const { initialData, onSubmit, resetForm, author } = props;
-	const INITIAL_DATA = {
-		name: "",
-		category: "",
-		type: "Trivia",
-		author,
-		description: "",
-		questions: [{
-			link: "",
-			question: "",
-			options: [""]
-		}]
-	};
 
 	const [errorMessages, setErrorMessages] = useState([]);
-	const [data, setData] = useState(initialData || INITIAL_DATA);
+	const [data, setData] = useState({ ...INITIAL_DATA, author });
 	const [focusedRef, setFocusedRef] = useState('input');
-	const [immutable, setImmutable] = useState();
+	const [immutableGameName, setImmutableGameName] = useState();
 
 	const { handleSubmit, control } = useForm();
 
@@ -52,6 +52,7 @@ export default function TriviaForm(props) {
 
 	const handleInfoChange = (event, element) => {
 		let prevData = { ...data };
+		console.log(data.author);
 		prevData[element] = event.target.value;
 		setData(prevData);
 	};
@@ -82,11 +83,13 @@ export default function TriviaForm(props) {
 	};
 
 	useEffect(() => {
-		setData(INITIAL_DATA);
+		setData({ ...INITIAL_DATA });
 	}, [resetForm]);
 
 	useEffect(() => {
-		const dataToEdit = { ...data };
+		const dataToEdit = initialData ?
+			{ ...initialData }
+			: { ...INITIAL_DATA };
 		dataToEdit.questions = dataToEdit.questions.map(question => {
 			return {
 				question: question.question,
@@ -100,9 +103,9 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
-		if (data.name) setImmutable(true);
+		if (dataToEdit.name) setImmutableGameName(true);
 		setData(dataToEdit);
-	}, []);
+	}, [initialData]);
 
 	//
 	// In the following functions we set the cursor focus
@@ -203,7 +206,7 @@ export default function TriviaForm(props) {
 							type="text"
 							value={data.name}
 							placeholder="Rocket Trivia"
-							disabled={immutable}
+							disabled={immutableGameName}
 							onChange={(event) => { handleInfoChange(event, "name"); }}
 							onKeyPress={handlePreventEnterDefault}
 						/>
