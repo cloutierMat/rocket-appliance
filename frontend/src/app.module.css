@@ -196,8 +196,32 @@ transform: scaleX(1);
 	top: 3px;
 }
 
+.logout-button {
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Staatliches', cursive;
+	font-size: 1.2em;
+	background-color:#2f3557;
+	border: 2px solid white;
+	border-radius: 2px;
+	box-shadow: 2px 2px 0px 2px #3f4250,0px 8px 20px #222222;
+	margin-right: 2px;
+}
 
+.logout-button:hover {
+	background-color: #1c2033;
+}
 
+.logout-button svg {
+	position: relative;
+	top: 3px;
+	left: -2px;
+}
+
+.logout-button-wrapper {
+	display: flex;
+	justify-content: space-evenly;
+}
 
 
 /* .Learn .nav-button-icon {
@@ -566,8 +590,18 @@ GAME CARD ANIMATION
 .contribute-form button:hover {
 	cursor: pointer;
 	background-color: #1c2033;
-
 }
+
+.contribute-form select {
+	outline:none;
+}
+
+td:hover {
+	cursor: pointer;
+	background-color: grey;
+}
+
+/* game-card */
 
 .color-1 {
 	background-color: #d04e4e;

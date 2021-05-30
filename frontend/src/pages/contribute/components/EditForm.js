@@ -29,7 +29,7 @@ export default function EditForm(props) {
 	}
 
 	return (
-		<div>
+		<div className="contribute-edit">
 			{displayTrivia
 				? <EditTrivia game={displayTrivia} setToggleFormPointer={setToggleFormPointer} />
 				: <table>

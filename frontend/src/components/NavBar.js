@@ -4,6 +4,7 @@ import NavTitle from './NavTitle';
 import { Animated } from "react-animated-css";
 import styles from '../app.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import { RiLogoutBoxRFill } from "react-icons/ri";
 
 export default function NavBar() {
 	const { logout, isAuthenticated } = useAuth0();
@@ -18,7 +19,8 @@ export default function NavBar() {
 				</Animated>
 			</div>
 			{isAuthenticated &&
-				<button onClick={() => logout()}>
+				<button className={`${styles["logout-button"]}`} onClick={() => logout()}>
+					<RiLogoutBoxRFill/>
 					logout
 				</button>
 			}
