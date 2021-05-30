@@ -638,3 +638,7 @@ td:hover {
 	background-color: rgb(194, 177, 82);
 }
 
+h3 {
+	color: white;
+	font-family: 'Staatliches', cursive;;
+}
