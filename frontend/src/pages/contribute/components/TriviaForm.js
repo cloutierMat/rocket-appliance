@@ -5,12 +5,12 @@ import Joi from "joi";
 import styles from '../../../app.module.css';
 
 export default function TriviaForm(props) {
-	const { initialData, onSubmit, resetForm } = props;
+	const { initialData, onSubmit, resetForm, author } = props;
 	const INITIAL_DATA = {
 		name: "",
 		category: "",
 		type: "Trivia",
-		author: "",
+		author,
 		description: "",
 		questions: [{
 			link: "",
@@ -212,10 +212,8 @@ export default function TriviaForm(props) {
 					<li>
 						Contributor: <br></br>
 						<input
-							type="text"
 							value={data.author}
-							placeholder="Your name / You can leave it anonymous"
-							onChange={(event) => { handleInfoChange(event, "author"); }}
+							disabled={true}
 							onKeyPress={handlePreventEnterDefault}
 						/>
 					</li>

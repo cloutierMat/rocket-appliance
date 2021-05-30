@@ -5,6 +5,7 @@ import EditForm from './components/EditForm';
 import DeleteForm from './components/DeleteForm';
 import styles from '../../app.module.css';
 import SubmitContext from '../../context/SubmitContext';
+import GameContext from '../../context/GameContext';
 
 
 
@@ -13,6 +14,7 @@ export default function Contribute() {
 	const [formPointer, setFormPointer] = useState('Select a game type');
 	const [toggleFormPointer, setToggleFormPointer] = useState(false);
 	const submitCtx = useContext(SubmitContext);
+	const gameCtx = useContext(GameContext);
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
@@ -22,12 +24,14 @@ export default function Contribute() {
 			setFormToDisplay(<EditForm
 				setToggleFormPointer={setToggleFormPointer}
 				toggleFormPointer={toggleFormPointer}
+				gameList={gameCtx.filteredByCurrentUser}
 			/>);
 		}
 		else if (formPointer === 'delete') {
 			setFormToDisplay(<DeleteForm
 				setToggleFormPointer={setToggleFormPointer}
 				toggleFormPointer={toggleFormPointer}
+				gameList={gameCtx.filteredByCurrentUser}
 			/>);
 		}
 		else {

@@ -35,7 +35,7 @@ export default function EditTrivia(props) {
 
 	return (
 		<>
-			<TriviaForm onSubmit={onSubmit} initialData={game} />
+			<TriviaForm onSubmit={onSubmit} initialData={game} author={user.nickname} />
 		</>
 	);
 }

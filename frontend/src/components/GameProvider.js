@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import GameContext from '../context/GameContext';
 
@@ -5,7 +6,10 @@ export default function GameProvider({ children }) {
 
 	const [list, setList] = useState([]);
 	const [filteredByFragment, setFilterByFragment] = useState([]);
+	const [filteredByCurrentUser, setFilterByCurrentUser] = useState([]);
 	const [fragmentForFilter, setFragmentForFilter] = useState("");
+
+	const { user, isAuthenticated } = useAuth0();
 
 	//
 	// listening to changes in list and fragment
@@ -28,16 +32,25 @@ export default function GameProvider({ children }) {
 			const response = await fetch('/game/list');
 			const dataObj = await response.json();
 			setList([...dataObj]);
-
 		}
 		fetchData();
 	}, []);
+
+	//
+	// listen to changes in user and in list
+	// keeps an updated list of current user created games
+	useEffect(() => {
+		if (isAuthenticated) {
+			setFilterByCurrentUser(list.filter(game => game.author === user.nickname));
+		}
+	}, [list, user]);
 
 	return (
 		<GameContext.Provider value={{
 			list,
 			filteredByFragment,
-			setFragmentForFilter
+			setFragmentForFilter,
+			filteredByCurrentUser
 		}}>
 			{children}
 		</GameContext.Provider>

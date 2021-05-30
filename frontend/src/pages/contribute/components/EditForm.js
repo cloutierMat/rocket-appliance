@@ -1,17 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
-import GameContext from '../../../context/GameContext';
+import React, { useState, useEffect } from 'react';
 import EditTrivia from '../EditTrivia';
 
 export default function EditForm(props) {
-	const { toggleFormPointer, setToggleFormPointer, setMessageOnSubmit } = props;
-	const [gameList, setGameList] = useState();
+	const { toggleFormPointer, setToggleFormPointer, gameList } = props;
 	const [displayTrivia, setDisplayTrivia] = useState(false);
-
-	const gameCtx = useContext(GameContext);
-
-	useEffect(() => {
-		gameCtx.list && setGameList(gameCtx.list);
-	}, [gameCtx]);
 
 	useEffect(() => {
 		toggleFormPointer && setDisplayTrivia(false);

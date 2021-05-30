@@ -36,7 +36,7 @@ export default function Trivia() {
 
 	return (
 		<>
-			<TriviaForm onSubmit={onSubmit} resetForm={resetForm} />
+			<TriviaForm onSubmit={onSubmit} resetForm={resetForm} author={user.nickname} />
 		</>
 	);
 }

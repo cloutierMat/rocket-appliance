@@ -18,7 +18,7 @@ export default function Trivia() {
 	const { gameName } = useParams();
 
 	useEffect(() => {
-		if (!gameCtx.list) return;
+		if (!gameCtx.list.length) return;
 		console.log("gameCtx.list", gameCtx.list);
 		const triviaToDisplay = gameCtx.list.find(elem => elem.name === gameName);
 		console.log(triviaToDisplay);
@@ -32,14 +32,14 @@ export default function Trivia() {
 	return (
 		<div className="trivia-page">
 			<Animated animationIn="bounceInUp" animationOut="fadeOut" isVisible={true}>
-			<div className="info-wrapper"> 
-			<h1>{category} </h1>
-			<h2 className="trivia-title">{name}</h2>
-			<hr/>
-			<p>Created by {author}</p>
-			</div>
-			{questions && !isEndReached && <Questions questions={questions} setIsEndReached={setIsEndReached} />}
-			{questions && isEndReached && <TriviaEnding questions={questions} />}
+				<div className="info-wrapper">
+					<h1>{category} </h1>
+					<h2 className="trivia-title">{name}</h2>
+					<hr />
+					<p>Created by {author}</p>
+				</div>
+				{questions && !isEndReached && <Questions questions={questions} setIsEndReached={setIsEndReached} />}
+				{questions && isEndReached && <TriviaEnding questions={questions} />}
 			</Animated>
 		</div>
 	);
