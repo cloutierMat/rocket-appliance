@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const games = require('../model/games');
+const middleware = require('../model/middlewares');
 
 router.get('/play/trivia/:name', async function (req, res) {
 	try {
@@ -57,54 +58,44 @@ router.post('/trivia/:userId', async function (req, res) {
 });
 
 // endpoint to edit an existing trivia game
-router.put('/trivia/:userId', async function (req, res) {
-	// data retrieved from the request body
-	const triviaToEdit = req.body;
-	const userId = req.params.userId;
-	try {
-		const findOneResult = await games.Trivia.findOne({ name: triviaToEdit.name }, { name: 1, userId: 1 }).exec();
-		console.log("findOneResult", findOneResult);
-		if (findOneResult.userId && findOneResult.userId !== userId) {
-			console.log("Wrong user trying to delete a game", triviaToEdit, userId);
-			res.status(409).send({ message: "You do not have permission to update this object" });
-			return;
+router.put('/trivia/:userId',
+	middleware.authentication,
+	async function (req, res) {
+		const query = req.query;
+		const triviaToEdit = req.body;
+		const userId = req.params.userId;
+		try {
+			console.log("triviaToEdit", triviaToEdit);
+			query.setUpdate({ ...triviaToEdit, userId }, { runValidators: true });
+			const updateResult = await query.update();
+			if (!updateResult.n) {
+				console.log("Failed to update a game", updateResult);
+				res.status(409).send({ message: "Something went wrong. Verify all that the form is properly completed. If it seems like it should have worked, let us know and we will fix it." });
+				return;
+			}
+			console.log("Updated the trivia", triviaToEdit);
+			// return the updated game to the client
+			res.send(triviaToEdit);
+		} catch (error) {
+			// uncatched error will return 500 "server error"
+			console.error("Failed to update trivia", error);
+			res.status(500).send({ error: error.code, message: `Something went wrong! Try again.` });
 		}
-		const query = games.Trivia.findOneAndUpdate({ name: triviaToEdit.name }, { ...triviaToEdit, userId }, { runValidators: true });
-		// save the updated object in the database
-		const updateResult = await query.update();
-		if (!updateResult.n) {
-			console.log("Updating a non-exsisting game failed.", updateResult);
-			res.status(409).send({ message: "You are trying update a non-existing game. Please verify the name to make sure you are modifying an established game" });
-			return;
-		}
-		console.log("Updated the trivia", triviaToEdit);
-		// return the updated game to the client
-		res.send(triviaToEdit);
-	} catch (error) {
-		// uncatched error will return 500 "server error"
-		console.error("Failed to update trivia", error);
-		res.status(500).send({ error: error.code, message: `Something went wrong! Try again.` });
-	}
-});
+	});
 
-router.delete('/trivia/:name/:userId', async (req, res) => {
-	const gameToDelete = req.params.name;
-	const userId = req.params.userId;
-	try {
-		// using trivia model to delete a game
-		const findOneResult = await games.Trivia.findOne({ name: gameToDelete }, { name: 1, userId: 1 }).exec();
-		if (findOneResult.userId && findOneResult.userId !== userId) {
-			console.log("Wrong user trying to delete a game", gameToDelete, userId);
-			res.status(409).send({ message: "You do not have permission to delete this object" });
-			return;
+router.delete('/trivia/:name/:userId',
+	middleware.authentication,
+	async (req, res) => {
+		const query = req.query;
+		try {
+			// using trivia model to delete a game
+			const deleteResult = await query.findOneAndDelete();
+			console.log("Deleting a game from database", deleteResult);
+			res.send({ message: `Succesfullly deleted ${deleteResult.name}` });
+		} catch (error) {
+			console.log("Failed to delete trivia", gameToDelete);
+			res.status(500).send({ error: error.code, message: "Something went wrong, I couldn't delete your game" });
 		}
-		const deleteResult = await games.Trivia.findOneAndDelete({ name: gameToDelete }).exec();
-		console.log("Deleting a game from database", deleteResult);
-		res.send({ message: `Succesfullly deleted ${deleteResult.name}` });
-	} catch (error) {
-		console.log("Failed to delete trivia", gameToDelete);
-		res.status(500).send({ error: error.code, message: "Something went wrong, I couldn't delete your game" });
-	}
-});
+	});
 
 module.exports = router;
