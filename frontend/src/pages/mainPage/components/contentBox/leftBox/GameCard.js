@@ -11,8 +11,6 @@ export default function GameCard(props) {
 	const [classToApply, setClassToApply] = useState();
 
 	useEffect(() => {
-		console.log("index", index);
-		console.log("mod", index % 2);
 		setClassToApply(`color-${Math.ceil(Math.random() * 2) + (2 * (index % 2))}`);
 	}, []);
 

@@ -41,6 +41,10 @@ export default function GameProvider({ children }) {
 	// keeps an updated list of current user created games
 	useEffect(() => {
 		if (isAuthenticated) {
+			if (user["http://localhost:3000/roles"].includes("admin")) {
+				setFilterByCurrentUser(list);
+				return;
+			}
 			setFilterByCurrentUser(list.filter(game => game.author === user.nickname));
 		}
 	}, [list, user, isAuthenticated]);
