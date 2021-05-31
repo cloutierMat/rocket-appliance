@@ -28,7 +28,9 @@ async function init() {
 }
 
 function isIdAdmin(userId) {
+	console.log("userId", userId);
 	const result = admins.findIndex(admin => admin.userId === userId);
+	console.log("result", result);
 	return result !== -1;
 }
 
