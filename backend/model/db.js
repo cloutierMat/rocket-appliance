@@ -7,15 +7,15 @@ const server = process.env.DB_SERVER;
 const mongoUrl = `${host}://${user}:${password}@${server}/${database}?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoUrl, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 
 db.on('error', function (error) {
-   console.error('mongoose connection error', error);
+	console.error('mongoose connection error', error);
 });
 
 db.once('open', function () {
-   console.log('mongoose connection successful to database', database);
+	console.log('mongoose connection successful to database', database);
 });
