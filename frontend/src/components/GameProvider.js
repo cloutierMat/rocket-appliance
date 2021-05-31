@@ -27,6 +27,8 @@ export default function GameProvider({ children }) {
 		setFilterByFragment(filteredList);
 	}, [fragmentForFilter, list]);
 
+	//
+	// fetch data from the server
 	useEffect(() => {
 		async function fetchData() {
 			const response = await fetch('/game/list');
