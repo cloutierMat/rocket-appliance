@@ -31,7 +31,7 @@ export default function GameProvider({ children }) {
 		async function fetchData() {
 			const response = await fetch('/game/list');
 			const dataObj = await response.json();
-			setList([...dataObj]);
+			setList([...dataObj].sort(e => Math.random() - 0.5));
 		}
 		fetchData();
 	}, []);

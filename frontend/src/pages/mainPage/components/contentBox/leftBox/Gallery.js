@@ -20,6 +20,7 @@ export default function Gallery(props) {
 								key={game.name}
 								game={game}
 								onMouseEnter={onMouseEnter}
+								index={index}
 							/>
 						);
 					})}

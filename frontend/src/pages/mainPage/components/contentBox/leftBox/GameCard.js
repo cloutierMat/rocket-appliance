@@ -6,12 +6,14 @@ import styles from '../../../../../app.module.css';
 import { GoTasklist } from "react-icons/go";
 
 export default function GameCard(props) {
-	const { game, onMouseEnter } = props;
+	const { game, onMouseEnter, index } = props;
 	const { name, category } = game;
 	const [classToApply, setClassToApply] = useState();
 
 	useEffect(() => {
-		setClassToApply(`color-${Math.ceil(Math.random() * 4)}`);
+		console.log("index", index);
+		console.log("mod", index % 2);
+		setClassToApply(`color-${Math.ceil(Math.random() * 2) + (2 * (index % 2))}`);
 	}, []);
 
 	return (
