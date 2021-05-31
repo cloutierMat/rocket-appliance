@@ -23,7 +23,6 @@ export default function ContributeForm(props) {
 
 	return (
 		<div className={`${styles["contribute-form"]}`}>
-			{/* <Animated animationIn="slideInUp" animationOut="fadeOut" isVisible={true}> */}
 			<select value={optionState} onChange={handleGameType} className={`${styles["text-default"]} ${styles["drop-down"]}`}>
 				<option>Select a game type</option>
 				<option>Trivia</option>
@@ -41,7 +40,6 @@ export default function ContributeForm(props) {
 				</button>
 			</div>
 			<h2 className="message-on-create_contribute">{messageOnSubmit}</h2>
-			{/* </Animated> */}
 		</div>
 	);
 };
