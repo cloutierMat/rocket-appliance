@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <!--  -->
-    <!-- will need to create/add our own favicon for later -->
-    <!--  -->
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> --> 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>rocket appliance</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<!--  -->
+	<!-- will need to create/add our own favicon for later -->
+	<!--  -->
+	<!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	<title>rocket appliance</title>
+</head>
+<!-- Work around for google's upcoming deprecation of SharedArrayBuffer -->
+<script>
+	// See https://github.com/facebook/react/issues/20829#issuecomment-802088260
+	if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+</script>
+
+<body>
+	<div id="root"></div>
+</body>
+
 </html>

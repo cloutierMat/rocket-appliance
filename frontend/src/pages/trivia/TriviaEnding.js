@@ -16,7 +16,9 @@ export default function TriviaEnding(props) {
 					return (
 						<>
 							<div >
-								<a href={question.link} target="_blank" rel="noopener noreferrer">{question.question}</a>
+								<a href={question.link} target="_blank" rel="noopener noreferrer" key={question.question}>
+									{question.question}
+								</a>
 								<div>{question.options[0]}</div>
 							</div>
 							<br />
