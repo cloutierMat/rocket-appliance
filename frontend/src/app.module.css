@@ -604,7 +604,21 @@ GAME CARD ANIMATION
 
 td:hover {
 	cursor: pointer;
-	background-color: grey;
+	background-color: rgb(87, 87, 87);
+}
+
+.button-hover button {
+	cursor: pointer;
+	background-color: #b63838;
+	border: 2px solid white;
+	border-radius: 5px;
+	color: white;
+	height: 32px;
+	width: 40px;
+}
+
+.button-hover button:hover {
+	background-color: #812525;
 }
 
 .contribute-edit td {
@@ -671,7 +685,7 @@ table {
 .title-form ul {
 	text-align: center;
 	padding: 0px 0px 0px 0px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: white;
 	margin: 10px;
 }
@@ -698,7 +712,7 @@ table {
 }
 
 .ul-description {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: white;
 }
 
@@ -721,10 +735,14 @@ table {
 	background-color: #993b3b;
 }
 
+.question button:hover {
+	background-color: #993b3b;
+}
+
 .option-description {
-	font-size: .6em;
+	font-size: 0.6em;
 	margin: 0px 0px -30px 0px;
-	opacity: .8;
+	opacity: 0.8;
 }
 
 .option-button button {

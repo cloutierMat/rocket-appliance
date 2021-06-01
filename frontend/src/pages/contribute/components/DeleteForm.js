@@ -40,9 +40,9 @@ export default function DeleteForm(props) {
             gameList.map((game) => {
               return (
                 <tr className={styles["edit"]} key={game.name}>
-                  <td>
+                  <div className={styles["button-hover"]}>
                     <button onClick={() => onDelete(game.name)}>X</button>
-                  </td>
+                  </div>
                   <td>{game.name} </td>
                   <td>{game.category}</td>
                   <td>{game.type}</td>
