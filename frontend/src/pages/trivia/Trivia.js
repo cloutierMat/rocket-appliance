@@ -7,25 +7,27 @@ import './trivia.css';
 import { Animated } from "react-animated-css";
 
 export default function Trivia() {
+
+	const gameCtx = useContext(GameContext);
+
+	const [gameList, setGameList] = useState(gameCtx.list);
 	const [category, setCategory] = useState();
 	const [name, setName] = useState();
 	const [questions, setQuestions] = useState();
 	const [author, setAuthor] = useState();
 	const [isEndReached, setIsEndReached] = useState();
 
-	const gameCtx = useContext(GameContext);
-
 	const { gameName } = useParams();
 
 	useEffect(() => {
-		if (!gameCtx.list.length) return;
-		const triviaToDisplay = gameCtx.list.find(elem => elem.name === gameName);
+		if (!gameList.length) return;
+		const triviaToDisplay = gameList.find(elem => elem.name === gameName);
 		setCategory(triviaToDisplay.category);
 		setName(triviaToDisplay.name);
 		setAuthor(triviaToDisplay.author);
 		setQuestions(triviaToDisplay.questions);
 		setIsEndReached(false);
-	}, [gameCtx.list, gameName]);
+	}, [gameList, gameName]);
 
 	return (
 		<div className="trivia-page">
