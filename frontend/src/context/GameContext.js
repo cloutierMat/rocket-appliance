@@ -4,7 +4,7 @@ const GameContext = React.createContext({
 	list: [],
 	setFragmentForFilter: (input) => { },
 	filteredByFragment: [],
-	filteredByCurrentUser: []
+	filteredByCurrentUser: [],
 });
 
 export default GameContext;

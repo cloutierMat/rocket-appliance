@@ -4,11 +4,11 @@ import GameContext from '../context/GameContext';
 
 export default function GameProvider({ children }) {
 
+	const [clientPointer, setClientPointer] = useState();
 	const [list, setList] = useState([]);
 	const [filteredByFragment, setFilterByFragment] = useState([]);
 	const [filteredByCurrentUser, setFilterByCurrentUser] = useState([]);
 	const [fragmentForFilter, setFragmentForFilter] = useState("");
-	const [clientPointer, setClientPointer] = useState();
 
 	const { user, isAuthenticated } = useAuth0();
 
@@ -28,17 +28,6 @@ export default function GameProvider({ children }) {
 		setFilterByFragment(filteredList);
 	}, [fragmentForFilter, list]);
 
-
-	// async function fetchData() {
-	// 	const response = await fetch(`/game/list/${clientPointer}`);
-	// 	const dataObj = await response.json();
-
-	// 	setList([...dataObj.list]);
-	// 	console.log("list", list);
-	// 	const newPointer = dataObj.pointer;
-	// 	console.log("newPointer", newPointer);
-	// }
-
 	function fetchData() {
 	}
 
@@ -51,20 +40,12 @@ export default function GameProvider({ children }) {
 				.then(res => res.json())
 				.then(dataObj => {
 					setList([...dataObj.list]);
-					console.log([...dataObj["list"]]);
 					const newPointer = dataObj.pointer;
-					console.log("newPointer", newPointer);
-					console.log("list", list);
 					setClientPointer(newPointer);
-				});
-		}
-			, 3000);
+				}).catch(error => console.log(error));
+		}, 2500);
 		return () => clearInterval(interval);
-	}, []);
-
-	useEffect(() => {
-		console.log(clientPointer, "something");
-	}, [clientPointer]);
+	}, [clientPointer, list]);
 
 	//
 	// listen to changes in user and in list
@@ -84,7 +65,7 @@ export default function GameProvider({ children }) {
 			list,
 			filteredByFragment,
 			setFragmentForFilter,
-			filteredByCurrentUser
+			filteredByCurrentUser,
 		}}>
 			{children}
 		</GameContext.Provider>
