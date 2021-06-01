@@ -20,7 +20,7 @@ export default function TriviaForm(props) {
 	const { initialData, onSubmit, resetForm, author } = props;
 
 	const [errorMessages, setErrorMessages] = useState([]);
-	const [data, setData] = useState({ ...INITIAL_DATA, author });
+	const [data, setData] = useState({ ...INITIAL_DATA });
 	const [focusedRef, setFocusedRef] = useState('input');
 	const [immutableGameName, setImmutableGameName] = useState();
 
@@ -88,8 +88,8 @@ export default function TriviaForm(props) {
 
 	useEffect(() => {
 		const dataToEdit = initialData ?
-			{ ...initialData }
-			: { ...INITIAL_DATA };
+			{ ...initialData, author }
+			: { ...INITIAL_DATA, author };
 		dataToEdit.questions = dataToEdit.questions.map(question => {
 			return {
 				question: question.question,
@@ -103,9 +103,10 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
+		console.log("dataToEdit", dataToEdit);
 		if (dataToEdit.name) setImmutableGameName(true);
 		setData(dataToEdit);
-	}, [initialData]);
+	}, [initialData, author]);
 
 	//
 	// In the following functions we set the cursor focus
@@ -140,7 +141,7 @@ export default function TriviaForm(props) {
 				})
 			};
 		});
-
+		console.log("data", data);
 		let dataToPost = { ...data, questions: questionsToPost };
 
 		const schema = Joi.object({
@@ -215,9 +216,10 @@ export default function TriviaForm(props) {
 					<ul>
 						Contributor: <br></br>
 						<input
-							value={data.author}
+							type="text"
+							defaultValue={data.author}
 							disabled={true}
-							onKeyPress={handlePreventEnterDefault}
+						// onKeyPress={handlePreventEnterDefault}
 						/>
 					</ul>
 

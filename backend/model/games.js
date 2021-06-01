@@ -23,7 +23,6 @@ const triviaSchema = new mongoose.Schema({
 	},
 	author: {
 		type: String,
-		default: "anonymous"
 	},
 	userId: {
 		type: String,
