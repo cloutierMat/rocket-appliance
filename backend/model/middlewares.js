@@ -29,13 +29,13 @@ async function authentication(req, res, next) {
 	}
 }
 
+//
+// this function compares the db change pointer to the clients change pointer
+// if no changes are found, we return a 204 to let the client know that there are no new list for it to fetch
 function dbChangeVerifier(req, res, next) {
 	const clientPointer = req.params.pointer;
 	const dbPointer = games.getChangePointer();
-	console.log("Client", clientPointer);
-	console.log("db", dbPointer);
 	if (dbPointer === clientPointer) {
-		console.log("interrupted fetch request send through the API");
 		res.sendStatus(204);
 		return;
 	}
