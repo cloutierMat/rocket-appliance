@@ -33,18 +33,10 @@ body {
 }
 
 .flex-container {
-<<<<<<< HEAD
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-	 
-=======
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
->>>>>>> f251c980ea57b8024705e21473c29681a7459bbb
 }
 
 .App {
@@ -211,24 +203,6 @@ nav {
 .logout-button {
 	cursor: pointer;
 	color: #ffffff;
-<<<<<<< HEAD
-	font-family: 'Staatliches', cursive;
-	font-size: 1.2em;
-	background-color: #2f3557;
-	border: 2px solid white;
-	border-radius: 10px;
-	box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222;
-	margin-right: 2px;
-	display: inline-flex;
-	/* position: absolute;
-	right: 20px;
-	top: 20px; */
-
-}
-	.logout-button:hover {
-		background-color: #1c2033;
-	}
-=======
 	font-family: "Staatliches", cursive;
 	font-size: 1.2em;
 	background-color: #2f3557;
@@ -241,7 +215,6 @@ nav {
 .logout-button:hover {
 	background-color: #1c2033;
 }
->>>>>>> f251c980ea57b8024705e21473c29681a7459bbb
 
 .logout-button svg {
 	position: relative;
