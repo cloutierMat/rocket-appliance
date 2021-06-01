@@ -236,7 +236,6 @@ export default function TriviaForm(props) {
               </label>
               <br></br>
               <textarea
-                cols="50"
                 rows="5"
                 value={data.description}
                 placeholder="Tell us more about the game"
@@ -288,6 +287,7 @@ export default function TriviaForm(props) {
                       <div className={styles["option"]} key={option.id}>
                         Option {optionIndex + 1}
                         <br></br>
+												<p className={styles["option-description"]}> The correct answer should be option 1</p>
                         <Controller
                           name={option.id}
                           control={control}
