@@ -18,7 +18,7 @@ export default function GameDescription(props) {
 		<div>
 
 			{gameToDisplay &&
-				<Animated animationIn="slideInDown" animationOut="fadeOut" isVisible={true}>
+				<Animated animationIn="slideInLeft" animationOut="fadeOut" isVisible={true}>
 					<div className={`${styles["game-description"]} ${styles["text-default"]}`}>
 						<h3>{gameToDisplay.name}</h3>
 						<p>Created by {gameToDisplay.author}</p>

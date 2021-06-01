@@ -334,6 +334,7 @@ LEFTBOX
 	margin-top: 10px;
 	font-size: 1.5em;
 }
+
 /* 
 GAME CARDS
 */
@@ -568,7 +569,7 @@ GAME CARD ANIMATION
 	height: fit-content;
 	padding-bottom: 20px;
 	border-radius: 10px;
-	min-width: 200px;
+	/* min-width: 200px; */
 }
 
 .contribute-form button {
@@ -578,7 +579,7 @@ GAME CARD ANIMATION
 	border: 2px solid white;
 	width: 180px;
 	height: 40px;
-	margin: 0px 10px 0px 10px;
+	margin: 0px 10px 10px 10px;
 	opacity: .8;
 	font-family: 'Staatliches', cursive;
 	font-size: 1.2em;
@@ -601,6 +602,13 @@ td:hover {
 	background-color: grey;
 }
 
+th {
+	display: fit-content;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0px 60px 0px 30px;
+
+}
 /* game-card */
 
 .color-1 {
@@ -641,4 +649,80 @@ td:hover {
 h3 {
 	color: white;
 	font-family: 'Staatliches', cursive;;
+}
+
+/* trivia form */
+
+.title-form ul {
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+	color: white;
+	margin: 10px;
+}
+
+.title-form input {
+	cursor: pointer;
+	background-color: #1c2033;
+	outline:none;
+	height: 30px;
+	width: 200px;
+	border: 2px solid white;
+	border-radius: 5px;
+	margin:auto;
+}
+
+.title-form button {
+	background-color: #5b9aa0;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	margin-left: 5px;
+	height: 25px;
+}
+
+.question input{
+	justify-content: center;
+	margin: auto;
+	align-items: center;
+	margin-left: 0px;
+}
+
+.question button { /* delete buttons */
+	background-color: #B80F0A;
+	--rightOffSet:calc(width/2);
+}
+
+.option-button button { /* new option button */
+	background-color: #5b9aa0;
+}
+
+.link input {
+	justify-content: center;
+	margin-left: 0px;
+	margin-right: 24px;
+}
+
+.new-question button {
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.option input {
+	margin-left: 0px;
+}
+
+
+textarea {
+	background-color: #1c2033;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	justify-content: center;
+	width: 260px;
+}
+.title-form .submit {
+	background-color: #5b9aa0;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
 }

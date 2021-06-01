@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Gallery from './Gallery';
 import GameDescription from './GameDescription';
 import styles from '../../../../../app.module.css';
-import About from '../../About'
+import About from '../../About';
 
 export default function LeftBox() {
 	const [gameHovered, setGameHovered] = useState();
