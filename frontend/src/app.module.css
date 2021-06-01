@@ -40,7 +40,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.1em;
   align-items: center;
 }
 
@@ -83,6 +82,9 @@ nav {
 }
 
 .nav-banner {
+  /* ! Alireza */
+  min-width: fit-content;
+  /* ! Alireza */
   max-width: min(500px, 95%);
   justify-content: flex-end;
   margin-right: 10px;
@@ -404,7 +406,7 @@ GAME CARDS
 }
 
 .left-box .game-card h2 {
-  display: inline-flexj;
+  display: inline-flexj; /* fix that */
   color: white;
   height: fit-content;
   width: 180px;
@@ -545,7 +547,6 @@ button.btn.btn-background-slide:focus::before {
 /* contribute form */
 
 .contribute-form h3 {
-  margin: 10px;
   font-size: 1em;
 }
 
@@ -608,52 +609,26 @@ td:hover {
   display: flex;
   align-content: space-between;
 }
-
-.game-title tr {
-  display: flex;
-  justify-content: space-evenly;
-  background-color: yellow;
-} */
-/* game-card */
-
-.color-1 {
-  background-color: #d04e4e;
-  box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8), 0px 8px 20px #222222;
-}
-
-.color-1:hover {
-  background-color: #993b3b;
-}
-.color-2 {
-  background-color: rgb(98, 98, 170);
-  box-shadow: 7px 5px 0px 5px rgba(40, 58, 118, 0.8), 0px 8px 20px #222222;
-}
-
-.color-2:hover {
-  background-color: rgb(78, 78, 131);
-}
-
-.color-3 {
-  background-color: rgb(93, 146, 93);
-  box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
+   box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
 }
 
 .color-3:hover {
-  background-color: rgb(71, 109, 71);
+   background-color: rgb(71, 109, 71);
 }
 
 .color-4 {
-  background-color: rgb(223, 206, 110);
-  box-shadow: 7px 5px 0px 5px rgba(119, 112, 43, 0.8), 0px 8px 20px #222222;
+   background-color: rgb(223, 206, 110);
+   box-shadow: 7px 5px 0px 5px rgba(119, 112, 43, 0.8), 0px 8px 20px #222222;
 }
 
 .color-4:hover {
-  background-color: rgb(194, 177, 82);
+   background-color: rgb(194, 177, 82);
 }
 
 h3 {
-  color: white;
-  font-family: "Staatliches", cursive;
+   color: white;
+   font-family: 'Staatliches', cursive;
+>>>>>>> f9eccae43f18d379e5a76014b396db28ca831e7f
 }
 
 /* trivia form */

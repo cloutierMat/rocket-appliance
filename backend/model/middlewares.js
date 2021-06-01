@@ -1,5 +1,6 @@
 const games = require('./games');
 const admins = require('./admins');
+const { Trivia } = require('./games');
 
 async function authentication(req, res, next) {
 	const userId = req.params.userId;
@@ -29,8 +30,18 @@ async function authentication(req, res, next) {
 	}
 }
 
-
+function dbChangeVerifier(req, res, next) {
+	const clientPointer = req.params.pointer;
+	if (games.changePointer === clientPointer) {
+		console.log("interrupted fetch request send through the API");
+		res.sendStatus(304);
+		return;
+	}
+	req.pointer = games.changePointer;
+	next();
+}
 
 module.exports = {
 	authentication,
+	dbChangeVerifier,
 };

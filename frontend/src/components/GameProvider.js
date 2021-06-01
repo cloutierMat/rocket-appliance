@@ -4,6 +4,7 @@ import GameContext from '../context/GameContext';
 
 export default function GameProvider({ children }) {
 
+	const [clientPointer, setClientPointer] = useState();
 	const [list, setList] = useState([]);
 	const [filteredByFragment, setFilterByFragment] = useState([]);
 	const [filteredByCurrentUser, setFilterByCurrentUser] = useState([]);
@@ -27,16 +28,24 @@ export default function GameProvider({ children }) {
 		setFilterByFragment(filteredList);
 	}, [fragmentForFilter, list]);
 
+	function fetchData() {
+	}
+
 	//
 	// fetch data from the server
 	useEffect(() => {
-		async function fetchData() {
-			const response = await fetch('/game/list');
-			const dataObj = await response.json();
-			setList([...dataObj].sort(e => Math.random() - 0.5));
-		}
 		fetchData();
-	}, []);
+		const interval = setInterval(() => {
+			fetch(`/game/list/${clientPointer}`)
+				.then(res => res.json())
+				.then(dataObj => {
+					setList([...dataObj.list]);
+					const newPointer = dataObj.pointer;
+					setClientPointer(newPointer);
+				}).catch(error => console.log(error));
+		}, 2500);
+		return () => clearInterval(interval);
+	}, [clientPointer, list]);
 
 	//
 	// listen to changes in user and in list
@@ -56,7 +65,7 @@ export default function GameProvider({ children }) {
 			list,
 			filteredByFragment,
 			setFragmentForFilter,
-			filteredByCurrentUser
+			filteredByCurrentUser,
 		}}>
 			{children}
 		</GameContext.Provider>
