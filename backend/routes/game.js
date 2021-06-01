@@ -9,7 +9,7 @@ router.get('/play/trivia/:name', async function (req, res) {
 		console.log('loaded trivia', triviaToSend);
 		res.send(triviaToSend);
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 		res.sendStatus(500);
 	}
 });
@@ -17,15 +17,16 @@ router.get('/play/trivia/:name', async function (req, res) {
 // endpoint to retrieve a list of all playable games
 // returns an object containing
 // name, category, author, description
-router.get('/list', async function (req, res) {
+router.get('/list/:pointer', middleware.dbChangeVerifier, async function (req, res) {
 	try {
+		const pointer = req.pointer;
 		const query = games.Trivia.find({}, { userId: 0, __v: 0 });
 		query.select({ _id: 0 });
 		const list = await query.exec();
 		console.log("Loaded game list. count:", list.length);
-		res.send(list);
+		res.send({ pointer, list });
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 		res.sendStatus(500);
 	}
 });

@@ -2,6 +2,8 @@ require('./db');
 const mongoose = require('mongoose');
 require('mongoose-type-url');
 
+let changePointer = new Date();
+
 const triviaSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -53,4 +55,15 @@ const triviaSchema = new mongoose.Schema({
 	]
 });
 
-module.exports = { Trivia: mongoose.model("Trivia", triviaSchema) };
+const Trivia = mongoose.model("Trivia", triviaSchema);
+
+Trivia.watch()
+	.on("change", data => {
+		changePointer = new Date();
+		console.log(changePointer, "Last change is reported");
+	});
+
+module.exports = {
+	Trivia,
+	changePointer,
+};
