@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 .gallery::-webkit-scrollbar {
 	height: 20px;
 	margin-bottom: 20px;
@@ -309,6 +311,8 @@ LEFTBOX
 	text-align: center;
 	min-width: 310px;
 	border-radius: 10px;
+	font-family: 'Open Sans', sans-serif;
+	
 }
 
 .game-description h3 {
@@ -332,7 +336,8 @@ LEFTBOX
 	padding: 20px;
 	border-radius: 10px;
 	margin-top: 10px;
-	font-size: 1.5em;
+	margin-bottom: 10px;
+	font-size: 1em;
 }
 /* 
 GAME CARDS
@@ -501,8 +506,11 @@ GAME CARD ANIMATION
 }
 
 .suggestion-description h4 {
-	margin-top: -5px;
-	margin-bottom: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: .8em;
+	opacity: .8;
 }
 
 

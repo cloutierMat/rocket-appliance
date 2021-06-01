@@ -1,6 +1,7 @@
 /* trivia */
 
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body {
 	background-color: #24262F;
@@ -40,17 +41,21 @@ body {
 }
 
 .trivia-page p {
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.2em;
 	margin: unset;
 }
 
 .trivia-page h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5em;
+	opacity: .9;
 	display: inline-flex;
-	font-size: 2em;
 	max-width: 300px;
 	justify-content: center;
 	margin: unset;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .trivia-page h4 {
@@ -58,6 +63,9 @@ body {
 	background-color: #24262F;
 	padding: 10px;
 	border-radius: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	opacity: .9;
 }
 
 .trivia-page a {
@@ -140,7 +148,9 @@ body {
 }
 
 .trivia-ending h2 {
-	font-size: 2em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5em;
+	opacity: .9;
 	display: inline-flex;
 	justify-content: center;
 	margin-bottom: 20px;
