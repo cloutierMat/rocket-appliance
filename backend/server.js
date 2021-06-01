@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./model/admins').init();
 const express = require('express');
 const logger = require('morgan');
 const app = express();

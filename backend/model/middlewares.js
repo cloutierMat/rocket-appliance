@@ -1,10 +1,17 @@
 const games = require('./games');
+const admins = require('./admins');
 
 async function authentication(req, res, next) {
 	const userId = req.params.userId;
 	const name = req.body.name || req.params.name;
 
-	const query = games.Trivia.findOne({ name, userId });
+	const options = {};
+	options.name = name;
+	if (!admins.isIdAdmin(userId)) {
+		options.userId = userId;
+	}
+
+	const query = games.Trivia.findOne(options);
 
 	try {
 		const result = await query.findOne();
