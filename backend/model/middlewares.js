@@ -1,6 +1,5 @@
 const games = require('./games');
 const admins = require('./admins');
-const { Trivia } = require('./games');
 
 async function authentication(req, res, next) {
 	const userId = req.params.userId;
@@ -13,7 +12,6 @@ async function authentication(req, res, next) {
 	}
 
 	const query = games.Trivia.findOne(options);
-
 	try {
 		const result = await query.findOne();
 		if (!result) {
@@ -22,6 +20,7 @@ async function authentication(req, res, next) {
 			return;
 		}
 		req.query = query;
+		req.userId = result.userId;
 		next();
 	} catch (error) {
 		console.log("middleware authentication", error);
@@ -32,12 +31,15 @@ async function authentication(req, res, next) {
 
 function dbChangeVerifier(req, res, next) {
 	const clientPointer = req.params.pointer;
-	if (games.changePointer === clientPointer) {
+	const dbPointer = games.getChangePointer();
+	console.log("Client", clientPointer);
+	console.log("db", dbPointer);
+	if (dbPointer === clientPointer) {
 		console.log("interrupted fetch request send through the API");
-		res.sendStatus(304);
+		res.sendStatus(204);
 		return;
 	}
-	req.pointer = games.changePointer;
+	req.pointer = dbPointer;
 	next();
 }
 

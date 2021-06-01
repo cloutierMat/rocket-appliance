@@ -37,8 +37,16 @@ export default function GameProvider({ children }) {
 		fetchData();
 		const interval = setInterval(() => {
 			fetch(`/game/list/${clientPointer}`)
-				.then(res => res.json())
+				.then(res => {
+					if (res.status === 204) {
+						return false;
+					}
+					return res.json();
+				})
 				.then(dataObj => {
+					if (!dataObj) {
+						return;
+					}
 					setList([...dataObj.list]);
 					const newPointer = dataObj.pointer;
 					setClientPointer(newPointer);

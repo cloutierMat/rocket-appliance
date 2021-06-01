@@ -60,7 +60,6 @@ export default function TriviaForm(props) {
 
 	const handleInfoChange = (event, element) => {
 		let prevData = { ...data };
-		console.log(data.author);
 		prevData[element] = event.target.value;
 		setData(prevData);
 	};
@@ -117,7 +116,6 @@ export default function TriviaForm(props) {
 				}),
 			};
 		});
-		console.log("dataToEdit", dataToEdit);
 		if (dataToEdit.name) setImmutableGameName(true);
 		setData(dataToEdit);
 	}, [initialData, author]);
@@ -155,7 +153,6 @@ export default function TriviaForm(props) {
 				}),
 			};
 		});
-		console.log("data", data);
 		let dataToPost = { ...data, questions: questionsToPost };
 
 		const schema = Joi.object({

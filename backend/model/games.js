@@ -2,7 +2,7 @@ require('./db');
 const mongoose = require('mongoose');
 require('mongoose-type-url');
 
-let changePointer = new Date();
+let changePointer = new Date().toISOString();
 
 const triviaSchema = new mongoose.Schema({
 	name: {
@@ -59,11 +59,15 @@ const Trivia = mongoose.model("Trivia", triviaSchema);
 
 Trivia.watch()
 	.on("change", data => {
-		changePointer = new Date();
+		changePointer = new Date().toISOString();
 		console.log(changePointer, "Last change is reported");
 	});
 
+function getChangePointer() {
+	return changePointer;
+}
+
 module.exports = {
 	Trivia,
-	changePointer,
+	getChangePointer,
 };

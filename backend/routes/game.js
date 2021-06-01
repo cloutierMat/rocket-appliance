@@ -6,7 +6,7 @@ router.get('/play/trivia/:name', async function (req, res) {
 	try {
 		const triviaToLoad = req.params;
 		const triviaToSend = await games.Trivia.findOne(triviaToLoad);
-		console.log('loaded trivia', triviaToSend);
+		console.log('Sending a trivia: ', triviaToSend.name);
 		res.send(triviaToSend);
 	} catch (error) {
 		console.error(error);
@@ -17,19 +17,21 @@ router.get('/play/trivia/:name', async function (req, res) {
 // endpoint to retrieve a list of all playable games
 // returns an object containing
 // name, category, author, description
-router.get('/list/:pointer', middleware.dbChangeVerifier, async function (req, res) {
-	try {
-		const pointer = req.pointer;
-		const query = games.Trivia.find({}, { userId: 0, __v: 0 });
-		query.select({ _id: 0 });
-		const list = await query.exec();
-		console.log("Loaded game list. count:", list.length);
-		res.send({ pointer, list });
-	} catch (error) {
-		console.error(error);
-		res.sendStatus(500);
-	}
-});
+router.get('/list/:pointer',
+	middleware.dbChangeVerifier,
+	async function (req, res) {
+		try {
+			const pointer = req.pointer;
+			const query = games.Trivia.find({}, { userId: 0, __v: 0 });
+			query.select({ _id: 0 });
+			const list = await query.exec();
+			console.log("Loaded game list. count:", list.length);
+			res.send({ pointer, list });
+		} catch (error) {
+			console.error(error);
+			res.sendStatus(500);
+		}
+	});
 
 // endpoint to create a new trivia game
 router.post('/trivia/:userId', async function (req, res) {
@@ -41,7 +43,7 @@ router.post('/trivia/:userId', async function (req, res) {
 		const newTrivia = new games.Trivia({ ...triviaToCreate, userId });
 		// save the new object in the database
 		await newTrivia.save();
-		console.log("Created a trivia", newTrivia);
+		console.log("Created a trivia", newTrivia.name);
 		// return the newly created game to the client
 		res.send(newTrivia);
 	} catch (error) {
@@ -66,15 +68,14 @@ router.put('/trivia/:userId',
 		const triviaToEdit = req.body;
 		const userId = req.params.userId;
 		try {
-			console.log("triviaToEdit", triviaToEdit);
 			query.setUpdate({ ...triviaToEdit, userId }, { runValidators: true });
-			const updateResult = await query.update();
+			const updateResult = await query.updateOne();
 			if (!updateResult.n) {
 				console.log("Failed to update a game", updateResult);
 				res.status(409).send({ message: "Something went wrong. Verify all that the form is properly completed. If it seems like it should have worked, let us know and we will fix it." });
 				return;
 			}
-			console.log("Updated the trivia", triviaToEdit);
+			console.log("Updated the trivia: ", triviaToEdit.name);
 			// return the updated game to the client
 			res.send(triviaToEdit);
 		} catch (error) {
@@ -91,7 +92,7 @@ router.delete('/trivia/:name/:userId',
 		try {
 			// using trivia model to delete a game
 			const deleteResult = await query.findOneAndDelete();
-			console.log("Deleting a game from database", deleteResult);
+			console.log("Deleting a game from database", deleteResult.name);
 			res.send({ message: `Succesfullly deleted ${deleteResult.name}` });
 		} catch (error) {
 			console.log("Failed to delete trivia", gameToDelete);
