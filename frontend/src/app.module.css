@@ -39,6 +39,10 @@ body {
 	align-items: center;
 }
 
+.flex-space-around {
+	justify-content: space-around;
+}
+
 .App {
 	padding: 10px;
 	background-color: #24262f;
@@ -569,6 +573,10 @@ GAME CARD ANIMATION
 	/* min-width: 200px; */
 }
 
+.question {
+	margin: 2em;
+}
+
 .contribute-form button {
 	background-color: #2f3557;
 	border-radius: 5px;
@@ -708,9 +716,10 @@ table {
 	background-color: #d04e4e;
 	--rightOffSet: calc(width/2);
 }
-	.question button:hover {
-		background-color: #993b3b;
-	}
+
+.question button:hover {
+	background-color: #993b3b;
+}
 
 .option-description {
 	font-size: .6em;
@@ -720,11 +729,12 @@ table {
 
 .option-button button {
 	/* new option button */
-	background-color:  rgb(93, 146, 93);
+	background-color: rgb(93, 146, 93);
 }
-	.option-button button:hover {
-		background-color: rgb(71, 109, 71);
-	}
+
+.option-button button:hover {
+	background-color: rgb(71, 109, 71);
+}
 
 .link input {
 	justify-content: center;
@@ -738,10 +748,10 @@ table {
 	background-color: rgb(93, 146, 93);
 }
 
-	.new-question button:hover {
-	  background-color: rgb(71, 109, 71);
-		cursor: pointer;
-	}
+.new-question button:hover {
+	background-color: rgb(71, 109, 71);
+	cursor: pointer;
+}
 
 .option input {
 	margin-left: 0px;
@@ -763,6 +773,7 @@ textarea {
 	border: 2px solid white;
 	border-radius: 5px;
 }
+
 .title-form .submit:hover {
 	cursor: pointer;
 	background-color: #1c2033;

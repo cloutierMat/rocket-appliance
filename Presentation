@@ -1,0 +1,90 @@
+--- slides ---
+{ ___WILL___
+    1.
+        Slide 4 pic and 4 names
+        1 sentence background
+    30 sec
+}
+
+{ ___NIKITA___
+    2. 
+        It is daunting to start learning a new topic.
+        Most education sources use a punitive and restrictive approach.
+        We have tendencies to categorized "hard" topic as only available to "smart" people
+        This leads to that bubble in our head of subjects we categorized as "Rocket science"
+}
+
+{ ___ALI___
+    3.
+        This is why we created Rocket Appliance.
+        We want to make approaching new topics more attainable by creating a platform where passionate can provide entry point to their fields of expertise
+        The games are meant to be short, easy and entertaining.
+        Each elements of a game will allow the contributors to provide link where the learner can start their learning journey
+}
+
+{ ___MATHIEU___
+    4.
+        Mongoose
+        MongoDb
+        Express
+        React
+        Nodejs
+        Auth0
+        Atlassian
+            confluence
+            Jira
+        github
+        online
+            zoom
+            discord
+            meet
+        vsCode
+}
+--- Demo ---
+
+.UI {
+    show:mobile-version;
+} 
+
+{ ___WILL___
+    Learn page
+        - search bar
+        - randomly populated gallery
+        - Brief descrition under cards
+        - class="UI"
+}
+{ ___NIKITA___  
+    Game page
+        - question
+        - Wrong answer and explain why we stay on page
+        - link to more learning
+        - Ending page
+        - class="UI"
+}
+{ ___ALI___
+    Contribute
+        - present all elements very briefly
+        - create a game
+        - validation with a wrong submit
+        - Then do a proper submit
+        - Show edit page and say you can edit the game
+        - show how to delete a game
+        - class="UI"
+}
+--- Key Learnings ---
+{ ___MATHIEU___
+    - Team building
+        - Value in communication
+        - pair coding
+        - git
+        - team work organisation
+        - agile / scrum
+        - balance in flexible thinking
+            - coding habits
+            - approach to problem solving
+
+    - With the right ressources and team, building a website isn't Rocket Science
+
+    - pending feedback from a blind person
+        -talk about accessibility
+}
