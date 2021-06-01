@@ -183,14 +183,14 @@ export default function TriviaForm(props) {
 		<div>
 			{errorMessages && <h3 className="">{errorMessages}</h3>}
 
-			<form className={styles["title-form"]} onSubmit={handleSubmit(formValidator)} >
+			<form className={`${styles["title-form"]}`} onSubmit={handleSubmit(formValidator)} >
 
 				<h1>Trivia </h1>
-				<ul>
-					<ul className="title-form">
+				<ul className={styles["flex-container"]}>
+					<div className={styles["left-side"]}>
+					<ul>
 						Category: <br></br>
 						<input
-							className={styles["input"]}
 							type="text"
 							placeholder="Rocket Science"
 							value={data.category}
@@ -200,7 +200,7 @@ export default function TriviaForm(props) {
 						/>
 					</ul>
 
-					<li>
+					<ul>
 						Game Name: <br></br>
 						<input
 							type="text"
@@ -210,18 +210,18 @@ export default function TriviaForm(props) {
 							onChange={(event) => { handleInfoChange(event, "name"); }}
 							onKeyPress={handlePreventEnterDefault}
 						/>
-					</li>
+					</ul>
 
-					<li>
+					<ul>
 						Contributor: <br></br>
 						<input
 							value={data.author}
 							disabled={true}
 							onKeyPress={handlePreventEnterDefault}
 						/>
-					</li>
+					</ul>
 
-					<li>
+					<ul>
 						<label className="game-description_contributor">Description:</label><br></br>
 						<textarea
 							cols="50"
@@ -229,9 +229,11 @@ export default function TriviaForm(props) {
 							value={data.description}
 							placeholder="Tell us more about the game"
 							onChange={(event) => { handleInfoChange(event, "description"); }} />
-					</li>
+					</ul>
+					</div>
+					<div className={styles["right-side"]}>
 					{data.questions[0] && data.questions[0].id && data.questions.map((question, questionIndex) => (
-						<li key={question.id} >
+						<ul className={styles["question"]} key={question.id} >
 							Question {questionIndex + 1} <br></br>
 							<Controller
 								name={question.id}
@@ -246,7 +248,7 @@ export default function TriviaForm(props) {
 							<button onClick={() => { handleRemoveQuestion(questionIndex); }}>Delete</button>
 							<ul>
 
-								<li>
+								<ul className={styles["link"]}>
 									Link: <br></br>
 									<input
 										type="url"
@@ -255,9 +257,9 @@ export default function TriviaForm(props) {
 										onChange={(event) => { handleLinkChange(event, questionIndex); }}
 										onKeyPress={handlePreventEnterDefault}
 									/>
-								</li>
+								</ul>
 								{data.questions[questionIndex].options.map((option, optionIndex) => (
-									<li key={option.id}>
+									<ul className={styles["option"]} key={option.id}>
 										Option {optionIndex + 1}
 										<br></br>
 										<Controller
@@ -272,24 +274,25 @@ export default function TriviaForm(props) {
 
 										<button onClick={() => { handleRemoveOption(optionIndex, questionIndex); }}>Delete</button>
 
-									</li>
+									</ul>
 								))}
 							</ul>
 
-							<section>
+							<section className={styles["option-button"]}>
 								<button type="button" onClick={() => handleInsertOption(questionIndex)}>New option</button>
 							</section>
 
-						</li>
+						</ul>
 					))
-					}
+				}
+				</div>
 				</ul>
-				<section>
+				<section className={styles["new-question"]}>
 					<button type="button" onClick={handleInsertQuestion}>
 						New question
         </button>
 				</section>
-				<input type="submit" />
+				<input className={styles["submit"]} type="submit" />
 			</form>
 			<br />
 		</div>
