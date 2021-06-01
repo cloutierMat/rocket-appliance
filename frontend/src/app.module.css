@@ -604,34 +604,58 @@ td:hover {
   cursor: pointer;
   background-color: grey;
 }
-/* 
+
 .contribute-edit td {
   display: flex;
   align-content: space-between;
 }
-   box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
+/* box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
+} */
+.color-1 {
+  background-color: #d04e4e;
+  box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8), 0px 8px 20px #222222;
+}
+
+.color-1:hover {
+  background-color: #993b3b;
+}
+.color-2 {
+  background-color: rgb(98, 98, 170);
+  box-shadow: 7px 5px 0px 5px rgba(40, 58, 118, 0.8), 0px 8px 20px #222222;
+}
+
+.color-2:hover {
+  background-color: rgb(78, 78, 131);
+}
+
+.color-3 {
+  background-color: rgb(93, 146, 93);
+  box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
 }
 
 .color-3:hover {
-   background-color: rgb(71, 109, 71);
+  background-color: rgb(71, 109, 71);
 }
 
 .color-4 {
-   background-color: rgb(223, 206, 110);
-   box-shadow: 7px 5px 0px 5px rgba(119, 112, 43, 0.8), 0px 8px 20px #222222;
+  background-color: rgb(223, 206, 110);
+  box-shadow: 7px 5px 0px 5px rgba(119, 112, 43, 0.8), 0px 8px 20px #222222;
 }
 
 .color-4:hover {
-   background-color: rgb(194, 177, 82);
+  background-color: rgb(194, 177, 82);
 }
 
 h3 {
-   color: white;
-   font-family: 'Staatliches', cursive;
->>>>>>> f9eccae43f18d379e5a76014b396db28ca831e7f
+  color: white;
+  font-family: "Staatliches", cursive;
 }
 
 /* trivia form */
+
+table {
+  margin: auto;
+}
 
 .title-form ul {
   text-align: center;
