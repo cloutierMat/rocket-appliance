@@ -40,7 +40,7 @@ export default function Contribute() {
 	}, [formPointer, toggleFormPointer, gameCtx.filteredByCurrentUser]);
 
 	return (
-		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]}`}>
+		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]} ${styles["full-width"]}`}>
 			<p >Select an item in the list below to create a new game</p>
 			<ContributeForm
 				setFormPointer={setFormPointer}
