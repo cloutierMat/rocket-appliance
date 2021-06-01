@@ -29,7 +29,7 @@ export default function ContributeForm(props) {
 			</select>
 			<hr />
 			<div className={`${styles["edit-wrapper"]}`}>
-				<h3 className={`${styles["text-default"]}`}>Delete Or edit an existing game!</h3>
+				<h3 className={`${styles["text-default"]}`}>Edit or Delete an exisiting game!</h3>
 				<button onClick={() => { setFormPointer('Edit'); handleToggle(); }}>
 					Edit
 						<AiFillEdit />

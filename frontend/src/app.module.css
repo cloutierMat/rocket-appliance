@@ -41,6 +41,7 @@ body {
    flex-wrap: wrap;
    justify-content: center;
    align-items: center;
+	 
 }
 
 .App {
@@ -205,20 +206,24 @@ nav {
 }
 
 .logout-button {
-   cursor: pointer;
-   color: #ffffff;
-   font-family: 'Staatliches', cursive;
-   font-size: 1.2em;
-   background-color: #2f3557;
-   border: 2px solid white;
-   border-radius: 2px;
-   box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222;
-   margin-right: 2px;
-}
+	cursor: pointer;
+	color: #ffffff;
+	font-family: 'Staatliches', cursive;
+	font-size: 1.2em;
+	background-color: #2f3557;
+	border: 2px solid white;
+	border-radius: 10px;
+	box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222;
+	margin-right: 2px;
+	display: inline-flex;
+	/* position: absolute;
+	right: 20px;
+	top: 20px; */
 
-.logout-button:hover {
-   background-color: #1c2033;
 }
+	.logout-button:hover {
+		background-color: #1c2033;
+	}
 
 .logout-button svg {
    position: relative;
@@ -656,15 +661,23 @@ h3 {
 
 /* trivia form */
 
+.form-wrapper {
+	background-color: #24262f;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	max-width: fit-content;
+}
+
 .title-form ul {
    text-align: center;
    padding: 0px 0px 0px 0px;
+	 font-family: 'Open Sans', sans-serif;
    color: white;
    margin: 10px;
 }
 
 .title-form input {
-   cursor: pointer;
+   /* cursor: pointer; */
    background-color: #1c2033;
    outline: none;
    height: 30px;
@@ -672,6 +685,7 @@ h3 {
    border: 2px solid white;
    border-radius: 5px;
    margin: auto;
+	 color: white;
 }
 
 .title-form button {
@@ -683,23 +697,42 @@ h3 {
    height: 25px;
 }
 
+.ul-description {
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
 .question input {
    justify-content: center;
    margin: auto;
    align-items: center;
    margin-left: 0px;
+	 color: white;
 }
 
 .question button {
    /* delete buttons */
-   background-color: #b80f0a;
+	 cursor: pointer;
+   background-color: #d04e4e;
    --rightOffSet: calc(width/2);
+}
+	.question button:hover {
+		background-color: #993b3b;
+	}
+
+.option-description {
+	font-size: .6em;
+	margin: 0px 0px -30px 0px;
+	opacity: .8;
 }
 
 .option-button button {
    /* new option button */
-   background-color: #5b9aa0;
+   background-color:  rgb(93, 146, 93);
 }
+	.option-button button:hover {
+		background-color: rgb(71, 109, 71);
+	}
 
 .link input {
    justify-content: center;
@@ -708,9 +741,15 @@ h3 {
 }
 
 .new-question button {
-   justify-content: center;
-   margin-bottom: 10px;
+	justify-content: center;
+	margin-bottom: 10px;
+	background-color: rgb(93, 146, 93);
 }
+
+	.new-question button:hover {
+	  background-color: rgb(71, 109, 71);
+		cursor: pointer;
+	}
 
 .option input {
    margin-left: 0px;
@@ -725,8 +764,12 @@ textarea {
    width: 260px;
 }
 .title-form .submit {
-   background-color: #5b9aa0;
+   background-color: #2f3557;
    color: white;
    border: 2px solid white;
    border-radius: 5px;
 }
+	.title-form .submit:hover {
+		cursor: pointer;
+		background-color: #1c2033;
+	}
