@@ -20,7 +20,7 @@ async function authentication(req, res, next) {
 			return;
 		}
 		req.query = query;
-		req.userId = result.userId;
+		req.params.userId = result.userId;
 		next();
 	} catch (error) {
 		console.log("middleware authentication", error);
