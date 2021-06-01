@@ -6,54 +6,55 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Sign In with Auth0</title>
-  <meta name="viewport" content="width=device-width, initial-scale=.6"/>
+	<meta name="viewport" content="width=device-width, initial-scale=.6" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-  
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 	body,
 	html {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		font-family: 'Staatliches', cursive;
+		font-family: "Open Sans", sans-serif;
 		background-color: #14151C;
-		max-width: fit-content;
+		margin: 0;
+		width: 100vw;
 	}
 
-	.login-container {
-		height: fit-content;
-		width:fit-content;
-		margin: 20px;
+	h3 {
+		font-size: 2.5em;
+		font-family: "Staatliches", cursive;
 	}
 
-    .col-xs-12 {
-      margin: none;
-    }
-    .col-sm-4 {
-      margin: none;
-    } 
-    .col-sm-offset-4 {
-      margin: none;
-    }
+	.col-xs-12 {
+		margin: none;
+	}
+
+	.col-sm-4 {
+		margin: none;
+	}
+
+	.col-sm-offset-4 {
+		margin: none;
+	}
 
 	.login-box {
+		padding: 1em;
+		background-color: #24262F;
+		border: 2px solid grey;
+		border-radius: 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 15px;
-		background-color: #24262F;
-		border: 2px solid grey ;
-		border-radius: 10px;
 	}
 
 	.login-header {
 		max-width: 500px;
-		justify-content: space-around;
-		align-items: flex-start;
 		text-align: center;
 		color: white;
 		background-color: #14151C;
@@ -61,16 +62,6 @@
 		margin-bottom: 10px;
 		border-radius: 10px;
 	}
-		.h3 {
-			font-size: 2.5em;
-			margin: 10px;
-		}
-		.h5 {
-			font-size: 1.5em;
-			opacity: .6;
-			margin: -5px 10px 10px 10px;
-		}
-	
 
 	.login-header img {
 		width: 75%;
@@ -82,139 +73,126 @@
 	}
 
 	.label {
-		display: inline-flex;
-		justify-content: flex-start;
-		margin-left: -10px;
 		color: white;
+		font-family: "staatliches", cursive;
 		font-size: 1.5em;
 	}
-	
-	.input-wrapper {
+
+	.input {
+		height: 2em;
+		color: black;
+		background-color: white;
+		border: none;
+		font-size: 1.2em;
+		margin-bottom: 10px;
+		border-radius: 10px;
+		padding-left: 5px;
+		max-width: 100%;
+	}
+
+	.input:focus {
+		outline: none;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.form-group {
 		display: flex;
 		flex-direction: row;
-		flex: wrap;
-		justify-content: space-around;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 10px;
 	}
-    .input {
-    height: 30px;
-    background-color: #14151C;
-    border: none;
-    font-family: 'Staatliches', cursive;
-    font-size: 1.2em;
-    color: white;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    padding-left: 5px;
-    }
-    .input:focus {
-      outline: none;
-      background-color: #14151C;
-    }
 
-	.form.form {
-		width: fit-content;
+	.button-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
-    .form-group {
-      display: inline-flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      margin: 10px;
-    }
-    .captcha-container {
-      height: 1px;
-      width: 45vw;
-      margin: none;
-    }
 
-	.button-wrapper {
-		min-width: fit-content;
-		margin-top: 10px;
-	}
-  
 	.btn {
+		font-family: "staatliches", cursive;
 		color: white;
 		background-color: rgb(98, 98, 170);
 		border: 2px solid white;
-		color: #FFFFFF;
 		text-align: center;
 		font-size: 1.8em;
-		font-family: 'Staatliches', cursive;
 		border-radius: 10px;
-		margin-bottom: 10px;
+		padding: 0 1em;
+		margin: 0.5em;
+		max-width: fit-content;
 	}
-		.btn:hover {
-			outline: none;
-			background-color: rgb(78, 78, 131);
-			color: white;
-			border: 2px solid white;
-		}
-		.btn:focus {
-			background-color: white;
-			color: black;
-			outline: none;
-		}
 
-	.btn.btn-default {
+	.btn:hover {
+		outline: none;
+		background-color: rgb(78, 78, 131);
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn:disabled {
+		pointer-events: none;
+		text-decoration: none;
+		background-color: rgb(98, 98, 170);
+		color: black;
+		outline: none;
+	}
+
+	#btn-submit {
 		background-color: rgb(93, 146, 93);
 	}
-		.btn.btn-default:hover {
-			background-color: rgb(71, 109, 71);
-			color: white;
-  }
-		.btn.btn-default:focus {
-			background-color: white;
-			color: black;
-			outline: none;
-		}
-  
-  .alert {
-  	background-color: #d04e4e;
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-    margin: 10px;
-  }
-  .alert:hover {
-  	cursor: default;  
-  }
 
+	.alert {
+		background-color: #d04e4e;
+		color: white;
+		border: 2px solid white;
+		border-radius: 10px;
+		margin: 10px;
+	}
+
+	.alert:hover {
+		cursor: default;
+	}
 </style>
 
 <body>
-	<div class="login-container">
-		<div class="login-box">
-			<div class="login-header">
-				<img src="https://imgur.com/EjxyrlD.png"/>
-				<h3 class="h3">Welcome</h3>
-				<h5 class="h5">PLEASE LOG IN</h5>
-			</div>
-			<div id="error-message" class="alert alert-danger"></div>
-			<form class="form" onsubmit="return false;" method="post">
-				<div class= "input-wrapper">
-					<div class="form-group">
-						<label class="label" for="name">Email</label>
-						<input class="input" type="email" class="form-control" id="email" placeholder="Enter your email">
-					</div>
-					
-					<div class="form-group">
-					
-						<label class="label" for="name">Password</label>
-						<input class="input" type="password" class="form-control" id="password" placeholder="Enter your password">
-					</div>
-				</div>
-				<div class="captcha-container form-group"></div>
-				<div class="button-wrapper">
-					<button type="submit" id="btn-login" class="btn btn-block">
-						Log In
-					</button>
-					<button type="button" id="btn-signup" class="btn btn-default btn-block">
-						Sign Up
-					</button>
-				</div>
-				<hr>	
-
-			</form>
+	<div class="login-box">
+		<div class="login-header">
+			<img src="https://imgur.com/EjxyrlD.png" />
+			<h3>Welcome</h3>
 		</div>
+		<div class="button-container">
+			<button type="button" id="btn-login" class="btn">
+				Log In
+			</button>
+			<button type="button" id="btn-signup" class="btn">
+				Sign Up
+			</button>
+		</div>
+		<div id="error-message" class="alert alert-danger"></div>
+		<form class="form" onsubmit="return false;" method="post">
+			<div class="form-group">
+				<label class="label" for="name">Username</label>
+				<input class="input" type="text" class="form-control" id="username" placeholder="Enter your username">
+			</div>
+			<div id="email-wrapper" class="form-group" style="display: none;">
+				<label class="label" for="name"> Email</label>
+				<input class="input" type="email" class="form-control" id="email" placeholder="Enter your email">
+			</div>
+			<div class="form-group">
+				<label class="label" for="name">Password</label>
+				<input class="input" type="password" class="form-control" id="password" placeholder="Enter your password">
+			</div>
+			<button type="submit" id="btn-submit" class="btn">Submit</button>
+			<div class="captcha-container form-group"></div>
+			<hr>
+		</form>
 	</div>
 
 	<!--[if IE 8]>
@@ -234,6 +212,7 @@
 			var config = JSON.parse(
 				decodeURIComponent(escape(window.atob('@@config@@')))
 			);
+			var config
 
 			var leeway = config.internalOptions.leeway;
 			if (leeway) {
@@ -264,8 +243,12 @@
 			function login(e) {
 				e.preventDefault();
 				var button = this;
-				var username = document.getElementById('email').value;
+				var username = document.getElementById('username').value;
 				var password = document.getElementById('password').value;
+				if (!username) {
+					displayError({ description: "You must enter a username" })
+					return
+				}
 				button.disabled = true;
 				webAuth.login({
 					realm: databaseConnection,
@@ -279,15 +262,18 @@
 			}
 
 			function signup() {
+				console.log("signup")
 				var button = this;
 				var email = document.getElementById('email').value;
 				var password = document.getElementById('password').value;
+				var username = document.getElementById('username').value;
 
 				button.disabled = true;
 				webAuth.redirect.signupAndLogin({
 					connection: databaseConnection,
 					email: email,
 					password: password,
+					username: username,
 					captcha: captcha.getValue()
 				}, function (err) {
 					if (err) displayError(err);
@@ -302,8 +288,44 @@
 				errorMessage.style.display = 'block';
 			}
 
-			document.getElementById('btn-login').addEventListener('click', login);
-			document.getElementById('btn-signup').addEventListener('click', signup);
+			const loginButton = document.getElementById('btn-login')
+			const signupButton = document.getElementById('btn-signup')
+			const submitButton = document.getElementById('btn-submit')
+			const emailWrapper = document.getElementById('email-wrapper')
+
+			let isLoginActive = true
+			function activateLogin() {
+				loginButton.disabled = true
+				signupButton.disabled = false
+				emailWrapper.style.display = "none"
+			}
+
+			function activateSignup() {
+				loginButton.disabled = false
+				signupButton.disabled = true
+				emailWrapper.style.display = "flex"
+			}
+			function switchLoginTab(e) {
+				isLoginActive = isLoginActive ? false : true
+				if (isLoginActive) {
+					activateLogin()
+				} else {
+					activateSignup()
+				}
+			}
+
+			function submitClick(e) {
+				if (isLoginActive) {
+					login(e)
+				} else {
+					signup()
+				}
+			}
+
+			loginButton.addEventListener('click', switchLoginTab)
+			signupButton.addEventListener('click', switchLoginTab)
+			submitButton.addEventListener('click', submitClick)
+			activateLogin()
 		});
 	</script>
 </body>
