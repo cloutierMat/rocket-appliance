@@ -4,8 +4,7 @@ const user = process.env.DB_USER;
 const password = process.env.DB_PASS;
 const database = process.env.DB_NAME;
 const server = process.env.DB_SERVER;
-const mongoUrl = `${host}://${user}:${password}@${server}/${database}?retryWrites=true&w=majority`;
-
+const mongoUrl = process.env.MONGODB_URL || `${host}://${user}:${password}@${server}/${database}?retryWrites=true&w=majority`;
 mongoose.connect(mongoUrl, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
