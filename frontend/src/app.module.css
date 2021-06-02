@@ -92,6 +92,7 @@ nav {
   max-width: min(500px, 95%);
   justify-content: flex-end;
   margin-right: 10px;
+  padding: 15px 15px 0px 15px;
 }
 
 .nav-buttons-wrapper {
@@ -212,15 +213,18 @@ nav {
 }
 
 .logout-button {
+  position: absolute;
+  top: 20px;
+  right: 17px;
   cursor: pointer;
   color: #ffffff;
   font-family: "Staatliches", cursive;
-  font-size: 1.2em;
+  font-size: 1.4em;
   background-color: #2f3557;
   border: 2px solid white;
-  border-radius: 2px;
-  box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222;
-  margin-right: 2px;
+  border-radius: 40px;
+  /* box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222; */
+  /* margin-right: 2px; */
 }
 
 .logout-button:hover {
@@ -230,7 +234,7 @@ nav {
 .logout-button svg {
   position: relative;
   top: 3px;
-  left: -2px;
+  /* left: -2px; */
 }
 
 .logout-button-wrapper {
@@ -527,7 +531,7 @@ button.btn.btn-background-slide:focus::before {
 	margin-left: -10px;
 } */
 .search-box-wrapper {
-  width: 500px;
+  min-width: fit-content;
   background-color: #14151c;
   border-radius: 10px;
   margin: 10px 0px 10px 0px;
