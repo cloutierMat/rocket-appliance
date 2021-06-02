@@ -19,8 +19,8 @@ async function authentication(req, res, next) {
 			res.status(409).send({ message: "You do not have permission to update this object" });
 			return;
 		}
+		req.userId = result.userId;
 		req.query = query;
-		req.params.userId = result.userId;
 		next();
 	} catch (error) {
 		console.log("middleware authentication", error);
