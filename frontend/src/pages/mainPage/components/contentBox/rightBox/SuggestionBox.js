@@ -24,5 +24,5 @@ export default function SuggestionsBox() {
 					<GameDescription game={gameToDisplay} />
 				</section>
 			}
-		</div >);
+		</div>);
 }

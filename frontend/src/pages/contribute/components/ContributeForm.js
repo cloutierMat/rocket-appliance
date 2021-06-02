@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import SubmitContext from '../../../context/SubmitContext';
 import styles from "../../../app.module.css";
 import { AiFillEdit } from "react-icons/ai";
 
@@ -8,7 +7,6 @@ export default function ContributeForm(props) {
 
   const [optionState, setOptionState] = useState("Select a game type");
 
-  const submitCtx = useContext(SubmitContext);
   function handleGameType(event) {
     if (event.target.value === "Select a game type") {
       setFormPointer("Select a game type");
@@ -39,7 +37,6 @@ export default function ContributeForm(props) {
         </h3>
         <button
           onClick={() => {
-            submitCtx.setMessage(() => "");
             setFormPointer("Edit");
             handleToggle();
           }}
@@ -49,7 +46,6 @@ export default function ContributeForm(props) {
         </button>
         <button
           onClick={() => {
-            submitCtx.setMessage(() => "");
             setFormPointer("delete");
             handleToggle();
           }}
