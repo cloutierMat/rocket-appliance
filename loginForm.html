@@ -6,28 +6,45 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Sign In with Auth0</title>
-	<meta name="viewport" content="width=device-width, initial-scale=.6" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-	body,
+	::-webkit-scrollbar {
+		height: 0px;
+		width: 0px;
+		margin-bottom: 0px;
+		background-color: rgb(133, 133, 133);
+		border-radius: 0px;
+	}
+
 	html {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+
+	body {
 		font-family: "Open Sans", sans-serif;
+		font-size: 1.7em;
 		background-color: #14151C;
 		margin: 0;
-		width: 100vw;
+		padding: 10px 0;
+		color: white;
+		width: fit-content;
 	}
 
 	h3 {
 		font-size: 2.5em;
 		font-family: "Staatliches", cursive;
+	}
+
+	p {
+		margin: 0
 	}
 
 	.col-xs-12 {
@@ -51,10 +68,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin: 10px 0;
 	}
 
 	.login-header {
-		max-width: 500px;
+		max-width: min(100%, 500px);
 		text-align: center;
 		color: white;
 		background-color: #14151C;
@@ -83,8 +101,6 @@
 		color: black;
 		background-color: white;
 		border: none;
-		font-size: 1.2em;
-		margin-bottom: 10px;
 		border-radius: 10px;
 		padding-left: 5px;
 		max-width: 100%;
@@ -103,16 +119,17 @@
 	}
 
 	.form-group {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		margin: 10px;
+		text-align: center;
+	}
+
+	.form-group p {
+		flex-basis: 100%;
+		text-align: center;
 	}
 
 	.button-container {
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: nowrap;
 		justify-content: center;
 	}
 
@@ -126,7 +143,6 @@
 		border-radius: 10px;
 		padding: 0 1em;
 		margin: 0.5em;
-		max-width: fit-content;
 	}
 
 	.btn:hover {
@@ -159,6 +175,10 @@
 	.alert:hover {
 		cursor: default;
 	}
+
+	.captcha-container {
+		display: none;
+	}
 </style>
 
 <body>
@@ -181,7 +201,13 @@
 				<label class="label" for="name">Username</label>
 				<input class="input" type="text" class="form-control" id="username" placeholder="Enter your username">
 			</div>
-			<div id="email-wrapper" class="form-group" style="display: none;">
+			<div id="name-wrapper" class="form-group">
+				<p>Your username will be used for login</p>
+				<label class="label" for="name">Name</label>
+				<input class="input" type="text" class="form-control" id="name" placeholder="Enter your name">
+				<p>Your name will be displayed when creating games.</p>
+			</div>
+			<div id="email-wrapper" class="form-group">
 				<label class="label" for="name"> Email</label>
 				<input class="input" type="email" class="form-control" id="email" placeholder="Enter your email">
 			</div>
@@ -191,7 +217,6 @@
 			</div>
 			<button type="submit" id="btn-submit" class="btn">Submit</button>
 			<div class="captcha-container form-group"></div>
-			<hr>
 		</form>
 	</div>
 
@@ -240,20 +265,29 @@
 				document.querySelector('.captcha-container')
 			);
 
+
+			const loginButton = document.getElementById('btn-login')
+			const signupButton = document.getElementById('btn-signup')
+			const submitButton = document.getElementById('btn-submit')
+			const emailWrapper = document.getElementById('email-wrapper')
+			const nameWrapper = document.getElementById('name-wrapper')
+			const emailInput = document.getElementById('email');
+			const nameInput = document.getElementById('name');
+			const passwordInput = document.getElementById('password');
+			const usernameInput = document.getElementById('username');
+
 			function login(e) {
 				e.preventDefault();
 				var button = this;
-				var username = document.getElementById('username').value;
-				var password = document.getElementById('password').value;
-				if (!username) {
-					displayError({ description: "You must enter a username" })
-					return
+				if (!usernameInput.value) {
+					displayError({ description: "Username is required" })
+					return;
 				}
 				button.disabled = true;
 				webAuth.login({
 					realm: databaseConnection,
-					username: username,
-					password: password,
+					username: usernameInput.value,
+					password: passwordInput.value,
 					captcha: captcha.getValue()
 				}, function (err) {
 					if (err) displayError(err);
@@ -261,19 +295,24 @@
 				});
 			}
 
-			function signup() {
-				console.log("signup")
+			function signup(e) {
+				e.preventDefault();
 				var button = this;
-				var email = document.getElementById('email').value;
-				var password = document.getElementById('password').value;
-				var username = document.getElementById('username').value;
-
+				if (!nameInput.value) {
+					displayError({ description: "Please enter your name." })
+					return;
+				}
+				if (!usernameInput.value) {
+					displayError({ description: "Username is required" })
+					return;
+				}
 				button.disabled = true;
 				webAuth.redirect.signupAndLogin({
 					connection: databaseConnection,
-					email: email,
-					password: password,
-					username: username,
+					email: emailInput.value,
+					name: nameInput.value,
+					password: passwordInput.value,
+					username: usernameInput.value,
 					captcha: captcha.getValue()
 				}, function (err) {
 					if (err) displayError(err);
@@ -288,22 +327,32 @@
 				errorMessage.style.display = 'block';
 			}
 
-			const loginButton = document.getElementById('btn-login')
-			const signupButton = document.getElementById('btn-signup')
-			const submitButton = document.getElementById('btn-submit')
-			const emailWrapper = document.getElementById('email-wrapper')
+			function clearInputs(params) {
+				nameInput.value = "";
+				usernameInput.value = "";
+				passwordInput.value = "";
+				emailInput.value = "";
+			}
 
 			let isLoginActive = true
 			function activateLogin() {
 				loginButton.disabled = true
 				signupButton.disabled = false
 				emailWrapper.style.display = "none"
+				nameWrapper.style.display = "none"
+				usernameInput.style.marginBottom = "1em"
+				window.resizeTo(document.body.scrollWidth + 20, document.body.scrollHeight + 20)
+				clearInputs()
 			}
 
 			function activateSignup() {
 				loginButton.disabled = false
 				signupButton.disabled = true
-				emailWrapper.style.display = "flex"
+				nameWrapper.style.display = "block"
+				emailWrapper.style.display = "block"
+				usernameInput.style.marginBottom = 0
+				clearInputs()
+				window.resizeTo(document.body.scrollWidth, document.body.scrollHeight)
 			}
 			function switchLoginTab(e) {
 				isLoginActive = isLoginActive ? false : true
@@ -318,7 +367,7 @@
 				if (isLoginActive) {
 					login(e)
 				} else {
-					signup()
+					signup(e)
 				}
 			}
 

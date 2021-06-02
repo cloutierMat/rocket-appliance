@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { RiLogoutBoxRFill } from "react-icons/ri";
 
 export default function NavBar() {
-	const { logout, isAuthenticated } = useAuth0();
+	const { user, logout, isAuthenticated } = useAuth0();
 	return (
 		<nav className={`${styles["flex-container"]} ${styles["full-width"]}`}>
 			<NavTitle />
@@ -20,10 +20,11 @@ export default function NavBar() {
 			</div>
 			{isAuthenticated &&
 				<button className={`${styles["logout-button"]}`} onClick={() => logout()}>
-					<RiLogoutBoxRFill/>
+					<RiLogoutBoxRFill />
 					logout
 				</button>
 			}
+			<button onClick={() => console.log(user)}>log user</button>
 		</nav>
 	);
 }
