@@ -90,13 +90,32 @@
 		white-space: break-spaces;
 	}
 
-	.label {
+	form {
+		text-align: center;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.grid-container p {
+		grid-column: span 3;
+	}
+
+	.grid-container label {
+		grid-column: span 1;
 		color: white;
 		font-family: "staatliches", cursive;
 		font-size: 1.5em;
 	}
 
-	.input {
+	.signup-only {
+		display: none;
+	}
+
+	input {
+		grid-column: span 2;
 		height: 2em;
 		color: black;
 		background-color: white;
@@ -106,25 +125,9 @@
 		max-width: 100%;
 	}
 
-	.input:focus {
+
+	input:focus {
 		outline: none;
-	}
-
-	.form {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.form-group {
-		text-align: center;
-	}
-
-	.form-group p {
-		flex-basis: 100%;
-		text-align: center;
 	}
 
 	.button-container {
@@ -196,25 +199,19 @@
 			</button>
 		</div>
 		<div id="error-message" class="alert alert-danger"></div>
-		<form class="form" onsubmit="return false;" method="post">
-			<div class="form-group">
-				<label class="label" for="name">Username</label>
-				<input class="input" type="text" class="form-control" id="username" placeholder="Enter your username">
-			</div>
-			<div id="name-wrapper" class="form-group">
-				<p>Your username will be used for login</p>
-				<label class="label" for="name">Name</label>
-				<input class="input" type="text" class="form-control" id="name" placeholder="Enter your name">
-				<p>Your name will be displayed when creating games.</p>
-			</div>
-			<div id="email-wrapper" class="form-group">
-				<label class="label" for="name"> Email</label>
-				<input class="input" type="email" class="form-control" id="email" placeholder="Enter your email">
-			</div>
-			<div class="form-group">
-				<label class="label" for="name">Password</label>
-				<input class="input" type="password" class="form-control" id="password" placeholder="Enter your password">
-			</div>
+		<form onsubmit="return false;" method="post">
+			<section class="grid-container">
+				<p class="signup-only">Your username will be used for login</p>
+				<label for="username">Username</label>
+				<input type="text" id="username" placeholder="Enter your username">
+				<p class="signup-only">Your name will be displayed when creating games.</p>
+				<label class="signup-only" for="name">Name</label>
+				<input class="signup-only" type="text" id="name" placeholder="Enter your name">
+				<label class="signup-only" for="email"> Email</label>
+				<input class="signup-only" type="email" id="email" placeholder="Enter your email">
+				<label for="password">Password</label>
+				<input type="password" id="password" placeholder="Enter your password">
+			</section>
 			<button type="submit" id="btn-submit" class="btn">Submit</button>
 			<div class="captcha-container form-group"></div>
 		</form>
@@ -269,8 +266,7 @@
 			const loginButton = document.getElementById('btn-login')
 			const signupButton = document.getElementById('btn-signup')
 			const submitButton = document.getElementById('btn-submit')
-			const emailWrapper = document.getElementById('email-wrapper')
-			const nameWrapper = document.getElementById('name-wrapper')
+			const elementsToHide = document.getElementsByClassName('signup-only')
 			const emailInput = document.getElementById('email');
 			const nameInput = document.getElementById('name');
 			const passwordInput = document.getElementById('password');
@@ -334,13 +330,17 @@
 				emailInput.value = "";
 			}
 
+			function toggleDisplayElements(arr, displayProperty) {
+				for (elem of arr) {
+					elem.style.display = displayProperty
+				}
+			}
+
 			let isLoginActive = true
 			function activateLogin() {
 				loginButton.disabled = true
 				signupButton.disabled = false
-				emailWrapper.style.display = "none"
-				nameWrapper.style.display = "none"
-				usernameInput.style.marginBottom = "1em"
+				toggleDisplayElements(elementsToHide, "none")
 				window.resizeTo(document.body.scrollWidth + 20, document.body.scrollHeight + 20)
 				clearInputs()
 			}
@@ -348,9 +348,7 @@
 			function activateSignup() {
 				loginButton.disabled = false
 				signupButton.disabled = true
-				nameWrapper.style.display = "block"
-				emailWrapper.style.display = "block"
-				usernameInput.style.marginBottom = 0
+				toggleDisplayElements(elementsToHide, "block")
 				clearInputs()
 				window.resizeTo(document.body.scrollWidth, document.body.scrollHeight)
 			}
