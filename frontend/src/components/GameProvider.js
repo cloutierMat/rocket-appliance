@@ -24,7 +24,7 @@ export default function GameProvider({ children }) {
 				game.type.toLowerCase()
 			];
 			return filterElements.filter(element => element.includes(fragmentForFilter.toLowerCase())).length;
-		});
+		}).map(elem => elem.name);
 		setFilterByFragment(filteredList);
 	}, [fragmentForFilter, list]);
 
