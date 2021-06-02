@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import GameContext from '../context/GameContext';
 
 export default function GameProvider({ children }) {
@@ -28,23 +28,25 @@ export default function GameProvider({ children }) {
 		setFilterByFragment(filteredList);
 	}, [fragmentForFilter, list]);
 
-	function fetchData() {
-		fetch(`/game/list/${clientPointer}`)
-			.then(res => {
-				if (res.status === 204) {
-					return false;
-				}
-				return res.json();
-			})
-			.then(dataObj => {
-				if (!dataObj) {
-					return;
-				}
-				setList([...dataObj.list]);
-				const newPointer = dataObj.pointer;
-				setClientPointer(newPointer);
-			}).catch(error => console.log(error));
-	}
+	const fetchData = useCallback(
+		() => {
+			fetch(`/game/list/${clientPointer}`)
+				.then(res => {
+					if (res.status === 204) {
+						return false;
+					}
+					return res.json();
+				})
+				.then(dataObj => {
+					if (!dataObj) {
+						return;
+					}
+					setList([...dataObj.list]);
+					const newPointer = dataObj.pointer;
+					setClientPointer(newPointer);
+				}).catch(error => console.log(error));
+		}, [clientPointer]
+	);
 
 	//
 	// fetch data from the server

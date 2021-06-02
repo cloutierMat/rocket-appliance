@@ -15,7 +15,6 @@ export default function Gallery(props) {
 	useEffect(() => {
 		if (!gameList.length && gameCtx.list.length) {
 			setGameList([...gameCtx.list]);
-			console.log("new game");
 		}
 	}, [gameList, gameCtx.list]);
 

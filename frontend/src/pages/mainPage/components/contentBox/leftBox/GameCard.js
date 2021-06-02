@@ -12,7 +12,7 @@ export default function GameCard(props) {
 
 	useEffect(() => {
 		setClassToApply(`color-${Math.ceil(Math.random() * 2) + (2 * (index % 2))}`);
-	}, []);
+	}, [index]);
 
 	return (
 		<Link to={`/trivia/${name}`}>
