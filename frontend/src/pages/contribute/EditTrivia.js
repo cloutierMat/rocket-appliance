@@ -5,6 +5,7 @@ import SubmitContext from '../../context/SubmitContext';
 
 export default function EditTrivia(props) {
 
+
 	const { game, setToggleFormPointer } = props;
 
 	const submitCtx = useContext(SubmitContext);

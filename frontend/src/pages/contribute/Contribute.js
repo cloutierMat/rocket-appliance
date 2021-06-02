@@ -18,6 +18,7 @@ export default function Contribute() {
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
+			submitCtx.setMessage(() => "");
 			setFormToDisplay(<CreateTrivia setFormPointer={setFormPointer} />);
 		}
 		else if (formPointer === 'Edit') {
