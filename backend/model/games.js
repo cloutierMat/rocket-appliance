@@ -29,6 +29,10 @@ const triviaSchema = new mongoose.Schema({
 	userId: {
 		type: String,
 	},
+	isApproved: {
+		type: Boolean,
+		default: false
+	},
 	description: {
 		type: String,
 		required: true,
