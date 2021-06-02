@@ -18,7 +18,6 @@ export default function Contribute() {
 
 	useEffect(() => {
 		if (formPointer === 'Trivia') {
-			submitCtx.setMessage(() => "");
 			setFormToDisplay(<CreateTrivia setFormPointer={setFormPointer} />);
 		}
 		else if (formPointer === 'Edit') {
@@ -39,6 +38,10 @@ export default function Contribute() {
 			setFormToDisplay(<p></p>);
 		}
 	}, [formPointer, toggleFormPointer, gameCtx.filteredByCurrentUser]);
+
+	useEffect(() => {
+		submitCtx.setMessage(() => "");
+	}, [formPointer]);
 
 	return (
 		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]} ${styles["full-width"]}`}>
