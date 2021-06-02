@@ -75,7 +75,8 @@ nav {
   border-bottom: 2px solid rgb(36, 36, 36);
   border-top: 2px solid rgb(36, 36, 36);
   border-radius: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
+  padding-top: 10px;
 }
 
 .nav-wrapper {
@@ -98,9 +99,9 @@ nav {
 }
 
 .nav-buttons-wrapper {
-  display: flex;
   justify-content: space-evenly;
   max-width: min(500px, 100%);
+  
 }
 
 /* niki */
@@ -166,7 +167,7 @@ nav {
   display: inline-flex;
   justify-content: center;
   height: 1.5em;
-  width: 200px;
+  width: 7em;
   /* margin: 10px; */
   margin-bottom: unset;
   border-radius: 2px;
@@ -222,15 +223,15 @@ nav {
   color: #ffffff;
   font-family: "Staatliches", cursive;
   font-size: 1.4em;
-  background-color: #2f3557;
-  border: 2px solid white;
+  background-color: #d04e4e;
+  border: none;
   border-radius: 40px;
   /* box-shadow: 2px 2px 0px 2px #3f4250, 0px 8px 20px #222222; */
   /* margin-right: 2px; */
 }
 
 .logout-button:hover {
-  background-color: #1c2033;
+  background-color: #993b3b;
 }
 
 .logout-button svg {
