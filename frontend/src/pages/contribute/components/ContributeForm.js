@@ -54,9 +54,7 @@ export default function ContributeForm(props) {
           <AiFillEdit />
         </button>
       </div>
-      <h2 className={styles["message-on-create_contribute"]}>
-        {messageOnSubmit}
-      </h2>
+      <h2 className={styles["message-on-contribute"]}>{messageOnSubmit}</h2>
     </div>
   );
 }

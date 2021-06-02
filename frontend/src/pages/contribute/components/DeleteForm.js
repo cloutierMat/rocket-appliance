@@ -10,7 +10,6 @@ export default function DeleteForm(props) {
   const { user } = useAuth0();
 
   async function onDelete(gameName) {
-
     if (window.confirm(`Are you sure you wish to delete ${gameName}?`)) {
       try {
         const res = await fetch(`/game/trivia/${gameName}/${user.sub}`, {
@@ -18,14 +17,16 @@ export default function DeleteForm(props) {
         });
         const dataFromServer = await res.json();
         if (!res.ok) {
-          setMessageOnDelete("You are not authorized to delete other contributors games");
+          setMessageOnDelete(
+            "You are not authorized to delete other contributors games"
+          );
           setClasses("alert");
           return;
         }
         // console.log(dataFromServer);
         // console.log(`The Game ${gameName} Deleted`);
         setMessageOnDelete(`Game ${gameName} is successfully deleted!`);
-        setClasses("message-on-create_contribute");
+        setClasses("message-on-contribute");
       } catch (error) {
         console.error("error", error);
         setClasses("alert");
@@ -35,7 +36,10 @@ export default function DeleteForm(props) {
 
   return (
     <div>
-      <div className={`${styles[classes]}`} > {messageOnDelete && messageOnDelete}</div>
+      <div className={`${styles[classes]}`}>
+        {" "}
+        {messageOnDelete && messageOnDelete}
+      </div>
       <table>
         <thead className={styles["game-title"]}>
           <tr>
