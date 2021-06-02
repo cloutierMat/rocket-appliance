@@ -67,7 +67,7 @@ export default function GameProvider({ children }) {
 				setFilterByCurrentUser(list);
 				return;
 			}
-			setFilterByCurrentUser(list.filter(game => game.author === user.nickname));
+			setFilterByCurrentUser(list.filter(game => game.author === user.name));
 		}
 	}, [list, user, isAuthenticated]);
 
