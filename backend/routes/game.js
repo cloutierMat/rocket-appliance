@@ -66,7 +66,7 @@ router.put('/trivia/:userId',
 	async function (req, res) {
 		const query = req.query;
 		const triviaToEdit = req.body;
-		const userId = req.params.userId;
+		const userId = req.userId;
 		try {
 			query.setUpdate({ ...triviaToEdit, userId }, { runValidators: true });
 			const updateResult = await query.updateOne();

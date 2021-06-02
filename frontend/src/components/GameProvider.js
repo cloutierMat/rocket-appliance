@@ -29,31 +29,32 @@ export default function GameProvider({ children }) {
 	}, [fragmentForFilter, list]);
 
 	function fetchData() {
+		fetch(`/game/list/${clientPointer}`)
+			.then(res => {
+				if (res.status === 204) {
+					return false;
+				}
+				return res.json();
+			})
+			.then(dataObj => {
+				if (!dataObj) {
+					return;
+				}
+				setList([...dataObj.list]);
+				const newPointer = dataObj.pointer;
+				setClientPointer(newPointer);
+			}).catch(error => console.log(error));
 	}
 
 	//
 	// fetch data from the server
 	useEffect(() => {
-		fetchData();
 		const interval = setInterval(() => {
-			fetch(`/game/list/${clientPointer}`)
-				.then(res => {
-					if (res.status === 204) {
-						return false;
-					}
-					return res.json();
-				})
-				.then(dataObj => {
-					if (!dataObj) {
-						return;
-					}
-					setList([...dataObj.list]);
-					const newPointer = dataObj.pointer;
-					setClientPointer(newPointer);
-				}).catch(error => console.log(error));
+			fetchData();
 		}, 2500);
+		fetchData();
 		return () => clearInterval(interval);
-	}, [clientPointer, list]);
+	}, [clientPointer, fetchData]);
 
 	//
 	// listen to changes in user and in list
