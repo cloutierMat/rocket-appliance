@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import EditTrivia from "../EditTrivia";
+import SubmitContext from '../../../context/SubmitContext';
 import styles from "../../../app.module.css";
 
 export default function EditForm(props) {
   const { toggleFormPointer, setToggleFormPointer, gameList } = props;
   const [displayTrivia, setDisplayTrivia] = useState(false);
+  const submitCtx = useContext(SubmitContext);
 
   useEffect(() => {
     toggleFormPointer && setDisplayTrivia(false);
   }, [toggleFormPointer]);
 
   function handleClick(gameName) {
+    submitCtx.setMessage(() => "");
     for (const game of gameList) {
       if (game.name === gameName) {
         if (game.type.toLowerCase() === "trivia") {
@@ -29,28 +32,28 @@ export default function EditForm(props) {
           setToggleFormPointer={setToggleFormPointer}
         />
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Game name</th>
-              <th>Category</th>
-              <th>Game type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {gameList &&
-              gameList.map((game) => {
-                return (
-                  <tr key={game.name} onClick={() => handleClick(game.name)}>
-                    <td>{game.name} </td>
-                    <td>{game.category}</td>
-                    <td>{game.type}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-      )}
+          <table>
+            <thead>
+              <tr>
+                <th>Game name</th>
+                <th>Category</th>
+                <th>Game type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {gameList &&
+                gameList.map((game) => {
+                  return (
+                    <tr key={game.name} onClick={() => handleClick(game.name)}>
+                      <td>{game.name} </td>
+                      <td>{game.category}</td>
+                      <td>{game.type}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        )}
     </div>
   );
 }

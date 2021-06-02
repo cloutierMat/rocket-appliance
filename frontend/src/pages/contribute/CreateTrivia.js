@@ -8,7 +8,9 @@ export default function Trivia() {
 	const [resetForm, setResetForm] = useState(false);
 
 	const submitCtx = useContext(SubmitContext);
+
 	const { user } = useAuth0();
+
 	async function onSubmit(dataToPost) {
 		try {
 			const res = await fetch(`/game/trivia/${user.sub}`, {
