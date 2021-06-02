@@ -1,31 +1,41 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../../../app.module.css";
 
 export default function DeleteForm(props) {
   const { gameList } = props;
   const [messageOnDelete, setMessageOnDelete] = useState(null);
+  const [classes, setClasses] = useState(null);
+
   const { user } = useAuth0();
 
   async function onDelete(gameName) {
+
     if (window.confirm(`Are you sure you wish to delete ${gameName}?`)) {
       try {
         const res = await fetch(`/game/trivia/${gameName}/${user.sub}`, {
           method: "DELETE",
         });
         const dataFromServer = await res.json();
-        console.log(dataFromServer);
-        console.log(`The Game ${gameName} Deleted`);
+        if (!res.ok) {
+          setMessageOnDelete("You are not authorized to delete other contributors games");
+          setClasses("alert");
+          return;
+        }
+        // console.log(dataFromServer);
+        // console.log(`The Game ${gameName} Deleted`);
         setMessageOnDelete(`Game ${gameName} is successfully deleted!`);
+        setClasses("message-on-create_contribute");
       } catch (error) {
         console.error("error", error);
+        setClasses("alert");
       }
     }
   }
 
   return (
     <div>
-      {messageOnDelete && messageOnDelete}
+      <div className={`${styles[classes]}`} > {messageOnDelete && messageOnDelete}</div>
       <table>
         <thead className={styles["game-title"]}>
           <tr>
