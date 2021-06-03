@@ -21,7 +21,7 @@ const INITIAL_DATA = {
 export default function TriviaForm(props) {
 	const { initialData, onSubmit, resetForm, author } = props;
 
-	const [errorMessages, setErrorMessages] = useState([]);
+	const [errorMessages, setErrorMessages] = useState();
 	const [data, setData] = useState({ ...INITIAL_DATA });
 	const [focusedRef, setFocusedRef] = useState("input");
 	const [immutableGameName, setImmutableGameName] = useState();
@@ -181,7 +181,7 @@ export default function TriviaForm(props) {
 
 	return (
 		<div>
-			{errorMessages && <h3 className={styles["alert"]}>{errorMessages}</h3>}
+			{errorMessages && <h3 className={`${styles["alert"]} ${styles["message-on-contribute"]}`}>{errorMessages}</h3>}
 
 			<form
 				className={`${styles["title-form"]}`}
