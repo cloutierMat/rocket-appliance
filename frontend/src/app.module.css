@@ -655,9 +655,6 @@ td:hover {
 	align-content: space-between;
 }
 
-/* box-shadow: 7px 5px 0px 5px rgba(32, 60, 41, 0.8), 0px 8px 20px #222222;
-} */
-
 .color-1 {
 	background-color: #d04e4e;
 	box-shadow: 7px 5px 0px 5px rgba(116, 53, 53, 0.8), 0px 8px 20px #222222;
@@ -716,14 +713,6 @@ table {
 	max-width: fit-content;
 }
 
-.title-form ul {
-	text-align: center;
-	padding: 0px 0px 0px 0px;
-	font-family: "Open Sans", sans-serif;
-	color: white;
-	margin: 10px;
-}
-
 .title-form input {
 	/* cursor: pointer; */
 	background-color: #1c2033;
@@ -743,11 +732,6 @@ table {
 	border-radius: 5px;
 	margin-left: 5px;
 	height: 25px;
-}
-
-.ul-description {
-	font-family: "Open Sans", sans-serif;
-	color: white;
 }
 
 .question {
@@ -840,6 +824,12 @@ textarea {
 .title-form .submit:hover {
 	cursor: pointer;
 	background-color: #1c2033;
+}
+
+.game-rules {
+	list-style-type: none;
+	font-family: "Open Sans", sans-serif;
+	padding: 0;
 }
 
 /*alert message on trivia form */

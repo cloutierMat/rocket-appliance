@@ -20,9 +20,13 @@ export default function GameDescription(props) {
 				<h3>{gameToDisplay.name}</h3>
 				<p>Created by {gameToDisplay.author}</p>
 				<hr></hr>
-				<div>
-					<h4>Learn about {gameToDisplay.category} by playing {gameToDisplay.name} {gameToDisplay.type}<br /> {gameToDisplay.description}</h4>
-				</div>
+				<h4>Learn about {gameToDisplay.category} by playing {gameToDisplay.name} {gameToDisplay.type}<br /> {gameToDisplay.description}</h4>
+				<br />
+				<h4>{gameToDisplay.questions.length === 1
+					? `There is ${gameToDisplay.questions.length} question!`
+					: `There are ${gameToDisplay.questions.length} questions!`
+				}
+				</h4>
 			</div>
 		</Animated>;
 

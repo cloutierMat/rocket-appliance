@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import GameContext from '../../context/GameContext';
 import Questions from './Questions';
 import TriviaEnding from './TriviaEnding';
+import styles from '../../app.module.css';
 import './trivia.css';
 import { Animated } from "react-animated-css";
 
@@ -31,6 +32,10 @@ export default function Trivia() {
 
 	return (
 		<div className="trivia-page">
+			<ul className={`${styles["game-rules"]} user-righteousness`}>
+				<li>Don't forget to click the link!</li>
+				<li>And most importantly, learning is meant to be fun!</li>
+			</ul>
 			<Animated animationIn="bounceInUp" animationOut="fadeOut" isVisible={true}>
 				<div className="info-wrapper">
 					<h1>{category} </h1>

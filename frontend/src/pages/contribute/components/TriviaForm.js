@@ -182,7 +182,12 @@ export default function TriviaForm(props) {
 	return (
 		<div>
 			{errorMessages && <h3 className={`${styles["alert"]} ${styles["message-on-contribute"]}`}>{errorMessages}</h3>}
-
+			<ul className={styles["game-rules"]}>
+				<li>Please keep the content PG and respectful.</li>
+				<li>Orient your questions towards learning not tricking.</li>
+				<li>Provide meaningful links to a learning resource not a direct answer.</li>
+				<li>3 to 10 questions is best.</li>
+			</ul>
 			<form
 				className={`${styles["title-form"]}`}
 				onSubmit={handleSubmit(formValidator)}
