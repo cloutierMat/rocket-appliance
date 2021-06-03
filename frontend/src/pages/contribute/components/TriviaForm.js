@@ -3,12 +3,14 @@ import { v1 as id } from "uuid";
 import { useForm, Controller } from "react-hook-form";
 import Joi from "joi";
 import styles from "../../../app.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const INITIAL_DATA = {
 	name: "",
 	category: "",
 	type: "Trivia",
 	description: "",
+	isApproved: false,
 	questions: [
 		{
 			link: "",
@@ -20,11 +22,13 @@ const INITIAL_DATA = {
 
 export default function TriviaForm(props) {
 	const { initialData, onSubmit, resetForm, author } = props;
+	const { user } = useAuth0();
 
 	const [errorMessages, setErrorMessages] = useState();
 	const [data, setData] = useState({ ...INITIAL_DATA });
 	const [focusedRef, setFocusedRef] = useState("input");
 	const [immutableGameName, setImmutableGameName] = useState();
+
 
 	const { handleSubmit, control } = useForm();
 
@@ -95,6 +99,11 @@ export default function TriviaForm(props) {
 		}
 	};
 
+	function handleApproval() {
+		const newApproval = !data.isApproved;
+		setData(data => { return { ...data, isApproved: newApproval }; });
+	}
+
 	useEffect(() => {
 		setData({ ...INITIAL_DATA });
 	}, [resetForm]);
@@ -141,6 +150,7 @@ export default function TriviaForm(props) {
 		}
 	}, [focusedRef]);
 
+
 	//
 	// Validationg data and setting back to parent
 	function formValidator(idAsData) {
@@ -160,7 +170,6 @@ export default function TriviaForm(props) {
 			name: Joi.string().min(3).max(20),
 			type: Joi.string(),
 			author: Joi.string().empty(""),
-			isApproved: Joi.boolean(),
 			description: Joi.string().min(30).max(200),
 			questions: Joi.array().items(
 				Joi.object({
