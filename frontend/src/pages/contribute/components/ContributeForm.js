@@ -4,7 +4,7 @@ import { AiFillEdit } from "react-icons/ai";
 import SubmitContext from "../../../context/SubmitContext";
 
 export default function ContributeForm(props) {
-	const { setFormPointer, setToggleFormPointer, messageOnSubmit } = props;
+	const { setFormPointer, setToggleFormPointer } = props;
 
 	const [optionState, setOptionState] = useState("Select a game type");
 

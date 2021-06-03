@@ -42,7 +42,7 @@ export default function Contribute() {
 
 	useEffect(() => {
 		submitCtx.setMessage("", "");
-	}, [formPointer]);
+	}, [formPointer, submitCtx]);
 
 	return (
 		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]} ${styles["full-width"]}`}>

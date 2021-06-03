@@ -11,5 +11,5 @@ db.on('error', function (error) {
 });
 
 db.once('open', function () {
-	console.log('mongoose connection successful to database', database);
+	console.log('mongoose connection successful to database');
 });
