@@ -79,9 +79,11 @@ nav {
 	padding-top: 10px;
 }
 
-.nav-wrapper {
-	max-width: min(500px, 100%);
-}
+/* .nav-wrapper {
+	max-width: min(500px, 95%);
+  min-width: 310px;
+  border: 2px solid red; 
+} */
 
 .nav-title {
 	margin: 10px 10px 15px 10px;
@@ -89,13 +91,14 @@ nav {
 
 .nav-banner {
 	/* ! Alireza */
-	min-width: fit-content;
+	min-width: 310px;
 	/* ! Alireza */
 	max-width: min(500px, 95%);
 	justify-content: flex-end;
 	margin-right: 10px;
 	margin-bottom: -20px;
 	padding: 15px 15px 0px 15px;
+
 }
 
 .nav-buttons-wrapper {
@@ -288,7 +291,6 @@ MAIN BODY
 }
 
 .right-box {
-	border: 2px solid grey;
 	background-color: #24262f;
 	margin: 20px 10px 20px 20px;
 	border-radius: 10px;
@@ -580,6 +582,7 @@ GAME CARD ANIMATION
 	background-color: #14151c;
 	border-radius: 10px;
 	margin-top: 10px;
+  max-width: 100vw;
 }
 
 .drop-down {
