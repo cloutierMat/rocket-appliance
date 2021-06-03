@@ -869,3 +869,54 @@ textarea {
 .unapproved {
   background-color: rgba(180, 100, 39, 0.25);
 }
+
+/* ! Approved status toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 1.3em;
+  outline: none;
+  margin-bottom: 1em;
+}
+.switch input {
+  position: absolute;
+  /* top: -99999px; */
+  left: -99999px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #993b3b;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  border-radius: 1.3em;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(93, 146, 93);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(93, 146, 93);
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(8.5em);
+}
