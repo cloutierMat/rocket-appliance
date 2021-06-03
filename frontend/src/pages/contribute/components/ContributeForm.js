@@ -57,7 +57,9 @@ export default function ContributeForm(props) {
           <AiFillEdit />
 				</button>
 			</div>
-			<h2 className={`${styles["message-on-contribute"]} ${styles[SubmitCtx.className]}`}>{SubmitCtx.messageLog}</h2>
+			{SubmitCtx.messageLog && <h2 className={`${styles["message-on-contribute"]} ${styles[SubmitCtx.className]}`}>
+				{SubmitCtx.messageLog}
+			</h2>}
 		</div>
 	);
 }

@@ -32,7 +32,7 @@ export default function EditForm(props) {
 					setToggleFormPointer={setToggleFormPointer}
 				/>
 			) : (
-				<table>
+				<table className={styles["contribute-table"]}>
 					<thead>
 						<tr>
 							<th>Game name</th>
