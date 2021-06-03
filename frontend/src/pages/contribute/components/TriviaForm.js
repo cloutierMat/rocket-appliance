@@ -207,7 +207,7 @@ export default function TriviaForm(props) {
 					className={`${styles["flex-container"]} ${styles["flex-space-around"]}`}
 				>
 					<div>
-						<input type="checkbox" name="isApproved" onChange={handleApproval} value={data.isApproved} disabled={!user["http://localhost:3000/roles"].includes("admin")} />
+						<input type="checkbox" name="isApproved" onChange={handleApproval} value={data.isApproved} hidden={!user["http://localhost:3000/roles"].includes("admin")} />
 					</div>
 					<div className={styles["full-width"]}>
 						<div>

@@ -24,15 +24,16 @@ export default function Contribute() {
 			setFormToDisplay(<EditForm
 				setToggleFormPointer={setToggleFormPointer}
 				toggleFormPointer={toggleFormPointer}
-				gameList={gameCtx.filteredByCurrentUser}
+				gameList=
+				{gameCtx.filteredByCurrentUser.sort(game => -!game.isApproved)}
 			/>);
 		}
 		else if (formPointer === 'delete') {
 			setFormToDisplay(<DeleteForm
 				setToggleFormPointer={setToggleFormPointer}
 				toggleFormPointer={toggleFormPointer}
-				gameList={gameCtx.filteredByCurrentUser}
-			/>);
+				gameList=
+				{gameCtx.filteredByCurrentUser.sort(game => -!game.isApproved)} />);
 		}
 		else {
 			setFormToDisplay(<p></p>);

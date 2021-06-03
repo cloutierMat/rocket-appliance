@@ -39,6 +39,7 @@ export default function DeleteForm(props) {
 				<div className={classes}>
 					{messageOnDelete}
 				</div>}
+			<p>The highlighted games have not approved yet!</p>
 			<table className={styles["contribute-table"]}>
 				<thead className={styles["game-title"]}>
 					<tr>
@@ -52,7 +53,12 @@ export default function DeleteForm(props) {
 					{gameList &&
 						gameList.map((game) => {
 							return (
-								<tr className={styles["edit"]} key={game.name}>
+								<tr
+									// className=
+									// {game.isApproved ? "" : styles.unapproved}
+									className=
+									{`${styles["edit"]} ${game.isApproved ? "" : styles.unapproved}`}
+									key={game.name}>
 									<td className={styles["button-hover"]}>
 										<button onClick={() => onDelete(game.name)}>
 											X
