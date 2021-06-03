@@ -12,7 +12,7 @@
 		"build-client": "cd frontend && npm run build && cd ..",
 		"start-server": "cd backend && npm start && cd ..",
 		"dev": "concurrently \"cd backend && nodemon\" \"cd frontend && npm start\"",
-		"install": "npm install && npm run install-server && npm run install-client",
+		"install": "npm run install-server && npm run install-client",
 		"build": "npm run build-client",
 		"start": "npm run start-server",
 		"test": "echo \"Error: no test specified\" && exit 1"
