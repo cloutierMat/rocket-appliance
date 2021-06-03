@@ -22,15 +22,15 @@ export default function EditTrivia(props) {
 			});
 			const dataFromServer = await res.json();
 			if (!res.ok) {
-				submitCtx.setMessage(dataFromServer.message);
+				submitCtx.setMessage(dataFromServer.message, "alert");
 				return;
 			}
 			console.log(`The Game ${dataFromServer.name} Modified`);
-			submitCtx.setMessage(`The Game ${dataFromServer.name} Modified`);
+			submitCtx.setMessage(`The Game ${dataFromServer.name} Modified`, "success");
 			setToggleFormPointer(true);
 		} catch (error) {
 			console.error("error", error);
-			submitCtx.setMessage(`Fail to modify the game! Try again!`);
+			submitCtx.setMessage(`Fail to modify the game! Try again!`, "alert");
 		};
 	}
 

@@ -1,8 +1,9 @@
 import React from 'react';
 
 const SubmitContext = React.createContext({
-	setMessage: () => { },
-	messageLog: ""
+	setMessage: (message, className) => { },
+	messageLog: "",
+	className: ""
 });
 
 export default SubmitContext;

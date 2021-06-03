@@ -22,16 +22,16 @@ export default function Trivia() {
 			});
 			const dataFromServer = await res.json();
 			if (!res.ok) {
-				submitCtx.setMessage(dataFromServer.message);
+				submitCtx.setMessage(dataFromServer.message, "alert");
 				return;
 			}
 			console.log(`New Game ${dataFromServer.name} Created`);
-			submitCtx.setMessage(`New Game ${dataFromServer.name} Created`);
+			submitCtx.setMessage(`New Game ${dataFromServer.name} Created`, "success");
 			setResetForm(reset => reset ? false : true);
 		}
 		catch (error) {
 			console.error("error", error);
-			submitCtx.setMessage(`Fail to create the game! Try again!`);
+			submitCtx.setMessage(`Fail to create the game! Try again!`, "alert");
 		};
 	}
 

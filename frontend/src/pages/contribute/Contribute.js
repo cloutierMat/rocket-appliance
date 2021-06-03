@@ -40,7 +40,7 @@ export default function Contribute() {
 	}, [formPointer, toggleFormPointer, gameCtx.filteredByCurrentUser]);
 
 	useEffect(() => {
-		submitCtx.setMessage(() => "");
+		submitCtx.setMessage("", "");
 	}, [formPointer]);
 
 	return (
@@ -49,7 +49,6 @@ export default function Contribute() {
 			<ContributeForm
 				setFormPointer={setFormPointer}
 				setToggleFormPointer={setToggleFormPointer}
-				messageOnSubmit={submitCtx.messageLog}
 			/>
 			{formToDisplay}
 		</div>

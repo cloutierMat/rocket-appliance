@@ -4,12 +4,15 @@ import SubmitContext from '../context/SubmitContext';
 export default function GameProvider({ children }) {
 
 	const [messageLog, setMessageLog] = useState();
-	const setMessage = (message) => {
+	const [className, setClassName] = useState();
+
+	function setMessage(message, className) {
 		setMessageLog(message);
-	};
+		setClassName(className);
+	}
 
 	return (
-		<SubmitContext.Provider value={{ messageLog, setMessage }}>
+		<SubmitContext.Provider value={{ messageLog, setMessage, className }}>
 			{children}
 		</SubmitContext.Provider>
 	);
