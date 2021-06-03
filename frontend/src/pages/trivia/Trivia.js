@@ -11,7 +11,7 @@ export default function Trivia() {
 
 	const gameCtx = useContext(GameContext);
 
-	const [gameList, setGameList] = useState(gameCtx.list);
+	const [gameList, setGameList] = useState(gameCtx.filteredByApproved);
 	const [category, setCategory] = useState();
 	const [name, setName] = useState();
 	const [questions, setQuestions] = useState();

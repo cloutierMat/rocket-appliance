@@ -13,10 +13,10 @@ export default function Gallery(props) {
 	const [filteredList, setFilteredList] = useState();
 
 	useEffect(() => {
-		if (!gameList.length && gameCtx.list.length) {
-			setGameList([...gameCtx.list]);
+		if (!gameList.length && gameCtx.filteredByApproved.length) {
+			setGameList([...gameCtx.filteredByApproved]);
 		}
-	}, [gameList, gameCtx.list]);
+	}, [gameList, gameCtx.filteredByApproved]);
 
 	useEffect(() => {
 		const updatedList = gameList.filter(game => gameCtx.filteredByFragment.includes(game.name));

@@ -10,8 +10,8 @@ export default function GameDescription(props) {
 	const gameCtx = useContext(GameContext);
 
 	useEffect(() => {
-		setGameToDisplay(gameCtx.list.find(elem => elem.name === game));
-	}, [game, gameCtx.list]);
+		setGameToDisplay(gameCtx.filteredByApproved.find(elem => elem.name === game));
+	}, [game, gameCtx.filteredByApproved]);
 
 	const descriptionContent =
 		gameToDisplay &&
