@@ -32,34 +32,34 @@ export default function EditForm(props) {
 					setToggleFormPointer={setToggleFormPointer}
 				/>
 			) : (
-					<>
-						<p>The highlighted games have not approved yet!</p>
-						<table className={styles["contribute-table"]}>
-							<thead>
-								<tr>
-									<th>Game name</th>
-									<th>Category</th>
-									<th>Game type</th>
-								</tr>
-							</thead>
-							<tbody>
-								{gameList &&
-									gameList.map((game) => {
-										return (
-											<tr
-												className=
-												{game.isApproved ? "" : styles.unapproved}
-												key={game.name} onClick={() => handleClick(game.name)}>
-												<td>{game.name} </td>
-												<td>{game.category}</td>
-												<td>{game.type}</td>
-											</tr>
-										);
-									})}
-							</tbody>
-						</table>
-					</>
-				)}
+				<>
+					<p>The highlighted games have not been approved yet.</p>
+					<table className={styles["contribute-table"]}>
+						<thead>
+							<tr>
+								<th>Game name</th>
+								<th>Category</th>
+								<th>Game type</th>
+							</tr>
+						</thead>
+						<tbody>
+							{gameList &&
+								gameList.map((game) => {
+									return (
+										<tr
+											className=
+											{game.isApproved ? "" : styles.unapproved}
+											key={game.name} onClick={() => handleClick(game.name)}>
+											<td>{game.name} </td>
+											<td>{game.category}</td>
+											<td>{game.type}</td>
+										</tr>
+									);
+								})}
+						</tbody>
+					</table>
+				</>
+			)}
 		</div>
 	);
 }
