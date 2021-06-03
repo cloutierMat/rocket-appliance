@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
-const host = process.env.DB_HOST;
-const user = process.env.DB_USER;
-const password = process.env.DB_PASS;
-const database = process.env.DB_NAME;
-const server = process.env.DB_SERVER;
-const mongoUrl = process.env.MONGODB_URL || `${host}://${user}:${password}@${server}/${database}?retryWrites=true&w=majority`;
+const mongoUrl = process.env.MONGODB_URL;
 mongoose.connect(mongoUrl, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
