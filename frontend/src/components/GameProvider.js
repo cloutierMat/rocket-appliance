@@ -9,7 +9,7 @@ export default function GameProvider({ children }) {
 	const [filteredByFragment, setFilterByFragment] = useState([]);
 	const [filteredByCurrentUser, setFilterByCurrentUser] = useState([]);
 	const [fragmentForFilter, setFragmentForFilter] = useState("");
-	const [filterByApproval, setFilterByApproval] = useState([]);
+	const [filteredByApproved, setFilteredByApproved] = useState([]);
 
 	const { user, isAuthenticated } = useAuth0();
 
@@ -31,8 +31,7 @@ export default function GameProvider({ children }) {
 
 	useEffect(() => {
 		const filterApproved = list.filter(game => game.isApproved === true);
-		const filterUnapproved = list.filter(game => game.isApproved === false);
-		console.log("app", filterApproved, "unapp", filterUnapproved);
+		setFilteredByApproved(filterApproved);
 	}, [list]);
 
 	const fetchData = useCallback(
@@ -84,6 +83,7 @@ export default function GameProvider({ children }) {
 			filteredByFragment,
 			setFragmentForFilter,
 			filteredByCurrentUser,
+			filteredByApproved,
 		}}>
 			{children}
 		</GameContext.Provider>

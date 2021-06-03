@@ -10,11 +10,11 @@ export default function SuggestionsBox() {
 	const gameCtx = useContext(GameContext);
 
 	useEffect(() => {
-		const list = gameCtx.list;
+		const list = gameCtx.filteredByApproved;
 		if (!list) return;
 		const game = () => list[Math.floor(Math.random() * (list.length))];
 		setGameToDisplay(game);
-	}, [gameCtx.list]);
+	}, [gameCtx.filteredByApproved]);
 
 	return (
 		<div className={styles["suggestion-box"]}>
