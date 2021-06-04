@@ -902,6 +902,7 @@ textarea {
 	background-color: white;
 	-webkit-transition: 0.75s;
 	transition: 0.75s;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 	border-radius: 50%;
 }
 
