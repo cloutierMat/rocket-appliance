@@ -188,7 +188,6 @@ export default function TriviaForm(props) {
 			onSubmit(dataToPost);
 		}
 	}
-
 	return (
 		<div>
 			{errorMessages && <h3 className={`${styles["alert"]} ${styles["message-on-contribute"]}`}>{errorMessages}</h3>}
@@ -208,8 +207,8 @@ export default function TriviaForm(props) {
 				>
 
 					<label className={styles.switch} >
-						<input type="checkbox" onChange={handleApproval} value={data.isApproved} />
-						<div className={styles.slider} hidden={!user["http://localhost:3000/roles"].includes("admin")}>Approval Status</div>
+						<input type="checkbox" onChange={handleApproval} checked={data.isApproved} />
+						<div className={styles.slider} hidden={!user["http://localhost:3000/roles"].includes("admin")} >Approval Status</div>
 					</label>
 
 					<div className={styles["full-width"]}>
