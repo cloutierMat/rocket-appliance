@@ -2,8 +2,6 @@ require('dotenv').config();
 const admins = require('../model/admins');
 const mongoose = require('mongoose');
 
-
-
 async function init() {
 	await admins.init();
 }
