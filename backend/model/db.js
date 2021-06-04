@@ -6,6 +6,7 @@ mongoose.connect(mongoUrl, {
 });
 const db = mongoose.connection;
 
+
 db.on('error', function (error) {
 	console.error('mongoose connection error', error);
 });

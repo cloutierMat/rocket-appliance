@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
 import styles from "../../../app.module.css";
 import { AiFillEdit } from "react-icons/ai";
-import SubmitContext from "../../../context/SubmitContext";
+// import SubmitContext from "../../../context/SubmitContext";
 
 export default function ContributeForm(props) {
 	const { setFormPointer, setToggleFormPointer } = props;
 
 	const [optionState, setOptionState] = useState("Select a game type");
 
-	const SubmitCtx = useContext(SubmitContext);
+	// const SubmitCtx = useContext(SubmitContext);
 
 	function handleGameType(event) {
 		if (event.target.value === "Select a game type") {
@@ -57,9 +57,9 @@ export default function ContributeForm(props) {
           <AiFillEdit />
 				</button>
 			</div>
-			{SubmitCtx.messageLog && <h2 className={`${styles["message-on-contribute"]} ${styles[SubmitCtx.className]}`}>
-				{SubmitCtx.messageLog}
-			</h2>}
+			{/* {SubmitCtx.messageLog && <h2 className={`${styles["message-on-contribute"]} ${styles[SubmitCtx.className]}`}>
+				{SubmitCtx.messageLog} */}
+			{/* </h2>} */}
 		</div>
 	);
 }
