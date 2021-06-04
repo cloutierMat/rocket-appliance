@@ -14,7 +14,7 @@ export default function Gallery(props) {
 
 	useEffect(() => {
 		if (!gameList.length && gameCtx.filteredByApproved.length) {
-			setGameList([...gameCtx.filteredByApproved]);
+			setGameList([...gameCtx.filteredByApproved].sort(() => Math.random() - 0.5));
 		}
 	}, [gameList, gameCtx.filteredByApproved]);
 
