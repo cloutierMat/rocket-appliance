@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import navBanner from './images/RA.svg';
+import navBanner from './images/RA-V4.svg';
 import { Animated } from "react-animated-css";
 import styles from '../app.module.css';
 

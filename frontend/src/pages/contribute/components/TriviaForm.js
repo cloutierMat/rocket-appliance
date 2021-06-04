@@ -204,7 +204,7 @@ export default function TriviaForm(props) {
 			>
 				<h1>Trivia </h1>
 				<div
-					className={`${styles["flex-container"]} ${styles["flex-space-around"]}`}
+					className={`${styles["flex-container"]} ${styles["flex-space-around"]} ${styles["edit-wrapper"]}`}
 				>
 
 					<label className={styles.switch} >

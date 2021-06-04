@@ -2,169 +2,171 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
-
 body {
-  background-color: #24262f;
+	background-color: #24262f;
 }
 
 .trivia-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ddd;
-  text-align: center;
-  font-family: "Staatliches", cursive;
-  background-color: #14151c;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #ddd;
+	text-align: center;
+	font-family: "Staatliches", cursive;
+	background-color: #14151c;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
 }
 
 .info-wrapper {
-  background-color: #24262f;
-  border-radius: 10px;
-  padding: 10px;
-  margin: auto;
-  height: fit-content;
-  justify-content: center;
+	background-color: #24262f;
+	border-radius: 10px;
+	padding: 10px;
+	margin: auto;
+	height: fit-content;
+	justify-content: center;
 }
 
 .trivia-page h1 {
-  font-size: 6em;
-  margin: unset;
-  margin: -10px 10px -20px 10px;
+	font-size: 4em;
+	margin: unset;
+	margin: -10px 10px -20px 10px;
 }
 
 .trivia-page h2 {
-  display: inline-flex;
-  font-size: 3em;
-  margin: unset;
+	font-family: "Open Sans", sans-serif;
+	display: inline-flex;
+	font-size: 2em;
+	margin: unset;
 }
 
 .trivia-page p {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2em;
-  margin: unset;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2em;
+	margin: unset;
 }
 
 .trivia-page h3 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.5em;
-  opacity: 0.9;
-  display: inline-flex;
-  max-width: 300px;
-  justify-content: center;
-  margin: unset;
-  margin-top: 10px;
-  margin-bottom: 10px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.5em;
+	opacity: 0.9;
+	display: inline-flex;
+	max-width: 300px;
+	justify-content: center;
+	margin: unset;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .trivia-page h4 {
-  font-size: 1.5em;
-  background-color: #24262f;
-  padding: 10px;
-  border-radius: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1em;
-  opacity: 0.9;
+	font-size: 1.5em;
+	background-color: #24262f;
+	padding: 10px;
+	border-radius: 10px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1em;
+	opacity: 0.9;
 }
 
 .trivia-page a {
-  color: #5762a0;
-  margin: unset;
+	color: #5762a0;
+	margin: unset;
 }
 
 .trivia-title {
-  background-color: transparent;
-  width: fit-content;
+	background-color: transparent;
+	width: fit-content;
 }
 
 .trivia-options {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .trivia-option {
-  background-color: #2f3557;
-  border-radius: 5px;
-  color: white;
-  border: 2px solid white;
-  min-width: 350px;
-  width: fit-content;
-  height: 40px;
-  margin: 10px 10px 0px 10px;
-  opacity: 0.8;
-  font-family: "Staatliches", cursive;
-  font-size: 1.2em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 2px 5px 0px 2px #3f4250, 0px 8px 20px #222222;
+	background-color: #2f3557;
+	border-radius: 5px;
+	color: white;
+	border: 2px solid white;
+	min-width: 350px;
+	width: fit-content;
+	height: 40px;
+	margin: 10px 10px 0px 10px;
+	opacity: 0.8;
+	font-family: "Staatliches", cursive;
+	font-size: 1.2em;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 2px 5px 0px 2px #3f4250, 0px 8px 20px #222222;
 }
 
 .trivia-option:hover {
-  cursor: pointer;
-  background-color: #1c2033;
+	cursor: pointer;
+	background-color: #1c2033;
 }
+
 .trivia-option.correct {
-  background-color: rgb(93, 146, 93);
+	background-color: rgb(93, 146, 93);
 }
 
 .trivia-option.incorrect {
-  background-color: #d04e4e;
+	background-color: #d04e4e;
 }
 
 .user-righteousness {
-  margin: 20px;
-  font-size: 1.5em;
+	margin: 20px;
+	font-size: 1.5em;
 }
 
 .user-righteousness button {
-  background-color: #2f3557;
-  border-radius: 5px;
-  color: white;
-  border: 2px solid white;
-  width: fit-content;
-  height: 30px;
-  opacity: 0.8;
-  font-family: "Staatliches", cursive;
-  font-size: 1.2em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 2px 5px 0px 2px #3f4250, 0px 8px 20px #222222;
-  margin-left: 10px;
+	background-color: #2f3557;
+	border-radius: 5px;
+	color: white;
+	border: 2px solid white;
+	width: fit-content;
+	height: 30px;
+	opacity: 0.8;
+	font-family: "Staatliches", cursive;
+	font-size: 1.2em;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 2px 5px 0px 2px #3f4250, 0px 8px 20px #222222;
+	margin-left: 10px;
 }
+
 .user-righteousness button:hover {
-  cursor: pointer;
-  background-color: #1c2033;
+	cursor: pointer;
+	background-color: #1c2033;
 }
 
 .trivia-ending h1 {
-  font-size: 3em;
-  margin: 10px;
+	font-size: 3em;
+	margin: 10px;
 }
 
 .trivia-ending h2 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.5em;
-  opacity: 0.9;
-  display: inline-flex;
-  justify-content: center;
-  margin-bottom: 20px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.5em;
+	opacity: 0.9;
+	display: inline-flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
 .trivia-ending a {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .trivia-ending .recap-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  background-color: #24262f;
-  border-radius: 10px;
-  width: fit-content;
-  justify-content: center;
-  padding: 10px 10px 0px 10px;
+	display: inline-flex;
+	flex-direction: column;
+	background-color: #24262f;
+	border-radius: 10px;
+	width: fit-content;
+	justify-content: center;
+	padding: 10px 10px 0px 10px;
 }
