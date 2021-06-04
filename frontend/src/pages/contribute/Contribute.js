@@ -42,7 +42,7 @@ export default function Contribute() {
 
 	useEffect(() => {
 		submitCtx.setMessage("", "");
-	}, [formPointer, submitCtx]);
+	}, [formPointer]);
 
 	useEffect(() => {
 		setFormPointer("Edit");
@@ -50,7 +50,11 @@ export default function Contribute() {
 
 
 	return (
-		<div className={`${styles["text-default"]} ${styles["contribute-wrapper"]} ${styles["full-width"]}`}>
+		<div className={
+			`${styles["text-default"]} 
+			${styles["contribute-wrapper"]} 
+			${styles["full-width"]}`}
+		>
 			<p >Select an item in the list below to create a new game</p>
 			<ContributeForm
 				setFormPointer={setFormPointer}
