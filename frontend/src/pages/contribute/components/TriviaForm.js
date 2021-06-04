@@ -126,7 +126,7 @@ export default function TriviaForm(props) {
 			};
 		});
 		if (dataToEdit.name) setImmutableGameName(true);
-		setData(dataToEdit);
+		setData({ ...dataToEdit, isApproved: false });
 	}, [initialData, author]);
 
 	//
